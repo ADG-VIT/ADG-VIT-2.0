@@ -13,4 +13,10 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+
+    <color name="createAccountText">#000</color>
+    <color name="createAccBtn">#fff</color>
+    <color name="baseText">#fff</color>
+    <color name="btn_color">#5F2EEA</color>
 </resources>

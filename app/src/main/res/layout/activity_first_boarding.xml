@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/createAccountText"
+    tools:context=".FirstBoarding">
+
+    <ImageView
+        android:id="@+id/cross"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="360dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginRight="15dp"
+        android:src="@drawable/coolicon"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/onFirstBrdImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="221dp"
+        android:src="@drawable/on_first_toon"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cross" />
+
+    <TextView
+        android:id="@+id/nameClub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="92dp"
+        android:fontFamily="@font/poppin_semibold"
+        android:text="Apple Developers Group"
+        android:textColor="@color/baseText"
+        android:textSize="26sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/onFirstBrdImg" />
+
+    <TextView
+        android:id="@+id/tagLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/poppins_mediumitalic"
+        android:text="Tagline"
+        android:textColor="@color/baseText"
+        android:textSize="22sp"
+        app:layout_constraintLeft_toLeftOf="@id/nameClub"
+        app:layout_constraintTop_toBottomOf="@+id/nameClub" />
+
+    <TextView
+        android:id="@+id/about"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="1dp"
+        android:paddingLeft="20dp"
+        android:fontFamily="@font/poppins_light"
+        android:maxLines="4"
+        android:textColor="@color/baseText"
+        android:textSize="16sp"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tagLine" />
+
+    <Button
+        android:id="@+id/login_btn"
+        android:layout_width="290dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="100dp"
+        android:backgroundTint="@color/btn_color"
+        android:fontFamily="@font/poppin_semibold"
+        android:text="Login"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/about" />
+
+    <Button
+        android:id="@+id/create_acct_btn"
+        android:layout_width="290dp"
+        android:layout_height="60dp"
+        android:backgroundTint="@color/createAccBtn"
+        android:fontFamily="@font/poppin_semibold"
+        android:text="Create an Account"
+        android:textColor="@color/createAccountText"
+        android:textSize="18sp"
+        app:backgroundTint="@color/createAccBtn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_btn"
+        app:layout_constraintVertical_bias="0.012" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
