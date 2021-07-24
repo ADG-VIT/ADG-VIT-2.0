@@ -16,11 +16,13 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">@color/background_color_dark_mode</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="23">false</item>
         <!-- Customize your theme here. -->
     </style>
 
     <color name="button_color">@color/dark_mode_primary</color>
     <color name="button_color_two">@color/white</color>
     <color name="text_color_two">@color/black</color>
+    <color name="text_color_1">#fff</color>
 
 </resources>
