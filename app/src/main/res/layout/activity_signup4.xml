@@ -28,6 +28,7 @@
         android:layout_marginTop="50dp"
         android:fontFamily="@font/poppins"
         android:textColor="@color/text_color_1"
+        android:layout_marginBottom="10dp"
         android:text="Enter your Registration Number :"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -38,10 +39,11 @@
 
     <EditText
         android:id="@+id/usrRegNo"
-        android:layout_width="match_parent"
+        android:layout_width="343dp"
         android:layout_height="60dp"
         android:layout_marginLeft="23dp"
         android:layout_marginRight="23dp"
+        android:layout_marginTop="10dp"
         android:background="?attr/editTextBackground"
         android:hint="  For eg: 18BEC020"
         android:paddingLeft="5dp"
@@ -51,7 +53,7 @@
 
     <Button
         android:id="@+id/login_btn"
-        android:layout_width="290dp"
+        android:layout_width="343dp"
         android:layout_height="60dp"
         android:layout_marginTop="80dp"
         android:backgroundTint="@color/button_color"
