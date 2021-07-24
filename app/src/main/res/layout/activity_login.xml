@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Login"
+    android:orientation="vertical"
+    android:background="?attr/backgroundColor">
+
+    <TextView
+        android:layout_width="323dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="65dp"
+        android:text="Login"
+        android:fontFamily="@font/poppins_semibold"
+        android:textSize="32sp"/>
+
+    <LinearLayout
+        android:layout_width="323dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:background="?attr/backgroundColor">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:layout_marginTop="8dp"
+            android:text="Don’t Have an Account?"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:layout_marginTop="8dp"
+            android:textStyle="bold"
+            android:text=" Create a new Account "
+            android:textColor="@color/button_color"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="323dp"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="39sp"
+        android:text="E-Mail ID:"
+        android:fontFamily="@font/poppins_semibold"/>
+
+    <EditText
+        android:layout_width="323dp"
+        android:layout_height="53.5dp"
+        android:layout_gravity="center"
+        android:background="?attr/editTextBackground"
+        android:layout_marginTop="9.85dp"
+        android:hint="john@gmail.com"
+        android:textSize="14sp"
+        android:paddingLeft="14dp"/>
+
+    <TextView
+        android:layout_width="323dp"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="39sp"
+        android:text="PASSWORD"
+        android:fontFamily="@font/poppins_semibold"/>
+
+    <EditText
+        android:layout_width="323dp"
+        android:layout_height="53.5dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="9.85dp"
+        android:background="?attr/editTextBackground"
+        android:hint="Minimuim 8 Characters"
+        android:textSize="14sp"
+        android:paddingLeft="14dp"/>
+
+    <Button
+        android:layout_width="323dp"
+        android:layout_height="60dp"
+        android:textColor="@color/white"
+        android:layout_gravity="center"
+        android:layout_marginTop="75dp"
+        app:cornerRadius="12dp"
+        android:backgroundTint="@color/button_color"
+        android:text="Login"
+        android:textSize="16sp"/>
+
+</LinearLayout>

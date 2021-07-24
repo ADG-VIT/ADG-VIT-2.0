@@ -1,0 +1,26 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.ADGVITFINAL" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/dark_mode_primary</item>
+        <item name="colorPrimaryVariant">@color/dark_mode_primary</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <item name="backgroundColor">@color/background_color_dark_mode</item>
+        <item name="background">@color/dark_mode_primary</item>
+        <item name="cardBackgroundColor">@color/dark_grey</item>
+        <item name="buttonTint">@color/dark_mode_primary</item>
+        <item name="editTextBackground">@drawable/dark_edit_text_design</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/dark_mode_primary</item>
+        <item name="colorSecondaryVariant">@color/dark_mode_primary</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">@color/background_color_dark_mode</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <color name="button_color">@color/dark_mode_primary</color>
+    <color name="button_color_two">@color/white</color>
+    <color name="text_color_two">@color/black</color>
+
+</resources>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignUpTwo"
+    android:background="?attr/backgroundColor">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="343dp"
+        android:layout_height="41dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="93dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="UNIVERSITY"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="267dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginLeft="42dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="102dp"
+        android:layout_marginRight="102dp"
+        android:fontFamily="@font/poppins_light"
+        android:text="Choose the University you’re Currently studying in"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/select_clg_recycler_view"
+        android:layout_width="343dp"
+        android:layout_height="210dp"
+        android:layout_marginTop="9dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        tools:listitem="@layout/card_view" />
+
+    <Button
+        android:id="@+id/button_next"
+        android:layout_width="343dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="60dp"
+        app:cornerRadius="15dp"
+        android:backgroundTint="@color/button_color"
+        android:gravity="center"
+        android:text="NEXT"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/select_clg_recycler_view" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
