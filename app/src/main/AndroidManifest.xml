@@ -22,10 +22,13 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity android:name=".Signup1"/>
         <activity android:name=".Signup3"/>
         <activity android:name=".Signup4"/>
+
+
 
         <meta-data
             android:name="preloaded_fonts"

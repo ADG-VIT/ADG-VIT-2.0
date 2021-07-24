@@ -14,6 +14,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="65dp"
         android:text="Login"
+        android:textColor="@color/text_color_1"
         android:fontFamily="@font/poppins_semibold"
         android:textSize="32sp"/>
 
@@ -29,12 +30,14 @@
             android:layout_height="wrap_content"
             android:textSize="14sp"
             android:layout_marginTop="8dp"
+            android:textColor="@color/text_color_1"
             android:text="Don’t Have an Account?"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="14sp"
+            android:id="@+id/btn_new_account"
             android:layout_marginTop="8dp"
             android:textStyle="bold"
             android:text=" Create a new Account "
@@ -49,6 +52,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="39sp"
         android:text="E-Mail ID:"
+        android:textColor="@color/text_color_1"
         android:fontFamily="@font/poppins_semibold"/>
 
     <EditText
@@ -66,6 +70,7 @@
         android:layout_height="wrap_content"
         android:textSize="16sp"
         android:layout_gravity="center"
+        android:textColor="@color/text_color_1"
         android:layout_marginTop="39sp"
         android:text="PASSWORD"
         android:fontFamily="@font/poppins_semibold"/>
@@ -76,6 +81,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="9.85dp"
         android:background="?attr/editTextBackground"
+        android:textColor="@color/text_color_1"
         android:hint="Minimuim 8 Characters"
         android:textSize="14sp"
         android:paddingLeft="14dp"/>
@@ -86,6 +92,7 @@
         android:textColor="@color/white"
         android:layout_gravity="center"
         android:layout_marginTop="75dp"
+        android:textAllCaps="false"
         app:cornerRadius="12dp"
         android:backgroundTint="@color/button_color"
         android:text="Login"
