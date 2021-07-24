@@ -15,11 +15,20 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">@color/background_color_light_mode</item>
+        <item name="android:actionBarStyle">@style/MyTheme.ActionBarStyle</item>
         <!-- Customize your theme here. -->
     </style>
 
     <color name="button_color">@color/light_mode_primary</color>
     <color name="button_color_two">@color/black</color>
     <color name="text_color_two">@color/white</color>
+
+    <style name="MyTheme.ActionBarStyle" parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:titleTextStyle">@style/MyTheme.ActionBar.TitleTextStyle</item>
+    </style>
+
+    <style name="MyTheme.ActionBar.TitleTextStyle" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/black</item>
+    </style>
 
 </resources>
