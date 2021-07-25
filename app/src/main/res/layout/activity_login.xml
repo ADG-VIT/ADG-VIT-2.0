@@ -15,12 +15,13 @@
         android:layout_marginTop="65dp"
         android:text="Login"
         android:textColor="@color/text_color_1"
-        android:fontFamily="@font/poppins_semibold"
-        android:textSize="32sp"/>
+        android:fontFamily="@font/poppins_bold"
+        android:textSize="35dp"/>
 
     <LinearLayout
-        android:layout_width="323dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
         android:layout_gravity="center"
         android:orientation="horizontal"
         android:background="?attr/backgroundColor">
@@ -29,6 +30,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="14sp"
+            android:fontFamily="@font/poppins_light"
+            android:textFontWeight="600"
             android:layout_marginTop="8dp"
             android:textColor="@color/text_color_1"
             android:text="Don’t Have an Account?"/>
@@ -37,6 +40,8 @@
             android:id="@+id/btn_new_account"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textFontWeight="600"
+            android:fontFamily="@font/poppins_bold"
             android:layout_marginTop="8dp"
             android:text=" Create a new Account "
             android:textColor="@color/button_color"
@@ -61,7 +66,8 @@
         android:layout_gravity="center"
         android:background="?attr/editTextBackground"
         android:layout_marginTop="9.85dp"
-        android:hint="john@gmail.com"
+        android:hint="Enter your Email-ID"
+        android:fontFamily="@font/poppins_light"
         android:textSize="14sp"
         android:paddingLeft="14dp"/>
 
@@ -81,6 +87,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="9.85dp"
         android:background="?attr/editTextBackground"
+        android:fontFamily="@font/poppins_light"
         android:textColor="@color/text_color_1"
         android:hint="Minimuim 8 Characters"
         android:textSize="14sp"
@@ -88,11 +95,14 @@
 
     <Button
         android:layout_width="323dp"
-        android:layout_height="60dp"
+        android:layout_height="69dp"
         android:textColor="@color/white"
         android:layout_gravity="center"
         android:layout_marginTop="75dp"
+        android:fontFamily="@font/poppins_semibold"
         android:textAllCaps="false"
+        android:paddingBottom="18dp"
+        android:paddingTop="18dp"
         app:cornerRadius="12dp"
         android:backgroundTint="@color/button_color"
         android:text="Login"
