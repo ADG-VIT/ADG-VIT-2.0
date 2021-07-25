@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
         android:layout_marginEnd="18dp"
-        android:src="@drawable/coolicon"
+        android:src="@drawable/ic_coolicon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -85,6 +85,7 @@
         android:textStyle="bold"
         android:text="Login"
         android:textColor="@color/white"
+        android:fontFamily="@font/poppins"
         app:cornerRadius="12dp"
         android:textSize="16sp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -98,6 +99,7 @@
         android:text="Create an Account"
         android:textColor="@color/text_color_two"
         android:textAllCaps="false"
+        android:fontFamily="@font/poppins"
         android:textSize="16sp"
         app:backgroundTint="@color/button_color_two"
         app:cornerRadius="12dp"

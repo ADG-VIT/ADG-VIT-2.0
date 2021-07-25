@@ -34,14 +34,14 @@
             android:text="Don’t Have an Account?"/>
 
         <TextView
+            android:id="@+id/btn_new_account"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:id="@+id/btn_new_account"
             android:layout_marginTop="8dp"
-            android:textStyle="bold"
             android:text=" Create a new Account "
-            android:textColor="@color/button_color"/>
+            android:textColor="@color/button_color"
+            android:textSize="14sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:textSize="16sp"
         android:layout_gravity="center"
-        android:layout_marginTop="39sp"
+        android:layout_marginTop="39dp"
         android:text="E-Mail ID:"
         android:textColor="@color/text_color_1"
         android:fontFamily="@font/poppins_semibold"/>
