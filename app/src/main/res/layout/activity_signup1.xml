@@ -14,17 +14,16 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <TextView
             android:id="@+id/signup1_title"
             android:layout_width="343dp"
             android:layout_height="48dp"
-            android:textFontWeight="600"
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="65dp"
             android:fontFamily="@font/poppins_bold"
-            android:textColor="@color/text_color_1"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="40dp"
             android:text="Create an Account"
+            android:textColor="@color/text_color_1"
             android:textSize="32sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -52,7 +51,7 @@
                 android:textSize="14sp" />
 
             <TextView
-                android:id="@+id/signup1_Login"
+                android:id="@+id/signup1_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -199,7 +198,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
         <Button
-            android:id="@+id/signup1_next"
+            android:id="@+id/next_btn"
             android:layout_width="match_parent"
             android:layout_height="69dp"
             android:layout_marginStart="16dp"

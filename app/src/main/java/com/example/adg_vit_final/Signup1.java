@@ -20,12 +20,12 @@ public class Signup1 extends AppCompatActivity {
 
         getSupportActionBar().hide();
 
-        login = findViewById(R.id.signup1_Login);
+        login = findViewById(R.id.signup1_login);
         name = findViewById(R.id.signup1_name);
         email = findViewById(R.id.signup1_email);
         password = findViewById(R.id.signup1_password);
         confirm_password = findViewById(R.id.signup1_confirm_password);
-        next = findViewById(R.id.signup1_next);
+        next = findViewById(R.id.next_btn);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override

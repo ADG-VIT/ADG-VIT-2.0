@@ -16,7 +16,7 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         getSupportActionBar().hide();
-        btnNewAccount = findViewById(R.id.btn_new_account);
+        btnNewAccount = findViewById(R.id.login_createAccount);
 
         btnNewAccount.setOnClickListener(new View.OnClickListener() {
             @Override
