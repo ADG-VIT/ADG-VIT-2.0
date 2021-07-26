@@ -17,7 +17,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="?attr/backgroundColor"
-            android:id="@+id/project_imageview"/>
+            android:id="@+id/project_imageview"
+            android:src="@drawable/frame212"/>
         <View
             android:layout_width="350dp"
             android:layout_height="120dp"
@@ -41,6 +42,7 @@
             app:layout_constraintLeft_toRightOf="@id/white_img"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintRight_toRightOf="parent"
+            android:text="ADG VIT App"
             android:layout_marginTop="275dp"
             android:textColor="@color/white"
             android:textFontWeight="600"
@@ -54,6 +56,7 @@
             android:layout_height="21dp"
             android:textSize="14sp"
             app:layout_constraintLeft_toRightOf="@id/white_img"
+            android:text="Short Description about the Project"
             android:textColor="@color/white"
             android:textFontWeight="500"
             app:layout_constraintBottom_toBottomOf="parent"

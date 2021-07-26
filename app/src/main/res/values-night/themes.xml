@@ -24,7 +24,5 @@
     <color name="button_color_two">@color/white</color>
     <color name="text_color_two">@color/black</color>
     <color name="text_color_1">#fff</color>
-    <color name="project_details_button_color">#191928</color>
-    <color name="project_details_button_text">#5F2EEA</color>
 
 </resources>
