@@ -10,8 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.adg_vit_final.JavaActivities.SignUpTwo;
-import com.example.adg_vit_final.Objects.EventsRVObject;
+import com.example.adg_vit_final.DataModels.EventsRVObject;
 import com.example.adg_vit_final.R;
 
 import org.jetbrains.annotations.NotNull;
