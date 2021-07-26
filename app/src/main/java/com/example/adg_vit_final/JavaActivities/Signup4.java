@@ -1,4 +1,4 @@
-package com.example.adg_vit_final;
+package com.example.adg_vit_final.JavaActivities;
 
 import android.os.Bundle;
 import android.view.View;
@@ -6,6 +6,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.adg_vit_final.R;
 
 public class Signup4 extends AppCompatActivity {
     Button createAccountBtn;

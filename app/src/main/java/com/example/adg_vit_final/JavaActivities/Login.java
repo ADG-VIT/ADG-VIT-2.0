@@ -1,4 +1,4 @@
-package com.example.adg_vit_final;
+package com.example.adg_vit_final.JavaActivities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+
+import com.example.adg_vit_final.R;
 
 public class Login extends AppCompatActivity {
     private TextView btnNewAccount;

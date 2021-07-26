@@ -1,4 +1,4 @@
-package com.example.adg_vit_final;
+package com.example.adg_vit_final.JavaActivities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.adg_vit_final.R;
 
 public class Signup1 extends AppCompatActivity {
     private TextView login;
