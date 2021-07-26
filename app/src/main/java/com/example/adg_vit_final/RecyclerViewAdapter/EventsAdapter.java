@@ -14,7 +14,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.adg_vit_final.DataModels.EventsDataModel;
-import com.example.adg_vit_final.EventDetails;
+import com.example.adg_vit_final.JavaActivities.EventDetails;
 import com.example.adg_vit_final.R;
 import com.squareup.picasso.Picasso;
 

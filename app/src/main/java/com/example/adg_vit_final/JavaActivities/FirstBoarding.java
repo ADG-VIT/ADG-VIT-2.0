@@ -1,13 +1,14 @@
-package com.example.adg_vit_final;
+package com.example.adg_vit_final.JavaActivities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Html;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.adg_vit_final.R;
 
 public class FirstBoarding extends AppCompatActivity {
     TextView about;

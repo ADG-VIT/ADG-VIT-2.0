@@ -1,4 +1,4 @@
-package com.example.adg_vit_final;
+package com.example.adg_vit_final.JavaActivities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 
 import com.example.adg_vit_final.DataModels.EventsDataModel;
+import com.example.adg_vit_final.R;
 import com.example.adg_vit_final.RecyclerViewAdapter.EventsAdapter;
 
 import java.util.ArrayList;
