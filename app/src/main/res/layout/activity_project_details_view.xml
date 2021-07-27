@@ -54,9 +54,9 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintHorizontal_bias="0.25"
             android:layout_marginTop="25dp"
-            android:backgroundTint="@color/project_details_button_color"
+            android:backgroundTint="@color/know_more_bg_color"
             android:text="Try Now"
-            android:textColor="@color/project_details_button_text"
+            android:textColor="@color/text_color_1"
             app:cornerRadius="12dp"
             />
         <TextView
