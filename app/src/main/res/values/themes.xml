@@ -25,6 +25,7 @@
     <color name="text_color_1">#000</color>
     <color name="project_details_button">#D1CDF4</color>
     <color name="project_details_button_text">#410FCE</color>
+    <color name="seperator">#D1CDF4</color>
 
     <style name="MyTheme.ActionBarStyle" parent="@android:style/Widget.Holo.Light.ActionBar">
         <item name="android:titleTextStyle">@style/MyTheme.ActionBar.TitleTextStyle</item>

@@ -26,5 +26,6 @@
     <color name="text_color_1">#fff</color>
     <color name="project_details_button">#191928</color>
     <color name="project_details_button_text">#5F2EEA</color>
+    <color name="seperator">#26252C</color>
 
 </resources>
