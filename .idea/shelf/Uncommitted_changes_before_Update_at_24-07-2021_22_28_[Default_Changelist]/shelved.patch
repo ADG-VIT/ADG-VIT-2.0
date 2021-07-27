@@ -1,0 +1,12 @@
+Index: .idea/render.experimental.xml
+===================================================================
+--- .idea/render.experimental.xml	(revision e5572cc52de407fe44a5fbcb48722b3b4c72256c)
++++ .idea/render.experimental.xml	(revision e5572cc52de407fe44a5fbcb48722b3b4c72256c)
+@@ -1,6 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="RenderSettings">
+-    <option name="showDecorations" value="true" />
+-  </component>
+-</project>
+\ No newline at end of file
