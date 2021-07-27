@@ -24,6 +24,5 @@
     <color name="button_color_two">@color/white</color>
     <color name="text_color_two">@color/black</color>
     <color name="text_color_1">#fff</color>
-    <color name="know_more_bg_color">@color/dark_grey</color>
 
 </resources>
