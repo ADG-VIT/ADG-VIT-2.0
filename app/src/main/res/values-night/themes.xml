@@ -26,6 +26,7 @@
     <color name="text_color_1">#fff</color>
     <color name="grey_tab">@color/grey_tab_dark</color>
     <color name="know_more_bg_color">@color/dark_grey</color>
+    <color name="seperator">#26252C</color>
 
 
 </resources>
