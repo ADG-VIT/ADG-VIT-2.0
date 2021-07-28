@@ -26,6 +26,10 @@
     <color name="project_details_button">#D1CDF4</color>
     <color name="project_details_button_text">#410FCE</color>
     <color name="settings_subheader_text">#7A797C</color>
+    <color name="seperator">#D1CDF4</color>
+    <color name="grey_tab">@color/grey_tab_light</color>
+    <color name="know_more_bg_color">@color/know_more_light_mode_purple</color>
+
 
     <style name="MyTheme.ActionBarStyle" parent="@android:style/Widget.Holo.Light.ActionBar">
         <item name="android:titleTextStyle">@style/MyTheme.ActionBar.TitleTextStyle</item>

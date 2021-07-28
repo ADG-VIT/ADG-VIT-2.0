@@ -10,11 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ADGVITFINAL">
         <activity android:name=".JavaActivities.About">
+
+        </activity>
+        <activity android:name=".JavaActivities.Settings">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity android:name=".JavaActivities.Appearance">
 
@@ -23,10 +26,7 @@
 
         </activity>
         <activity android:name=".JavaActivities.Domains">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
         <activity android:name=".JavaActivities.Login" />
         <activity android:name=".JavaActivities.Events">
