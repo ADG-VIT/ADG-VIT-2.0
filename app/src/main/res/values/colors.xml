@@ -9,4 +9,6 @@
     <color name="light_grey">#DCE1E6</color>
     <color name="dark_grey">#191928</color>
     <color name="know_more_light_mode_purple">#D1CDF4</color>
+    <color name="grey_tab_light">#7A797C</color>
+    <color name="grey_tab_dark">#858487</color>
 </resources>
