@@ -37,12 +37,7 @@ public class Projects extends AppCompatActivity {
         list.add(b);
         list.add(c);
         recyclerView_projects.setAdapter(new ProjectsAdapter(list, Projects.this));
-        recyclerView_projects.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-            }
-        });
     }
 
 
