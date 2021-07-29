@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_semibold"
             android:textColor="@color/text_color_1"
-            android:textSize="14sp"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/events_image" />
 
@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins"
             android:textColor="@color/text_color_1"
-            android:textSize="12sp"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/events_title" />
     </androidx.constraintlayout.widget.ConstraintLayout>
