@@ -5,7 +5,13 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.adg_vit_final.DataModels.ProjectItems;
 import com.example.adg_vit_final.DataModels.EventsRVObject;
@@ -14,6 +20,8 @@ import com.example.adg_vit_final.R;
 import com.example.adg_vit_final.RecyclerViewAdapter.DomainsHomeAdapter;
 import com.example.adg_vit_final.RecyclerViewAdapter.EventHomeAdapter;
 import com.example.adg_vit_final.RecyclerViewAdapter.ProjectsAdapterHome;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -25,6 +33,9 @@ public class Home extends AppCompatActivity {
     ArrayList<EventsRVObject> list;
     ArrayList<ProjectItems> projectItemsArrayList;
     ArrayList<HomeDomainsObject> homeDomainsObjectArrayList;
+    ImageView settings;
+
+    TextView eventsSeeAll, projectsSeeAll, domainsSeeAll;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +43,12 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         getSupportActionBar().hide();
+
+        eventsSeeAll = findViewById(R.id.our_events_see_all);
+        projectsSeeAll = findViewById(R.id.our_projects_see_all);
+        domainsSeeAll = findViewById(R.id.our_domains_see_all);
+
+        settings = findViewById(R.id.settings);
 
         recyclerView = findViewById(R.id.recycler_view_events_home);
         recyclerViewHomeProjects = findViewById(R.id.recycler_view_events_projects);
@@ -65,5 +82,47 @@ public class Home extends AppCompatActivity {
 
         recyclerViewHomeDomains.setAdapter(new DomainsHomeAdapter(getApplicationContext(), homeDomainsObjectArrayList));
 
+        eventsSeeAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), Events.class));
+            }
+        });
+
+        projectsSeeAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), Projects.class));
+            }
+        });
+
+        domainsSeeAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), Domains.class));
+            }
+        });
+
+        settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), Settings.class));
+            }
+        });
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setTitle("Do you want to close ADG-VIT?")
+                .setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finishAffinity();
+                    }
+                })
+                .setNegativeButton("NO", null)
+                .show();
     }
 }

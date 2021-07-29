@@ -23,13 +23,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:cardCornerRadius="8dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/image_about"
+                android:layout_width="120dp"
+                android:scaleType="centerCrop"
+                android:layout_height="130dp"
                 android:src="@drawable/aboutus_img"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -38,14 +40,14 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="26dp"
+            android:layout_marginStart="21dp"
             android:layout_marginTop="34dp"
             android:orientation="vertical"
             app:layout_constraintStart_toEndOf="@+id/cardView2"
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/aboutus_post"
+                android:id="@+id/aboutus_designation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
@@ -53,17 +55,19 @@
                 android:textColor="#7f8284" />
 
             <TextView
+                android:id="@+id/about_us_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Utkarsh Dixit"
                 android:fontFamily="@font/poppins_bold"
                 android:textColor="@color/text_color_1"
-                android:textSize="22sp" />
+                android:textSize="18sp" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginTop="12dp">
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -76,6 +80,7 @@
                     android:layout_marginRight="23dp"/>
 
                 <ImageView
+                    android:layout_marginTop="3dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_mail" />
