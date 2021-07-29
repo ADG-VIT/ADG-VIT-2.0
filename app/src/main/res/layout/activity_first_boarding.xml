@@ -31,9 +31,9 @@
 
     <TextView
         android:id="@+id/nameClub"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="21dp"
+        android:layout_marginLeft="24dp"
         android:layout_marginTop="20dp"
         android:textColor="@color/text_color_1"
         android:layout_marginRight="92dp"
@@ -46,9 +46,9 @@
 
     <TextView
         android:id="@+id/tagLine"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="21dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="4dp"
         android:fontFamily="@font/poppins_medium"
         android:text="Tagline"
@@ -60,11 +60,11 @@
 
     <TextView
         android:id="@+id/about"
-        android:layout_width="347dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="21dp"
+        android:layout_marginLeft="24dp"
         android:layout_marginTop="20dp"
-        android:layout_marginRight="1dp"
+        android:layout_marginRight="34dp"
         android:fontFamily="@font/poppins_light"
         android:maxLines="4"
         android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into s PageMaker including versions of Lorem Ipsum"
@@ -78,6 +78,8 @@
     <Button
         android:id="@+id/login_btn"
         android:layout_width="0dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="91dp"
         android:backgroundTint="@color/button_color"
@@ -96,8 +98,10 @@
 
     <Button
         android:id="@+id/create_acct_btn"
-        android:layout_width="290dp"
-        android:layout_height="69dp"
+        android:layout_width="0dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_semibold"
         android:textStyle="bold"
         android:text="Create an Account"
