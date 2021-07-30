@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="343dp"
-    android:layout_height="90dp">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="?attr/backgroundColor">
 
         <ImageView
@@ -20,14 +21,12 @@
 
         <LinearLayout
             android:id="@+id/linearLayout"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="142dp"
+            android:layout_marginStart="20dp"
             android:background="?attr/backgroundColor"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView_events_home"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -52,15 +51,19 @@
         </LinearLayout>
 
         <Button
+            android:id="@+id/know_more"
             android:layout_width="92dp"
             android:layout_height="36dp"
-            android:layout_marginStart="50dp"
-            app:cornerRadius="15dp"
-            android:textColor="@color/text_color_1"
+            android:layout_marginStart="108dp"
+            android:layout_marginTop="22dp"
+            android:layout_marginEnd="35dp"
+            android:layout_marginBottom="22dp"
+            android:backgroundTint="@color/know_more_bg_color"
             android:text="Know More"
+            android:textColor="@color/text_color_1"
             android:textFontWeight="600"
             android:textSize="8sp"
-            android:backgroundTint="@color/know_more_bg_color"
+            app:cornerRadius="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/linearLayout"

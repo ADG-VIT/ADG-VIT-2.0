@@ -17,9 +17,11 @@
 
             <TextView
                 android:id="@+id/text_view"
-                android:layout_width="333dp"
+                android:layout_width="0dp"
                 android:layout_height="41dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="54dp"
+                android:layout_marginEnd="16dp"
                 android:fontFamily="@font/poppins_semibold"
                 android:text="Welcome"
                 android:textColor="@color/text_color_1"
@@ -30,130 +32,139 @@
 
             <ImageView
                 android:id="@+id/image"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="22dp"
+                android:layout_marginTop="32dp"
                 android:elevation="10dp"
-                android:src="@drawable/frame123"
+                android:src="@drawable/home_rec_image"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/text_view" />
 
             <TextView
                 android:id="@+id/our_events_text_view"
-                android:layout_width="193dp"
-                android:layout_height="41dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="170dp"
                 android:fontFamily="@font/poppins_semibold"
                 android:text="Our Events"
                 android:textColor="@color/text_color_1"
                 android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.155"
+                app:layout_constraintEnd_toStartOf="@+id/our_events_see_all"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/image" />
+                app:layout_constraintTop_toBottomOf="@+id/image" />
 
             <TextView
                 android:id="@+id/our_events_see_all"
-                android:layout_width="64dp"
-                android:layout_height="41dp"
-                android:layout_marginLeft="60dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16dp"
                 android:fontFamily="@font/poppins_semibold"
                 android:gravity="center_horizontal"
                 android:text="See All"
                 android:textColor="@color/button_color"
                 android:textSize="16sp"
-                app:layout_constraintLeft_toRightOf="@id/our_events_text_view"
-                app:layout_constraintTop_toBottomOf="@id/image" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/image" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_view_events_home"
-                android:layout_width="343dp"
-                android:layout_height="180dp"
-                android:layout_marginTop="35dp"
-                tools:listitem="@layout/card_view_home"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/image" />
+                app:layout_constraintTop_toBottomOf="@+id/our_events_text_view"
+                tools:itemCount="2"
+                tools:listitem="@layout/card_view_home" />
 
             <TextView
-                android:layout_marginTop="25dp"
                 android:id="@+id/our_projects"
-                android:layout_width="193dp"
+                android:layout_width="0dp"
                 android:layout_height="41dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="158dp"
                 android:fontFamily="@font/poppins_semibold"
+                android:gravity="center_vertical"
                 android:text="Our Projects"
                 android:textColor="@color/text_color_1"
                 android:textSize="18sp"
-                android:gravity="center_vertical"
-                app:layout_constraintTop_toBottomOf="@id/recycler_view_events_home"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.155"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintEnd_toStartOf="@+id/our_projects_see_all"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recycler_view_events_home" />
 
             <TextView
                 android:id="@+id/our_projects_see_all"
-                android:layout_marginTop="25dp"
-                android:layout_width="64dp"
+                android:layout_width="0dp"
                 android:layout_height="41dp"
-                android:layout_marginLeft="60dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="16dp"
                 android:fontFamily="@font/poppins_semibold"
-                android:text="See All"
                 android:gravity="center_horizontal"
+                android:text="See All"
                 android:textColor="@color/button_color"
                 android:textSize="16sp"
-                app:layout_constraintLeft_toRightOf="@id/our_projects"
-                app:layout_constraintTop_toBottomOf="@id/recycler_view_events_home"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recycler_view_events_home" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_view_events_projects"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="150dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginLeft="5dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/our_projects"
-                tools:listitem="@layout/cardview_projects_home"
                 app:reverseLayout="true"
-                android:orientation="horizontal"/>
+                tools:listitem="@layout/cardview_projects_home" />
 
             <TextView
-                android:layout_marginTop="25dp"
                 android:id="@+id/our_domains"
-                android:layout_width="193dp"
-                android:layout_height="41dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="150dp"
                 android:fontFamily="@font/poppins_semibold"
+                android:gravity="center_vertical"
                 android:text="Our Domains"
                 android:textColor="@color/text_color_1"
                 android:textSize="18sp"
-                android:gravity="center_vertical"
-                app:layout_constraintTop_toBottomOf="@id/recycler_view_events_projects"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.155"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintEnd_toStartOf="@+id/our_domains_see_all"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recycler_view_events_projects" />
 
             <TextView
                 android:id="@+id/our_domains_see_all"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
-                android:layout_width="64dp"
-                android:layout_height="41dp"
-                android:layout_marginLeft="60dp"
+                android:layout_marginEnd="16dp"
                 android:fontFamily="@font/poppins_semibold"
-                android:text="See All"
                 android:gravity="center_horizontal"
+                android:text="See All"
                 android:textColor="@color/button_color"
                 android:textSize="16sp"
-                app:layout_constraintLeft_toRightOf="@id/our_projects"
-                app:layout_constraintTop_toBottomOf="@id/recycler_view_events_projects"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recycler_view_events_projects" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_view_events_domains"
-                android:layout_width="363dp"
+                android:layout_width="0dp"
                 android:layout_height="216dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/our_domains"
+                app:layout_constraintTop_toBottomOf="@+id/our_domains"
                 tools:listitem="@layout/card_view_home_domains" />
 
             <androidx.viewpager.widget.ViewPager
