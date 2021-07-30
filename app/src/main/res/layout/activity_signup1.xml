@@ -17,26 +17,30 @@
 
         <TextView
             android:id="@+id/signup1_title"
-            android:layout_width="343dp"
+            android:layout_width="0dp"
             android:layout_height="48dp"
-            android:layout_marginStart="21dp"
             android:layout_marginTop="65dp"
             android:fontFamily="@font/poppins_bold"
             android:text="Create an Account"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
             android:textColor="@color/text_color_1"
             android:textSize="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
             android:id="@+id/linearlayout"
-            android:layout_width="323dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="21dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="157dp"
             android:background="?attr/backgroundColor"
             android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/signup1_title">
 
@@ -65,15 +69,17 @@
 
         <TextView
             android:id="@+id/textView3"
-            android:layout_width="54dp"
-            android:layout_height="24dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="21dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="334dp"
             android:fontFamily="@font/poppins_bold"
             android:text="Name:"
             android:textColor="@color/text_color_1"
             android:textFontWeight="600"
             android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearlayout" />
 
@@ -98,17 +104,17 @@
 
         <TextView
             android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="24dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginLeft="21dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="21dp"
             android:layout_marginTop="21dp"
-            android:layout_marginRight="278dp"
-            android:text="E-mail ID:"
+            android:layout_marginEnd="307dp"
             android:fontFamily="@font/poppins_bold"
-            android:textFontWeight="600"
+            android:text="E-mail ID:"
             android:textColor="@color/text_color_1"
+            android:textFontWeight="600"
             android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/signup1_name" />
 
@@ -132,16 +138,17 @@
 
         <TextView
             android:id="@+id/textView5"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="21dp"
-            android:layout_marginLeft="21dp"
             android:layout_marginTop="24dp"
+            android:layout_marginEnd="304dp"
             android:fontFamily="@font/poppins_bold"
+            android:text="Password:"
             android:textColor="@color/text_color_1"
             android:textFontWeight="600"
-            android:text="Password:"
             android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/signup1_email" />
 
@@ -165,17 +172,17 @@
 
         <TextView
             android:id="@+id/textView6"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="21dp"
-            android:layout_marginLeft="21dp"
-            android:layout_marginRight="200dp"
             android:layout_marginTop="24dp"
+            android:layout_marginEnd="231dp"
+            android:fontFamily="@font/poppins_bold"
             android:text="Confirm Password:"
             android:textColor="@color/text_color_1"
-            android:fontFamily="@font/poppins_bold"
             android:textFontWeight="600"
             android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/signup1_password" />
 
@@ -199,24 +206,24 @@
 
         <Button
             android:id="@+id/next_btn"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="69dp"
             android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
             android:layout_marginTop="35dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
-            app:cornerRadius="12dp"
+            android:layout_marginBottom="66dp"
             android:backgroundTint="@color/button_color"
             android:fontFamily="@font/poppins_semibold"
             android:gravity="center"
-            android:text="Next"
-            android:paddingBottom="18dp"
             android:paddingTop="18dp"
+            android:paddingBottom="18dp"
+            android:text="Next"
             android:textAllCaps="false"
             android:textColor="#ffffff"
             android:textFontWeight="600"
             android:textSize="16sp"
+            app:cornerRadius="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"

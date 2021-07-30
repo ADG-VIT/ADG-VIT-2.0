@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="136dp"
     android:layout_height="136dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginTop="10dp"
-    app:cardCornerRadius="35dp"
+    app:cardCornerRadius="8dp"
     android:elevation="0dp"
     android:layout_marginBottom="8dp"
     android:layout_marginLeft="10dp"
@@ -16,36 +17,41 @@
         android:layout_height="match_parent">
 
         <ImageView
+            android:id="@+id/project_imageview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="?attr/backgroundColor"
-            android:id="@+id/project_imageview"
-            android:src="@drawable/frame212"/>
+            android:src="@drawable/frame212"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <ImageView
+            android:id="@+id/white_img"
             android:layout_width="wrap_content"
             android:layout_height="26dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:src="@drawable/ic_line_1"
-            android:id="@+id/white_img"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="99dp"/>
+            android:layout_marginBottom="11dp"
+            android:src="@drawable/ic_line_1"
+            app:layout_constraintBottom_toBottomOf="@+id/project_imageview"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
         <TextView
-            android:layout_width="114dp"
+            android:id="@+id/project_name"
+            android:layout_width="0dp"
             android:layout_height="27dp"
-            android:fontFamily="@font/poppins"
-            app:layout_constraintLeft_toRightOf="@id/white_img"
-            app:layout_constraintTop_toTopOf="parent"
             android:layout_marginLeft="4dp"
-            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="@font/poppins"
             android:text="ADG VIT App"
-            android:layout_marginTop="105dp"
             android:textColor="@color/white"
             android:textFontWeight="600"
             android:textSize="9.3sp"
-            android:id="@+id/project_name"
+            app:layout_constraintBottom_toBottomOf="@+id/project_imageview"
             app:layout_constraintHorizontal_bias="0.07"
-            />
+            app:layout_constraintLeft_toRightOf="@id/white_img"
+            app:layout_constraintRight_toRightOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -23,9 +23,11 @@
 
     <TextView
         android:id="@+id/enterReg"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
+        android:layout_marginLeft="21dp"
+        android:layout_marginRight="94dp"
         android:fontFamily="@font/poppins"
         android:textColor="@color/text_color_1"
         android:layout_marginBottom="10dp"
@@ -39,10 +41,10 @@
 
     <EditText
         android:id="@+id/usrRegNo"
-        android:layout_width="343dp"
+        android:layout_width="0dp"
         android:layout_height="60dp"
-        android:layout_marginLeft="23dp"
-        android:layout_marginRight="23dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/poppins_light"
         android:background="?attr/editTextBackground"
@@ -54,11 +56,13 @@
 
     <Button
         android:id="@+id/login_btn"
-        android:layout_width="343dp"
+        android:layout_width="0dp"
         android:layout_height="69dp"
         android:layout_marginTop="75dp"
         android:backgroundTint="@color/button_color"
         app:cornerRadius="10dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
         android:fontFamily="@font/poppins_semibold"
         android:text="Create Account"
         android:paddingTop="18dp"

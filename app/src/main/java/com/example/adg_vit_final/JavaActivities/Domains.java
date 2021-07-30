@@ -29,10 +29,10 @@ public class Domains extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         dataList = new ArrayList<>();
 
-        dataList.add(new DomainsDataModel(R.drawable.ios,"iOS Domain","Apple Developers Group conducts a 48 hour long hackathon"));
-        dataList.add(new DomainsDataModel(R.drawable.android,"Android Domain","Apple Developers Group conducts a 48 hour long hackathon"));
-        dataList.add(new DomainsDataModel(R.drawable.web,"Web Domain","Apple Developers Group conducts a 48 hour long hackathon"));
-        dataList.add(new DomainsDataModel(R.drawable.ml,"Machine Learning Domain","Apple Developers Group conducts a 48 hour long hackathon"));
+        dataList.add(new DomainsDataModel(R.drawable.ic_ios,"iOS Domain","Apple Developers Group conducts a 48 hour long hackathon"));
+        dataList.add(new DomainsDataModel(R.drawable.ic_android,"Android Domain","Apple Developers Group conducts a 48 hour long hackathon"));
+        dataList.add(new DomainsDataModel(R.drawable.ic_web,"Web Domain","Apple Developers Group conducts a 48 hour long hackathon"));
+        dataList.add(new DomainsDataModel(R.drawable.ic_ml,"Machine Learning Domain","Apple Developers Group conducts a 48 hour long hackathon"));
 
         recyclerView.setAdapter(new DomainsAdapter(this,dataList));
 
