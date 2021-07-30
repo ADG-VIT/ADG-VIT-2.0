@@ -19,7 +19,7 @@
             android:layout_marginTop="70dp"
             android:layout_marginLeft="18dp"
             android:id="@+id/cardview_image"
-            app:cardCornerRadius="30dp"
+            app:cardCornerRadius="20dp"
             android:background="?attr/backgroundColor">
 
         <ImageView
@@ -54,9 +54,9 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintHorizontal_bias="0.25"
             android:layout_marginTop="25dp"
-            android:backgroundTint="@color/know_more_bg_color"
+            android:backgroundTint="@color/project_details_button"
             android:text="Try Now"
-            android:textColor="@color/text_color_1"
+            android:textColor="@color/project_details_button_text"
             android:textFontWeight="600"
             app:cornerRadius="12dp"
             />

@@ -1,6 +1,7 @@
 package com.example.adg_vit_final.RecyclerViewAdapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,9 +9,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.adg_vit_final.DataModels.SettingsItems;
+import com.example.adg_vit_final.JavaActivities.Appearance;
 import com.example.adg_vit_final.R;
 
 import org.jetbrains.annotations.NotNull;
@@ -40,6 +43,9 @@ public class Settings_Adapter extends RecyclerView.Adapter<Settings_Adapter.Sett
         holder.img1.setImageResource(list.get(position).getImg());
         holder.settingItem.setText(list.get(position).getText());
 
+
+
+
     }
 
     @Override
@@ -50,6 +56,7 @@ public class Settings_Adapter extends RecyclerView.Adapter<Settings_Adapter.Sett
     class SettingsViewHolder extends RecyclerView.ViewHolder {
         ImageView img1;
         TextView settingItem;
+
 
         public SettingsViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
