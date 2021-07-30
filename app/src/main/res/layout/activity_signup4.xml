@@ -11,7 +11,7 @@
         android:id="@+id/regNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="65dp"
         android:fontFamily="@font/poppins_semibold"
         android:text="Reg Number"
         android:textColor="@color/text_color_1"
