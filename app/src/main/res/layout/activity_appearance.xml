@@ -10,10 +10,10 @@
     <TextView
         android:id="@+id/text"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
         android:fontFamily="@font/poppins_semibold"
         android:text="Appearance"
         android:textColor="@color/text_color_1"
@@ -24,65 +24,60 @@
 
     <RadioGroup
         android:id="@+id/radio_group_theme_changer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="300dp"
         android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <RadioButton
+            android:id="@+id/rb_sys_def"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_height="wrap_content"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:layout_gravity="center_horizontal"
+            android:drawableLeft="@drawable/vector_sys_def"
+            android:fontFamily="@font/poppins"
+            android:layoutDirection="rtl"
+            android:text="   System Default"
+            android:textSize="16sp" />
 
-            <RadioButton
-                android:id="@+id/rb_sys_def"
-                android:layout_width="0dp"
-                android:layout_height="65dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:drawableLeft="@drawable/vector_sys_def"
-                android:fontFamily="@font/poppins"
-                android:layoutDirection="rtl"
-                android:text="   System Default"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+        <RadioButton
+            android:id="@+id/rb_light_mode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_gravity="center_horizontal"
+            android:drawableLeft="@drawable/vector_ligh_mode"
+            android:fontFamily="@font/poppins"
+            android:layoutDirection="rtl"
+            android:text="   Light Mode"
+            android:textSize="16sp" />
 
-            <RadioButton
-                android:id="@+id/rb_light_mode"
-                android:layout_width="0dp"
-                android:layout_height="65dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:drawableLeft="@drawable/vector_ligh_mode"
-                android:fontFamily="@font/poppins"
-                android:layoutDirection="rtl"
-                android:text="   Light Mode"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rb_sys_def" />
 
-            <RadioButton
-                android:id="@+id/rb_dark_mode"
-                android:layout_width="0dp"
-                android:layout_height="65dp"
-                android:layout_gravity="center_horizontal"
-                android:drawableLeft="@drawable/vector_dark_mode"
-                android:fontFamily="@font/poppins"
-                android:layoutDirection="rtl"
-                android:text="   Dark Mode"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rb_light_mode" />
+        <RadioButton
+            android:id="@+id/rb_dark_mode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_gravity="center_horizontal"
+            android:drawableLeft="@drawable/vector_dark_mode"
+            android:fontFamily="@font/poppins"
+            android:layoutDirection="rtl"
+            android:text="   Dark Mode"
+            android:textSize="16sp" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -42,9 +42,14 @@ public class Settings_Adapter extends RecyclerView.Adapter<Settings_Adapter.Sett
     public void onBindViewHolder(@NonNull @NotNull Settings_Adapter.SettingsViewHolder holder, int position) {
         holder.img1.setImageResource(list.get(position).getImg());
         holder.settingItem.setText(list.get(position).getText());
-
-
-
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (list.get(position).getText().equals("Appearance")){
+                    context.startActivity(new Intent(context, Appearance.class));
+                }
+            }
+        });
 
     }
 
