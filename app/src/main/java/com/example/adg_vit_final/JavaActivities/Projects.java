@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.example.adg_vit_final.R;
 import com.example.adg_vit_final.DataModels.ProjectItems;
@@ -17,6 +18,7 @@ import java.util.List;
 public class Projects extends AppCompatActivity {
     RecyclerView recyclerView_projects;
     List<ProjectItems> list;
+    ImageView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +27,14 @@ public class Projects extends AppCompatActivity {
         getSupportActionBar().hide();
 
         recyclerView_projects=findViewById(R.id.recyclerview_projects);
+        back=findViewById(R.id.project_back);
         list = new ArrayList<ProjectItems>();
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         recyclerView_projects.setLayoutManager(new LinearLayoutManager(this));
 

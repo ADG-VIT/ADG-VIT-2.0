@@ -13,6 +13,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.adg_vit_final.DataModels.SettingsItems;
+import com.example.adg_vit_final.JavaActivities.About;
 import com.example.adg_vit_final.JavaActivities.Appearance;
 import com.example.adg_vit_final.R;
 
@@ -47,6 +48,9 @@ public class Settings_Adapter extends RecyclerView.Adapter<Settings_Adapter.Sett
             public void onClick(View v) {
                 if (list.get(position).getText().equals("Appearance")){
                     context.startActivity(new Intent(context, Appearance.class));
+                }
+                else if(list.get(position).getText().equals("About Us")){
+                    context.startActivity(new Intent(context, About.class));
                 }
             }
         });
