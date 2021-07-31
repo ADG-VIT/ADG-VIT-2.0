@@ -35,15 +35,18 @@ public class Appearance extends AppCompatActivity {
                 if (checkedId == R.id.rb_sys_def){
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
                     editor.putString("theme", "sys_def");
+                    editor.apply();
                     Toast.makeText(Appearance.this, "System Default", Toast.LENGTH_SHORT).show();
                 }
                 else if (checkedId == R.id.rb_light_mode){
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                     editor.putString("theme", "light");
+                    editor.apply();
                     Toast.makeText(Appearance.this, "Light Mode", Toast.LENGTH_SHORT).show();
                 }
                 else if (checkedId == R.id.rb_dark_mode){
                     editor.putString("theme", "dark");
+                    editor.apply();
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                     Toast.makeText(Appearance.this, "Dark Mode", Toast.LENGTH_SHORT).show();
                 }
