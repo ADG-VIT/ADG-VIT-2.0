@@ -28,14 +28,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="21dp"
         android:layout_marginTop="30dp"
-        android:layout_marginEnd="155dp"
         android:fontFamily="@font/poppins_semibold"
         android:paddingLeft="4dp"
         android:text="Name of your University:"
         android:textColor="@color/text_color_1"
         android:textFontWeight="600"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
