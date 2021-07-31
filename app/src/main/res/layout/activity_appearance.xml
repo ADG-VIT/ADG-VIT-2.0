@@ -7,20 +7,34 @@
     tools:context=".JavaActivities.Appearance"
     android:background="?attr/backgroundColor">
 
+    <ImageView
+        android:id="@+id/about_back"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="9dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_marginTop="27dp"
+        android:src="@drawable/ic_chevron_left"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/text"
         android:layout_width="0dp"
         android:layout_height="70dp"
         android:layout_marginLeft="16dp"
+        android:layout_marginTop="5dp"
         android:layout_marginRight="16dp"
-        android:layout_marginTop="32dp"
         android:fontFamily="@font/poppins_semibold"
         android:text="Appearance"
         android:textColor="@color/text_color_1"
         android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/about_back" />
 
     <RadioGroup
         android:id="@+id/radio_group_theme_changer"
