@@ -1,6 +1,8 @@
 package com.example.adg_vit_final.JavaActivities;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,12 +26,20 @@ public class About extends AppCompatActivity {
     TabItem tabItemBoard, tabItemDevelopers;
     RecyclerView recyclerView;
     ArrayList<AboutUs> listBoard, listDevs;
+    ImageView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
         getSupportActionBar().hide();
+        back= findViewById(R.id.about_back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         tagline = findViewById(R.id.club_descp);
         tagline.setText("Apple Developers Group is a student community at VIT that brings together " +
                 "like-minded individuals who are interested in Developing " +

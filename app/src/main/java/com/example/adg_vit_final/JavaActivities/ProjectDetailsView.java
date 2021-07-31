@@ -3,7 +3,9 @@ package com.example.adg_vit_final.JavaActivities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.adg_vit_final.R;
@@ -14,9 +16,25 @@ public class ProjectDetailsView extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         ImageView project_image;
         TextView descp, features;
+        LinearLayout back;
+        TextView share;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_project_details_view);
         getSupportActionBar().hide();
+        back = findViewById(R.id.project_det_back);
+        share=findViewById(R.id.project_share);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+        share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
         project_image = findViewById(R.id.project_image);
         descp = findViewById(R.id.project_descp);
         features = findViewById(R.id.features);

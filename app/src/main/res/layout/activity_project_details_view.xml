@@ -11,12 +11,57 @@
         android:layout_height="match_parent"
         tools:context=".JavaActivities.ProjectDetailsView"
         android:background="?attr/backgroundColor">
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="27dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/project_det_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="9dp"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/ic_chevron_left"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Back"
+                android:fontFamily="@font/poppins"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="21sp" />
+
+        </LinearLayout>
+            <TextView
+                android:id="@+id/project_share"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="244dp"
+                android:fontFamily="@font/poppins"
+                android:text="Share"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="21sp" />
+
+        </LinearLayout>
         <androidx.cardview.widget.CardView
             android:layout_width="200dp"
             android:layout_height="200dp"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="70dp"
+            app:layout_constraintTop_toBottomOf="@id/linearLayout2"
+            android:layout_marginTop="32dp"
             android:layout_marginLeft="18dp"
             android:id="@+id/cardview_image"
             app:cardCornerRadius="20dp"
@@ -36,9 +81,9 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             app:layout_constraintLeft_toRightOf="@id/cardview_image"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linearLayout2"
             app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="60dp"
             android:textColor="@color/text_color_1"
             android:text="ADG Connect App"
             android:fontFamily="@font/poppins"

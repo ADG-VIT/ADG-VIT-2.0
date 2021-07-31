@@ -11,17 +11,31 @@
         android:layout_height="match_parent"
         tools:context=".JavaActivities.Settings"
         android:background="?attr/backgroundColor">
+        <ImageView
+            android:id="@+id/settings_back"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginLeft="28dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_marginTop="27dp"
+            android:src="@drawable/ic_chevron_left"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
         <TextView
-            android:layout_width="343dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/settings_back"
             android:text="Settings"
             android:fontFamily="@font/poppins"
             android:textSize="40sp"
             android:textColor="@color/text_color_1"
             android:textFontWeight="600"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="14dp"
             android:layout_marginLeft="35dp"
             android:id="@+id/settings_header"/>
         <androidx.cardview.widget.CardView
@@ -60,68 +74,17 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:overScrollMode="never"
+            android:layout_marginRight="7dp"
+            android:layout_marginLeft="35dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/genral"
             tools:listitem="@layout/cardview_settings" />
-        <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
-            android:layout_height="65dp"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:background="?attr/backgroundColor"
-            android:layout_marginLeft="35dp"
-            app:cardElevation="0dp"
-            android:id="@+id/haptics"
-            android:elevation="0dp"
-            android:layout_marginRight="7dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rcy1">
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:elevation="0dp"
-                android:background="?attr/backgroundColor">
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_haptics"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    android:layout_marginLeft="2dp"
-                    android:id="@+id/img_settings_card"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintLeft_toRightOf="@id/img_settings_card"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:layout_marginLeft="19dp"
-                    android:text="Haptics"
-                    android:textSize="18sp"
-                    android:textColor="@color/text_color_1"
-                    android:textFontWeight="400"
-                    android:fontFamily="@font/poppins"
-                    android:id="@+id/cardview_settings_text"
-                    />
-                <Switch
-                    android:layout_width="wrap_content"
-                    android:layout_height="25dp"
-                    app:layout_constraintLeft_toLeftOf="@id/cardview_settings_text"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintHorizontal_bias="0.93"
-                    />
-            </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-        </androidx.cardview.widget.CardView>
         <TextView
             android:layout_width="343dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/haptics"
+            app:layout_constraintTop_toBottomOf="@id/rcy1"
             app:layout_constraintLeft_toLeftOf="parent"
             android:text="Stay in Touch"
             android:layout_marginLeft="35dp"
