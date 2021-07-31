@@ -68,14 +68,18 @@
 
             <RadioButton
                 android:id="@+id/rb_dark_mode"
-                android:layout_width="340dp"
+                android:layout_width="0dp"
                 android:layout_height="65dp"
                 android:layout_gravity="center_horizontal"
                 android:drawableLeft="@drawable/vector_dark_mode"
                 android:fontFamily="@font/poppins"
                 android:layoutDirection="rtl"
                 android:text="   Dark Mode"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
                 android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/rb_light_mode" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
