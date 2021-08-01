@@ -1,6 +1,7 @@
 package com.example.adg_vit_final.RecyclerViewAdapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.adg_vit_final.DataModels.ProjectItems;
+import com.example.adg_vit_final.JavaActivities.ProjectDetailsView;
 import com.example.adg_vit_final.R;
 
 import org.jetbrains.annotations.NotNull;
@@ -40,7 +42,12 @@ public class ProjectsAdapter extends RecyclerView.Adapter<ProjectsAdapter.Projec
         holder.projectImage.setImageResource(list.get(position).getImage());
         holder.name.setText(list.get(position).getName());
         holder.shortDescp.setText(list.get(position).getShortDescp());
-
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                context.startActivity(new Intent(context, ProjectDetailsView.class));
+            }
+        });
     }
 
 

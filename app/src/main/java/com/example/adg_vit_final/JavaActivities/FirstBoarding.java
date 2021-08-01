@@ -26,8 +26,7 @@ public class FirstBoarding extends AppCompatActivity {
         String themeChosen = getSharedPreferences("Appearance_shared_pref", MODE_PRIVATE)
                 .getString("theme", "sys_def");
         if (themeChosen.equals("light"))
-        {Toast.makeText(this, "light", Toast.LENGTH_SHORT).show();
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);}
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         else if (themeChosen.equals("dark"))
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
 

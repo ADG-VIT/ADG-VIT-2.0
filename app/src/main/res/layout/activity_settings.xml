@@ -17,7 +17,7 @@
             android:id="@+id/settings_back"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="28dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="27dp"
             android:paddingLeft="5dp"
             android:paddingTop="5dp"
@@ -32,14 +32,14 @@
             android:id="@+id/settings_header"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="35dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="14dp"
             android:fontFamily="@font/poppins"
             android:text="Settings"
             android:textColor="@color/text_color_1"
             android:textFontWeight="600"
             android:textSize="40sp"
-            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/settings_back" />
 
         <androidx.cardview.widget.CardView
