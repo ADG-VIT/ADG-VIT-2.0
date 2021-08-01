@@ -2,8 +2,8 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="370dp"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
     android:layout_marginBottom="25dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -35,7 +35,8 @@
                 android:id="@+id/heading_events_home"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_semibold"
+                android:fontFamily="@font/poppins"
+                android:textFontWeight="600"
                 android:text="Recruitments"
                 android:textColor="@color/text_color_1"
                 android:textSize="16sp" />
@@ -46,6 +47,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins"
                 android:text="12 Jan 2021"
+                android:textFontWeight="500"
                 android:textColor="@color/text_color_1"
                 android:textSize="12sp" />
 
@@ -54,19 +56,21 @@
         <Button
             android:id="@+id/know_more"
             android:layout_width="0dp"
-            android:layout_height="36dp"
-            android:layout_marginStart="60dp"
+            android:layout_height="45dp"
             android:layout_marginTop="22dp"
             android:layout_marginBottom="22dp"
             android:backgroundTint="@color/know_more_bg_color"
+            android:fontFamily="@font/poppins"
             android:text="Know More"
-            android:textColor="@color/text_color_1"
+            app:layout_constraintRight_toRightOf="parent"
+            android:textColor="@color/button_color"
             android:textFontWeight="600"
             android:textSize="8sp"
-            app:cornerRadius="15dp"
+            app:cornerRadius="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/linearLayout"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="255dp"
+            android:layout_marginRight="20dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
