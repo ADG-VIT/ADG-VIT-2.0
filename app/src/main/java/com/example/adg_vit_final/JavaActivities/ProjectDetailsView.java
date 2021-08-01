@@ -21,8 +21,8 @@ public class ProjectDetailsView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_project_details_view);
         getSupportActionBar().hide();
-        back = findViewById(R.id.project_det_back);
-        share=findViewById(R.id.project_share);
+        back = findViewById(R.id.projectdet_back);
+        share=findViewById(R.id.projectdet_share);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
