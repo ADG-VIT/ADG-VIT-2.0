@@ -6,127 +6,136 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/backgroundColor">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".JavaActivities.Settings"
-        android:background="?attr/backgroundColor">
+        android:background="?attr/backgroundColor"
+        tools:context=".JavaActivities.Settings">
+
         <ImageView
             android:id="@+id/settings_back"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintRight_toRightOf="parent"
             android:layout_marginLeft="28dp"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
             android:layout_marginTop="27dp"
+            android:paddingLeft="5dp"
+            android:paddingTop="5dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="5dp"
             android:src="@drawable/ic_chevron_left"
+            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
+            android:id="@+id/settings_header"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/settings_back"
-            android:text="Settings"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="14dp"
             android:fontFamily="@font/poppins"
-            android:textSize="40sp"
+            android:text="Settings"
             android:textColor="@color/text_color_1"
             android:textFontWeight="600"
-            android:layout_marginTop="14dp"
-            android:layout_marginLeft="35dp"
-            android:id="@+id/settings_header"/>
+            android:textSize="40sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/settings_back" />
+
         <androidx.cardview.widget.CardView
+            android:id="@+id/img_cardview"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
             android:background="?attr/backgroundColor"
-            android:layout_height="wrap_content"
             app:cardCornerRadius="14dp"
-            android:id="@+id/img_cardview"
+            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/settings_header"
-            app:layout_constraintLeft_toLeftOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/settings_header">
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/profile"
-                />
+                android:src="@drawable/profile" />
         </androidx.cardview.widget.CardView>
+
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/genral"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/img_cardview"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:text="General"
-            android:layout_marginLeft="35dp"
-            android:textSize="17sp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="23dp"
+            android:layout_marginEnd="240dp"
             android:fontFamily="@font/poppins"
+            android:text="General"
             android:textColor="@color/settings_subheader_text"
             android:textFontWeight="600"
-            android:layout_marginTop="23dp"
-            android:id="@+id/genral"
-            />
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_cardview" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcy1"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            tools:itemCount="2"
             android:overScrollMode="never"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/genral"
+            tools:itemCount="2"
             tools:listitem="@layout/cardview_settings" />
 
         <TextView
-            android:layout_width="343dp"
+            android:id="@+id/stay_in_touch"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/rcy1"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:text="Stay in Touch"
-            android:layout_marginLeft="35dp"
-            android:textSize="17sp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="220dp"
             android:fontFamily="@font/poppins"
+            android:text="Stay in Touch"
             android:textColor="@color/settings_subheader_text"
             android:textFontWeight="600"
-            android:layout_marginTop="23dp"
-            android:id="@+id/stay_in_touch"
-            />
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rcy1" />
+
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcy2"
             android:layout_width="match_parent"
-            tools:itemCount="6"
             android:layout_height="wrap_content"
-            tools:listitem="@layout/cardview_settings"
+            android:overScrollMode="never"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/stay_in_touch"
-            android:overScrollMode="never"
-            android:id="@+id/rcy2"
-            />
+            tools:itemCount="6"
+            tools:listitem="@layout/cardview_settings" />
+
         <TextView
-            android:layout_width="343dp"
+            android:id="@+id/others"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/rcy2"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:text="Others"
-            android:layout_marginLeft="35dp"
-            android:textSize="17sp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="23dp"
+            android:layout_marginEnd="240dp"
             android:fontFamily="@font/poppins"
+            android:text="Others"
             android:textColor="@color/settings_subheader_text"
             android:textFontWeight="600"
-            android:layout_marginTop="23dp"
-            android:id="@+id/others"
-            />
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rcy2" />
+
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcy3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:overScrollMode="never"
-            tools:listitem="@layout/cardview_settings"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/others"
-            android:id="@+id/rcy3"
-            />
+            tools:listitem="@layout/cardview_settings" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
