@@ -7,6 +7,8 @@ import androidx.appcompat.widget.ThemeUtils;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -16,7 +18,8 @@ import okhttp3.internal.Util;
 
 public class Appearance extends AppCompatActivity {
 
-    RadioGroup radioGroupThemeChanger;
+    private RadioGroup radioGroupThemeChanger;
+    private ImageView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +31,14 @@ public class Appearance extends AppCompatActivity {
         SharedPreferences.Editor editor = getSharedPreferences("Appearance_shared_pref", MODE_PRIVATE).edit();
 
         radioGroupThemeChanger = findViewById(R.id.radio_group_theme_changer);
+        back = findViewById(R.id.appearance_back);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         radioGroupThemeChanger.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override

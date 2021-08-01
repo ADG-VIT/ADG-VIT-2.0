@@ -8,7 +8,7 @@
     android:background="?attr/backgroundColor">
 
     <ImageView
-        android:id="@+id/about_back"
+        android:id="@+id/appearance_back"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="9dp"
@@ -26,7 +26,7 @@
         android:layout_width="0dp"
         android:layout_height="70dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="14dp"
         android:layout_marginRight="16dp"
         android:fontFamily="@font/poppins_semibold"
         android:text="Appearance"
@@ -34,7 +34,7 @@
         android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/about_back" />
+        app:layout_constraintTop_toBottomOf="@+id/appearance_back" />
 
     <RadioGroup
         android:id="@+id/radio_group_theme_changer"
