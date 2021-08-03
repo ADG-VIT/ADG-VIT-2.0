@@ -36,7 +36,7 @@
                 android:fontFamily="@font/poppins"
                 android:text="Back"
                 android:textColor="?attr/colorPrimary"
-                android:textSize="21sp" />
+                android:textSize="17sp" />
 
         </LinearLayout>
 
@@ -50,7 +50,7 @@
             android:fontFamily="@font/poppins"
             android:text="Share"
             android:textColor="?attr/colorPrimary"
-            android:textSize="21sp"
+            android:textSize="17sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.94"
             app:layout_constraintStart_toEndOf="@+id/projectdet_back"
