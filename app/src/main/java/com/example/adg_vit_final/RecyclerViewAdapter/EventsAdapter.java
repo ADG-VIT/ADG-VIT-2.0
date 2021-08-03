@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -49,11 +50,17 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.myviewhold
     @Override
     public void onBindViewHolder(@NonNull @NotNull EventsAdapter.myviewholder holder, int position) {
         holder.title.setText(dataList.get(position).getTitle());
-        holder.date.setText(dataList.get(position).getDate());
+        holder.date.setText(getDate(dataList.get(position).getDate()));
 
-        Glide.with(context).
-                load(dataList.get(position).getImageURL()).
-                into(holder.imageView);
+        //Toast.makeText(context, "" + dataList.get(position).getImageURL(), Toast.LENGTH_SHORT).show();
+        try {
+            Glide.with(context).
+                    load(dataList.get(position).getImageURL()).
+                    override(357, 369).
+                    into(holder.imageView);
+        }catch (Exception e){
+            Toast.makeText(context, "" + e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
 
         holder.card.setOnClickListener(new View.OnClickListener() {
             @Override
