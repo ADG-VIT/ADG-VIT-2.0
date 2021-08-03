@@ -34,7 +34,9 @@
         <activity android:name=".JavaActivities.Login" />
         <activity android:name=".JavaActivities.Events">
         </activity>
-        <activity android:name=".JavaActivities.EventDetails" />
+        <activity android:name=".JavaActivities.EventDetails">
+
+        </activity>
         <activity android:name=".JavaActivities.SignUpTwo" />
         <activity android:name=".JavaActivities.FirstBoarding">
             <intent-filter>

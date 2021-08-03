@@ -53,20 +53,17 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.myviewhold
         holder.date.setText(getDate(dataList.get(position).getDate()));
 
         //Toast.makeText(context, "" + dataList.get(position).getImageURL(), Toast.LENGTH_SHORT).show();
-        try {
+
             Glide.with(context).
                     load(dataList.get(position).getImageURL()).
                     override(357, 369).
                     into(holder.imageView);
-        }catch (Exception e){
-            Toast.makeText(context, "" + e.getMessage(), Toast.LENGTH_SHORT).show();
-        }
 
-        holder.card.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, EventDetails.class);
-                context.startActivity(intent);
+                Intent intent = new Intent(holder.itemView.getContext(), EventDetails.class);
+                holder.itemView.getContext().startActivity(intent);
             }
         });
 
