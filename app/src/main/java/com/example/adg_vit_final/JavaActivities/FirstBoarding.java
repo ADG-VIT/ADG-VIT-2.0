@@ -22,6 +22,7 @@ public class FirstBoarding extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first_boarding);
 
+
         getSupportActionBar().hide();
         String themeChosen = getSharedPreferences("Appearance_shared_pref", MODE_PRIVATE)
                 .getString("theme", "sys_def");

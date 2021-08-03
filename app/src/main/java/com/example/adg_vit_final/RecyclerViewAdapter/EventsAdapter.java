@@ -3,6 +3,7 @@ import android.content.Context;
 
 import android.content.Intent;
 import android.media.Image;
+import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.adg_vit_final.DataModels.EventsDataModel;
 import com.example.adg_vit_final.JavaActivities.EventDetails;
 import com.example.adg_vit_final.R;
@@ -20,7 +22,9 @@ import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 import static android.os.Build.VERSION_CODES.R;
 
@@ -44,9 +48,12 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.myviewhold
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull EventsAdapter.myviewholder holder, int position) {
-        holder.imageView.setImageResource(dataList.get(position).getImage());
         holder.title.setText(dataList.get(position).getTitle());
         holder.date.setText(dataList.get(position).getDate());
+
+        Glide.with(context).
+                load(dataList.get(position).getImageURL()).
+                into(holder.imageView);
 
         holder.card.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,6 +68,13 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.myviewhold
     @Override
     public int getItemCount() {
         return dataList.size();
+    }
+
+    private String getDate(long time) {
+        Calendar cal = Calendar.getInstance(Locale.ENGLISH);
+        cal.setTimeInMillis(time * 1000);
+        String date = DateFormat.format("dd-MM-yyyy", cal).toString();
+        return date;
     }
 
     class  myviewholder extends RecyclerView.ViewHolder
