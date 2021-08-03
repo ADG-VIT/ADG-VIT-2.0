@@ -57,8 +57,10 @@ public class Events extends AppCompatActivity {
                     }
                     List<EventModelNetwork> events = response.body();
 
-                    for (EventModelNetwork event : events) {
+                    for (EventModelNetwork event : events){
+                        dataList.add(new EventsDataModel(event.getPosterURL(), event.getName(), event.getDate()));
                     }
+                    recyclerView.setAdapter(new EventsAdapter(getApplicationContext(),dataList));
                 }
 
                 @Override
@@ -67,8 +69,6 @@ public class Events extends AppCompatActivity {
                     Log.i("TAG", "" + t.getMessage());
                 }
             });
-
-        recyclerView.setAdapter(new EventsAdapter(this,dataList));
 
 
     }
