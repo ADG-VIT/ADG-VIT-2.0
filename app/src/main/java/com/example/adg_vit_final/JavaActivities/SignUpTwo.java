@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import com.example.adg_vit_final.Objects.User;
 import com.example.adg_vit_final.R;
 
 import org.jetbrains.annotations.NotNull;
@@ -27,12 +28,18 @@ public class SignUpTwo extends AppCompatActivity {
     RecyclerView recyclerView;
     ArrayList<obj> lst;
     Button buttonNext;
+    private Intent intent,intent1;
+    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_up_two);
         getSupportActionBar().hide();
+
+        intent = getIntent();
+        user = (User)intent.getSerializableExtra("User");
+
 
         buttonNext = findViewById(R.id.button_next);
         recyclerView = findViewById(R.id.select_clg_recycler_view);
@@ -48,10 +55,18 @@ public class SignUpTwo extends AppCompatActivity {
         buttonNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (lastCheckedPosition==0)
-                    startActivity(new Intent(getApplicationContext(), Signup4.class));
+                if (lastCheckedPosition==0) {
+                    intent1 = new Intent(getApplicationContext(), Signup4.class);
+                    user.setUniversity("VIT");
+                    intent1.putExtra("User", user);
+                    startActivity(intent1);
+                }
                 else if (lastCheckedPosition==1)
-                    startActivity(new Intent(getApplication(), Signup3.class));
+                {
+                    intent1 = new Intent(getApplicationContext(), Signup3.class);
+                    intent1.putExtra("User", user);
+                    startActivity(intent1);
+                }
             }
         });
 
