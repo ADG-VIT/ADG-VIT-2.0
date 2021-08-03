@@ -65,6 +65,7 @@ public class Projects extends AppCompatActivity {
                     projectItems.setShortDescp(project.getDescription());
                     list.add(projectItems);
                 }
+                recyclerView_projects.setAdapter(new ProjectsAdapter(list, Projects.this));
 
             }
 
@@ -77,7 +78,7 @@ public class Projects extends AppCompatActivity {
         });
 
 
-        recyclerView_projects.setAdapter(new ProjectsAdapter(list, Projects.this));
+
 
     }
 

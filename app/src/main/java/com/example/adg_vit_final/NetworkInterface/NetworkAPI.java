@@ -15,4 +15,5 @@ public interface NetworkAPI {
 
     @GET("projects/1")
     Call<List<ProjectModelNetwork>> getProjects();
+
 }
