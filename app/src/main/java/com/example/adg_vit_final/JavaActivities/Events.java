@@ -1,9 +1,11 @@
 package com.example.adg_vit_final.JavaActivities;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,6 +30,7 @@ public class Events extends AppCompatActivity {
     private RecyclerView recyclerView;
     private List<EventsDataModel> dataList;
     private ImageView back;
+    private ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +38,9 @@ public class Events extends AppCompatActivity {
 
         getSupportActionBar().hide();
 
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Loading all the Events...");
+        progressDialog.show();
         dataList = new ArrayList<>();
         recyclerView = findViewById(R.id.events_recView);
         recyclerView.setLayoutManager(new GridLayoutManager(this,2));
@@ -57,8 +63,11 @@ public class Events extends AppCompatActivity {
                     }
                     List<EventModelNetwork> events = response.body();
 
-                    for (EventModelNetwork event : events) {
+                    for (EventModelNetwork event : events){
+                        dataList.add(new EventsDataModel(event.get_id(), event.getPosterURL(), event.getName(), event.getDate(), event.getInfo()));
                     }
+                    recyclerView.setAdapter(new EventsAdapter(getApplicationContext(),dataList));
+                    progressDialog.dismiss();
                 }
 
                 @Override
@@ -67,8 +76,6 @@ public class Events extends AppCompatActivity {
                     Log.i("TAG", "" + t.getMessage());
                 }
             });
-
-        recyclerView.setAdapter(new EventsAdapter(this,dataList));
 
 
     }

@@ -1,20 +1,24 @@
 package com.example.adg_vit_final.DataModels;
 
 public class ProjectItems {
-    int image;
+    String image;
     String name, shortDescp;
 
-    public ProjectItems(int image, String name, String shortDescp) {
+    public ProjectItems(String image, String name, String shortDescp) {
         this.image = image;
         this.name = name;
         this.shortDescp = shortDescp;
     }
 
-    public int getImage() {
+    public ProjectItems() {
+
+    }
+
+    public String getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(String image) {
         this.image = image;
     }
 

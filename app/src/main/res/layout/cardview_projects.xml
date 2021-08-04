@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_width="343dp"
+    android:layout_height="340dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginTop="10dp"
     app:cardCornerRadius="35dp"
@@ -20,8 +22,8 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:background="?attr/backgroundColor"
-            android:scaleType="centerCrop"
             android:src="@drawable/frame212"
+            android:scaleType="centerCrop"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent" />
 
@@ -49,7 +51,6 @@
             android:layout_height="27dp"
             android:layout_marginTop="275dp"
             android:fontFamily="@font/poppins"
-            android:text="ADG VIT App"
             android:textColor="@color/white"
             android:textFontWeight="600"
             android:textSize="18sp"
@@ -65,7 +66,6 @@
             android:layout_marginTop="1dp"
             android:layout_marginBottom="10dp"
             android:fontFamily="@font/poppins"
-            android:text="Short Description about the Project"
             android:textColor="@color/white"
             android:textFontWeight="500"
             android:textSize="14sp"

@@ -5,15 +5,25 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import static com.example.adg_vit_final.NetworkUtil.NetworkUtils.networkAPI;
+
+import com.example.adg_vit_final.NetworkModels.EventModelNetwork;
+import com.example.adg_vit_final.NetworkModels.ProjectModelNetwork;
 import com.example.adg_vit_final.R;
 import com.example.adg_vit_final.DataModels.ProjectItems;
 import com.example.adg_vit_final.RecyclerViewAdapter.ProjectsAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Projects extends AppCompatActivity {
     RecyclerView recyclerView_projects;
@@ -38,14 +48,37 @@ public class Projects extends AppCompatActivity {
 
         recyclerView_projects.setLayoutManager(new LinearLayoutManager(this));
 
-        ProjectItems a = new ProjectItems(R.drawable.projectsample1,"ADG VIT App", "Short Description About Project");
-        ProjectItems b = new ProjectItems(R.drawable.projectsample1, "ADG VIT App","Short Description About Project" );
-        ProjectItems c = new ProjectItems(R.drawable.projectsample1, "ADG VIT App","Short Description About Project" );
+        Call<List<ProjectModelNetwork>> call = networkAPI.getProjects();
 
-        list.add(a);
-        list.add(b);
-        list.add(c);
-        recyclerView_projects.setAdapter(new ProjectsAdapter(list, Projects.this));
+        call.enqueue(new Callback<List<ProjectModelNetwork>>() {
+            @Override
+            public void onResponse(Call<List<ProjectModelNetwork>> call, Response<List<ProjectModelNetwork>> response) {
+                if (!response.isSuccessful()){
+                    Toast.makeText(Projects.this, "" + response.code(), Toast.LENGTH_SHORT).show();
+                }
+
+                List<ProjectModelNetwork> projects = response.body();
+                for(ProjectModelNetwork project: projects){
+                    ProjectItems projectItems= new ProjectItems();
+                    projectItems.setImage(project.getThumbnail());
+                    projectItems.setName(project.getTitle());
+                    projectItems.setShortDescp(project.getDescription());
+                    list.add(projectItems);
+                }
+                recyclerView_projects.setAdapter(new ProjectsAdapter(list, Projects.this));
+
+            }
+
+            @Override
+            public void onFailure(Call<List<ProjectModelNetwork>> call, Throwable t) {
+                Toast.makeText(Projects.this, "" + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Log.i("TAG", "" + t.getMessage());
+
+            }
+        });
+
+
+
 
     }
 

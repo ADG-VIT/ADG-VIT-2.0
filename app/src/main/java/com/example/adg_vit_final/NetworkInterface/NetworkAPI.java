@@ -2,6 +2,7 @@ package com.example.adg_vit_final.NetworkInterface;
 
 import com.example.adg_vit_final.NetworkModels.EventModelNetwork;
 import com.example.adg_vit_final.NetworkModels.User;
+import com.example.adg_vit_final.NetworkModels.ProjectModelNetwork;
 
 import java.util.List;
 
@@ -17,4 +18,8 @@ public interface NetworkAPI {
 
     @POST("users/register")
     Call<User> registerUser(@Body User user);
+
+    @GET("projects/1")
+    Call<List<ProjectModelNetwork>> getProjects();
+
 }

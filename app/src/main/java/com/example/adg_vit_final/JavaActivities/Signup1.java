@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -48,19 +49,41 @@ public class Signup1 extends AppCompatActivity {
                 PhNumber = phNumber.getText().toString();
                 Password = password.getText().toString();
 
-                System.out.println("Name : " + Name);
-                System.out.println("Email : " + Email);
-                System.out.println("PhNumber : " + PhNumber);
-                System.out.println("Password : " + Password);
+                String error = "Error : ";
+                int flag = 0;
+                if(Password.length()<8)
+                {
+                    error = error + "Password must be atleast 8 characters";
+                    flag = 1;
+                }
+                if(PhNumber.length() != 10)
+                {
+                    if(flag == 1)
+                    {
+                        error += " , ";
+                    }
+                    error += "Phone Number must contain 10 digits";
+                    flag+=1;
+                }
+                if(flag==0) {
+                    System.out.println("Name : " + Name);
+                    System.out.println("Email : " + Email);
+                    System.out.println("PhNumber : " + PhNumber);
+                    System.out.println("Password : " + Password);
 
-                User temp = new User();
-                temp.setName(Name);
-                temp.setEmail(Email);
-                temp.setPhone(PhNumber);
-                temp.setPassword(Password);
-                Intent intent = new Intent(getApplicationContext(),SignUpTwo.class);
-                intent.putExtra("User", temp);
-                startActivity(intent);
+                    User temp = new User();
+                    temp.setName(Name);
+                    temp.setEmail(Email);
+                    temp.setPhone(PhNumber);
+                    temp.setPassword(Password);
+                    Intent intent = new Intent(getApplicationContext(), SignUpTwo.class);
+                    intent.putExtra("User", temp);
+                    startActivity(intent);
+                }
+                else
+                    {
+                        Toast.makeText(getApplicationContext(),error,Toast.LENGTH_LONG).show();
+                    }
             }
         });
     }

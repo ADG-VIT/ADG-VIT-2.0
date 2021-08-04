@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.adg_vit_final.DataModels.ProjectItems;
 import com.example.adg_vit_final.JavaActivities.ProjectDetailsView;
 import com.example.adg_vit_final.R;
@@ -39,7 +40,7 @@ public class ProjectsAdapter extends RecyclerView.Adapter<ProjectsAdapter.Projec
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull ProjectsAdapter.ProjectViewHolder holder, int position) {
-        holder.projectImage.setImageResource(list.get(position).getImage());
+        Glide.with(context).load(list.get(position).getImage()).override(300).into(holder.projectImage);
         holder.name.setText(list.get(position).getName());
         holder.shortDescp.setText(list.get(position).getShortDescp());
         holder.itemView.setOnClickListener(new View.OnClickListener() {

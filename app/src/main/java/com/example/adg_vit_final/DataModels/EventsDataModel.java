@@ -1,15 +1,28 @@
 package com.example.adg_vit_final.DataModels;
 
 public class EventsDataModel {
+    String id;
     String imageURL;
-    String title,date;
+    String title;
+    int date;
+    String info;
 
     public EventsDataModel() { }
 
-    public EventsDataModel(String imageURL, String title, String date) {
+    public EventsDataModel(String id, String imageURL, String title, int date, String info) {
+        this.id = id;
         this.imageURL = imageURL;
         this.title = title;
         this.date = date;
+        this.info = info;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id ;
     }
 
     public String getImageURL() {
@@ -28,11 +41,19 @@ public class EventsDataModel {
         this.title = title;
     }
 
-    public String getDate() {
+    public int getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(int date) {
         this.date = date;
+    }
+
+    public String getInfo() {
+        return info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info ;
     }
 }

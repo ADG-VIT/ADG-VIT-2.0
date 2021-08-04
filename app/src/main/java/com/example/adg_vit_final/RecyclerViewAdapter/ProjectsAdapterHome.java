@@ -38,7 +38,7 @@ public class ProjectsAdapterHome extends RecyclerView.Adapter<ProjectsAdapterHom
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull ProjectsAdapterHome.ProjectViewHolder holder, int position) {
-        holder.projectImage.setImageResource(list.get(position).getImage());
+//        holder.projectImage.setImageResource(list.get(position).getImage());
         holder.name.setText(list.get(position).getName());
 
     }

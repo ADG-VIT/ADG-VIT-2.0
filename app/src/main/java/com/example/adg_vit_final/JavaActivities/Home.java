@@ -67,9 +67,9 @@ public class Home extends AppCompatActivity {
 
         recyclerView.setAdapter(new EventHomeAdapter(getApplicationContext(), list));
 
-        projectItemsArrayList.add(new ProjectItems(R.drawable.frame212, "ADG Connect App", ""));
-        projectItemsArrayList.add(new ProjectItems(R.drawable.frame212, "ADG Connect App", ""));
-        projectItemsArrayList.add(new ProjectItems(R.drawable.frame212, "ADG Connect App", ""));
+//        projectItemsArrayList.add(new ProjectItems(R.drawable.frame212, "ADG Connect App", ""));
+//        projectItemsArrayList.add(new ProjectItems(R.drawable.frame212, "ADG Connect App", ""));
+//        projectItemsArrayList.add(new ProjectItems(R.drawable.frame212, "ADG Connect App", ""));
 
         recyclerViewHomeProjects.setAdapter(new ProjectsAdapterHome(projectItemsArrayList, getApplicationContext()));
 
