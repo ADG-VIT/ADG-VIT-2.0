@@ -27,7 +27,7 @@ import retrofit2.Response;
 
 public class Projects extends AppCompatActivity {
     RecyclerView recyclerView_projects;
-    ArrayList<ProjectItems> list;
+    List<ProjectItems> list;
     ImageView back;
 
     @Override
@@ -56,14 +56,16 @@ public class Projects extends AppCompatActivity {
                 if (!response.isSuccessful()){
                     Toast.makeText(Projects.this, "" + response.code(), Toast.LENGTH_SHORT).show();
                 }
-                Toast.makeText(Projects.this, "" + response.body().toString(), Toast.LENGTH_SHORT).show();
-                /*List<ProjectModelNetwork> projects = response.body();
-                for(ProjectModelNetwork project: projects){
-                    list.add(new ProjectItems(project.getThumbnail(), project.getTitle()
-                    , project.getDescription()));
-                }
-                recyclerView_projects.setAdapter(new ProjectsAdapter(list, Projects.this));*/
 
+                List<ProjectModelNetwork> projects = response.body();
+                for(ProjectModelNetwork project: projects){
+                    ProjectItems projectItems= new ProjectItems();
+                    projectItems.setImage(project.getThumbnail());
+                    projectItems.setName(project.getTitle());
+                    projectItems.setShortDescp(project.getDescription());
+                    list.add(projectItems);
+                }
+                recyclerView_projects.setAdapter(new ProjectsAdapter(list, Projects.this));
 
             }
 
@@ -74,6 +76,9 @@ public class Projects extends AppCompatActivity {
 
             }
         });
+
+
+
 
     }
 
