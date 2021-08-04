@@ -28,6 +28,7 @@ import java.util.List;
 import java.util.Locale;
 
 import static android.os.Build.VERSION_CODES.R;
+import static com.example.adg_vit_final.NetworkUtil.NetworkUtils.getDate;
 
 public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.myviewholder> {
     private List<EventsDataModel> dataList;
@@ -63,6 +64,11 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.myviewhold
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(holder.itemView.getContext(), EventDetails.class);
+                intent.putExtra("event_id","" + dataList.get(position).getId());
+                intent.putExtra("image_url", dataList.get(position).getImageURL());
+                intent.putExtra("title", dataList.get(position).getTitle());
+                intent.putExtra("date", dataList.get(position).getDate());
+                intent.putExtra("info", dataList.get(position).getInfo());
                 holder.itemView.getContext().startActivity(intent);
             }
         });
@@ -72,13 +78,6 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.myviewhold
     @Override
     public int getItemCount() {
         return dataList.size();
-    }
-
-    private String getDate(long time) {
-        Calendar cal = Calendar.getInstance(Locale.ENGLISH);
-        cal.setTimeInMillis(time * 1000);
-        String date = DateFormat.format("dd-MM-yyyy", cal).toString();
-        return date;
     }
 
     class  myviewholder extends RecyclerView.ViewHolder
