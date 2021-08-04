@@ -2,7 +2,6 @@ package com.example.adg_vit_final.JavaActivities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,7 +9,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.adg_vit_final.Objects.User;
+import com.example.adg_vit_final.NetworkModels.User;
 import com.example.adg_vit_final.R;
 
 public class Signup1 extends AppCompatActivity {
@@ -48,6 +47,11 @@ public class Signup1 extends AppCompatActivity {
                 Email = email.getText().toString();
                 PhNumber = phNumber.getText().toString();
                 Password = password.getText().toString();
+
+                System.out.println("Name : " + Name);
+                System.out.println("Email : " + Email);
+                System.out.println("PhNumber : " + PhNumber);
+                System.out.println("Password : " + Password);
 
                 User temp = new User();
                 temp.setName(Name);

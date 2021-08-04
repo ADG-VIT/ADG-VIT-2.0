@@ -9,8 +9,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.adg_vit_final.Interfaces.RegisterUserApi;
-import com.example.adg_vit_final.Objects.User;
+import com.example.adg_vit_final.NetworkModels.User;
 import com.example.adg_vit_final.R;
 
 import org.jetbrains.annotations.NotNull;
@@ -18,8 +17,8 @@ import org.jetbrains.annotations.NotNull;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
+
+import static com.example.adg_vit_final.NetworkUtil.NetworkUtils.networkAPI;
 
 public class Signup3 extends AppCompatActivity {
     private EditText nameofUni;
@@ -45,6 +44,12 @@ public class Signup3 extends AppCompatActivity {
             public void onClick(View v) {
                 //For creating account
                 user.setUniversity(nameofUni.getText().toString());
+                System.out.println("Name : " + user.getName());
+                System.out.println("Email : " + user.getEmail());
+                System.out.println("PhNumber : " + user.getPhone());
+                System.out.println("Password : " + user.getPassword());
+                System.out.println("Uni : " + user.getUniversity());
+                System.out.println("Reg no : " + user.getRegno());
                 registerUser();
             }
         });
@@ -52,20 +57,17 @@ public class Signup3 extends AppCompatActivity {
 
     private void registerUser() {
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://backend-events.herokuapp.com/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        RegisterUserApi registerUserApi = retrofit.create(RegisterUserApi.class);
-
-        Call<User> call = registerUserApi.registerUser(user);
+        Call<User> call = networkAPI.registerUser(user);
 
         call.enqueue(new Callback<User>() {
             @Override
             public void onResponse(@NotNull Call<User> call, @NotNull Response<User> response) {
                 if(!response.isSuccessful())
                 {
-                    Toast.makeText(getApplicationContext(),"Code : " + response.code() + " , Error : " + response.message(),Toast.LENGTH_LONG).show();
+                    User responseUser = response.body();
+                    assert responseUser != null;
+                    String message = responseUser.getMessage() + responseUser.getError().getMessage();
+                    Toast.makeText(getApplicationContext(),"Code : " + response.code() + " , Error : " + message,Toast.LENGTH_LONG).show();
                     return;
                 }
                 User responseUser = response.body();

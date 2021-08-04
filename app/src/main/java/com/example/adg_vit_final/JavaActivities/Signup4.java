@@ -9,8 +9,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.adg_vit_final.Interfaces.RegisterUserApi;
-import com.example.adg_vit_final.Objects.User;
+import com.example.adg_vit_final.NetworkModels.User;
 import com.example.adg_vit_final.R;
 
 import org.jetbrains.annotations.NotNull;
@@ -18,8 +17,8 @@ import org.jetbrains.annotations.NotNull;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
+
+import static com.example.adg_vit_final.NetworkUtil.NetworkUtils.networkAPI;
 
 public class Signup4 extends AppCompatActivity {
     Button createAccountBtn;
@@ -46,19 +45,20 @@ public class Signup4 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 user.setRegno(usrRegNo.getText().toString());
+                System.out.println("Name : " + user.getName());
+                System.out.println("Email : " + user.getEmail());
+                System.out.println("PhNumber : " + user.getPhone());
+                System.out.println("Password : " + user.getPassword());
+                System.out.println("Univ : " + user.getUniversity());
+                System.out.println("Reg no : " + user.getRegno());
                 registerUser();
             }
         });
     }
 
     private void registerUser() {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://backend-events.herokuapp.com/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        RegisterUserApi registerUserApi = retrofit.create(RegisterUserApi.class);
 
-        Call<User> call = registerUserApi.registerUser(user);
+        Call<User> call = networkAPI.registerUser(user);
 
         call.enqueue(new Callback<User>() {
             @Override
@@ -69,7 +69,9 @@ public class Signup4 extends AppCompatActivity {
                     return;
                 }
                 User responseUser = response.body();
-                String message = responseUser.getMessage();
+                assert responseUser != null;
+                String message = responseUser.getMessage() + responseUser.getName();
+                System.out.println("Error : " + responseUser.getName());
                 Toast.makeText(getApplicationContext(),message,Toast.LENGTH_LONG).show();
                 Intent intent1 = new Intent(getApplicationContext(),Login.class);
                 startActivity(intent1);

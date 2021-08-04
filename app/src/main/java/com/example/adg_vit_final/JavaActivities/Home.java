@@ -73,12 +73,12 @@ public class Home extends AppCompatActivity {
 
         recyclerViewHomeProjects.setAdapter(new ProjectsAdapterHome(projectItemsArrayList, getApplicationContext()));
 
-        homeDomainsObjectArrayList.add(new HomeDomainsObject(R.drawable.home_domain_icon, "iOS Domain"));
-        homeDomainsObjectArrayList.add(new HomeDomainsObject(R.drawable.home_domain_icon, "iOS Domain"));
-        homeDomainsObjectArrayList.add(new HomeDomainsObject(R.drawable.home_domain_icon, "iOS Domain"));
-        homeDomainsObjectArrayList.add(new HomeDomainsObject(R.drawable.home_domain_icon, "iOS Domain"));
-        homeDomainsObjectArrayList.add(new HomeDomainsObject(R.drawable.home_domain_icon, "iOS Domain"));
-        homeDomainsObjectArrayList.add(new HomeDomainsObject(R.drawable.home_domain_icon, "iOS Domain"));
+        homeDomainsObjectArrayList.add(new HomeDomainsObject(R.drawable.ic_ios, "iOS Domain"));
+        homeDomainsObjectArrayList.add(new HomeDomainsObject(R.drawable.ic_android, "Android"));
+        homeDomainsObjectArrayList.add(new HomeDomainsObject(R.drawable.ic_web, "Web Domain"));
+        homeDomainsObjectArrayList.add(new HomeDomainsObject(R.drawable.ic_ml, "ML Domain"));
+        homeDomainsObjectArrayList.add(new HomeDomainsObject(R.drawable.ic_design, "Design"));
+        homeDomainsObjectArrayList.add(new HomeDomainsObject(R.drawable.ic_ios, "Management"));
 
         recyclerViewHomeDomains.setAdapter(new DomainsHomeAdapter(getApplicationContext(), homeDomainsObjectArrayList));
 

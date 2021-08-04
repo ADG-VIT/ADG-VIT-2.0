@@ -1,11 +1,12 @@
-package com.example.adg_vit_final.Objects;
+package com.example.adg_vit_final.NetworkModels;
 
 import java.io.Serializable;
 
 public class User implements Serializable {
     String name,email,phone,password,regno,university,message;
+    Error Error;
 
-    public User(String name, String email, String phone, String password, String regno, String university,String message) {
+    public User(String name, String email, String phone, String password, String regno, String university,String message,Error Error) {
         this.name = name;
         this.email = email;
         this.phone = phone;
@@ -13,6 +14,7 @@ public class User implements Serializable {
         this.regno = regno;
         this.university = university;
         this.message = message;
+        this.Error = Error;
     }
 
     public User(String name, String email, String phone, String password, String university,String message) {
@@ -22,6 +24,7 @@ public class User implements Serializable {
         this.password = password;
         this.university = university;
         this.message = message;
+        this.Error = Error;
     }
 
     public User() {
@@ -32,6 +35,7 @@ public class User implements Serializable {
         this.regno = null;
         this.university = null;
         this.message = null;
+        this.Error = null;
     }
 
     public String getName() {
@@ -85,4 +89,12 @@ public class User implements Serializable {
     public String getMessage() {return message;}
 
     public void setMessage(String message) {this.message = message;}
+
+    public com.example.adg_vit_final.NetworkModels.Error getError() {
+        return Error;
+    }
+
+    public void setError(com.example.adg_vit_final.NetworkModels.Error error) {
+        Error = error;
+    }
 }

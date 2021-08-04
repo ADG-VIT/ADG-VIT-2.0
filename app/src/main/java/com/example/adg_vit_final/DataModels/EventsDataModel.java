@@ -1,28 +1,23 @@
 package com.example.adg_vit_final.DataModels;
 
 public class EventsDataModel {
-    int image;
+    String imageURL;
     String title,date;
 
-    public EventsDataModel()
-    {
-        image = 0;
-        title = "";
-        date = "";
-    }
+    public EventsDataModel() { }
 
-    public EventsDataModel(int image, String title, String date) {
-        this.image = image;
+    public EventsDataModel(String imageURL, String title, String date) {
+        this.imageURL = imageURL;
         this.title = title;
         this.date = date;
     }
 
-    public int getImage() {
-        return image;
+    public String getImageURL() {
+        return imageURL;
     }
 
-    public void setImage(int image) {
-        this.image = image;
+    public void setImage(String imageURL) {
+        this.imageURL = imageURL;
     }
 
     public String getTitle() {

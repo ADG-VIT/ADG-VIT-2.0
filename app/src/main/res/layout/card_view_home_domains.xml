@@ -2,10 +2,9 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="170dp"
     android:layout_height="57dp"
     app:cardCornerRadius="8dp"
-    android:layout_marginRight="10dp"
     android:layout_marginBottom="10dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -23,10 +22,18 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:id="@+id/image_home_domain"
                 android:layout_width="55dp"
                 android:layout_height="55dp"
-                android:src="@drawable/home_domain_icon"
+                android:src="@drawable/ic_rectangle_374"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <ImageView
+                android:layout_width="55dp"
+                android:padding="8dp"
+                android:id="@+id/image_home_domain"
+                android:layout_height="55dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -39,10 +46,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:fontFamily="@font/poppins_semibold"
+            android:fontFamily="@font/poppins"
             android:text="iOS Domain"
+            android:textColor="@color/text_color_1"
             android:textStyle="bold"
             android:textSize="14sp"
+            android:paddingLeft="5dp"
             android:paddingRight="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/constraintLayout"

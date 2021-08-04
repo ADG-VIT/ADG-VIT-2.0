@@ -1,19 +1,28 @@
 package com.example.adg_vit_final.JavaActivities;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.adg_vit_final.DataModels.EventsDataModel;
+import com.example.adg_vit_final.NetworkModels.EventModelNetwork;
 import com.example.adg_vit_final.R;
 import com.example.adg_vit_final.RecyclerViewAdapter.EventsAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+import static com.example.adg_vit_final.NetworkUtil.NetworkUtils.networkAPI;
 
 public class Events extends AppCompatActivity {
     private RecyclerView recyclerView;
@@ -38,16 +47,26 @@ public class Events extends AppCompatActivity {
             }
         });
 
-        dataList.add(new EventsDataModel(R.drawable.rectangle_375,"Recruitments","21 Jan 2021"));
-        dataList.add(new EventsDataModel(R.drawable.rectangle_375,"Recruitments","21 Jan 2021"));
-        dataList.add(new EventsDataModel(R.drawable.rectangle_375,"Recruitments","21 Jan 2021"));
-        dataList.add(new EventsDataModel(R.drawable.rectangle_375,"Recruitments","21 Jan 2021"));
-        dataList.add(new EventsDataModel(R.drawable.rectangle_375,"Recruitments","21 Jan 2021"));
-        dataList.add(new EventsDataModel(R.drawable.rectangle_375,"Recruitments","21 Jan 2021"));
-        dataList.add(new EventsDataModel(R.drawable.rectangle_375,"Recruitments","21 Jan 2021"));
-        dataList.add(new EventsDataModel(R.drawable.rectangle_375,"Recruitments","21 Jan 2021"));
-        dataList.add(new EventsDataModel(R.drawable.rectangle_375,"Recruitments","21 Jan 2021"));
-        dataList.add(new EventsDataModel(R.drawable.rectangle_375,"Recruitments","21 Jan 2021"));
+        Call<List<EventModelNetwork>> call = networkAPI.getEvents("events");
+
+            call.enqueue(new Callback<List<EventModelNetwork>>() {
+                @Override
+                public void onResponse(Call<List<EventModelNetwork>> call, Response<List<EventModelNetwork>> response) {
+                    if (!response.isSuccessful()){
+                        Toast.makeText(Events.this, "" + response.code(), Toast.LENGTH_SHORT).show();
+                    }
+                    List<EventModelNetwork> events = response.body();
+
+                    for (EventModelNetwork event : events) {
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<List<EventModelNetwork>> call, Throwable t) {
+                    Toast.makeText(Events.this, "" + t.getMessage(), Toast.LENGTH_SHORT).show();
+                    Log.i("TAG", "" + t.getMessage());
+                }
+            });
 
         recyclerView.setAdapter(new EventsAdapter(this,dataList));
 

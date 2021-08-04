@@ -15,7 +15,7 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
-import com.example.adg_vit_final.Objects.User;
+import com.example.adg_vit_final.NetworkModels.User;
 import com.example.adg_vit_final.R;
 
 import org.jetbrains.annotations.NotNull;
