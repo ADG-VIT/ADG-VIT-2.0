@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.adg_vit_final.DataModels.AboutUs;
 import com.example.adg_vit_final.R;
 
@@ -39,7 +40,13 @@ public class AboutRVAdapter extends RecyclerView.Adapter<ViewHolderAboutUs>{
     public void onBindViewHolder(@NonNull @NotNull ViewHolderAboutUs holder, int position) {
         holder.nameAboutUs.setText(list.get(position).getName());
         holder.desgAboutUs.setText(list.get(position).getDesignation());
-        holder.imageViewAboutUs.setImageResource(list.get(position).getImage());
+
+
+
+        Glide.with(context)
+        .load(list.get(position).getImage())
+                .into(holder.imageViewAboutUs);
+
     }
 
     @Override
@@ -52,6 +59,7 @@ class ViewHolderAboutUs extends RecyclerView.ViewHolder {
 
     ImageView imageViewAboutUs;
     TextView nameAboutUs, desgAboutUs;
+
     public ViewHolderAboutUs(@NonNull @NotNull View itemView) {
         super(itemView);
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:backgroundTint="?attr/backgroundColor">
+    android:backgroundTint="@color/background_color_light_mode">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -68,21 +68,26 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginTop="12dp">
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_github"
-                    android:layout_marginRight="23dp"/>
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_linkedin"
-                    android:layout_marginRight="23dp"/>
 
                 <ImageView
-                    android:layout_marginTop="3dp"
+                    android:id="@+id/gitimage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="23dp"
+                    android:src="@drawable/ic_github" />
+
+                <ImageView
+                    android:id="@+id/linkedimage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="23dp"
+                    android:src="@drawable/ic_linkedin" />
+
+                <ImageView
+                    android:id="@+id/mailimage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
                     android:src="@drawable/ic_mail" />
             </LinearLayout>
 

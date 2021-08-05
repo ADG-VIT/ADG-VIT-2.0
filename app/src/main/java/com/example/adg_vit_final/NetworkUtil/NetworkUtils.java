@@ -25,4 +25,5 @@ public class NetworkUtils {
             .build();
 
     public static NetworkAPI networkAPI = retrofit.create(NetworkAPI.class);
+
 }
