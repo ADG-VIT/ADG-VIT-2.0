@@ -3,6 +3,7 @@ package com.example.adg_vit_final.NetworkInterface;
 import com.example.adg_vit_final.NetworkModels.EventModelNetwork;
 import com.example.adg_vit_final.NetworkModels.User;
 import com.example.adg_vit_final.NetworkModels.ProjectModelNetwork;
+import com.google.gson.JsonObject;
 
 import java.util.List;
 
@@ -19,7 +20,10 @@ public interface NetworkAPI {
     @POST("users/register")
     Call<User> registerUser(@Body User user);
 
-    @GET("projects/1")
+    @GET("projects")
     Call<List<ProjectModelNetwork>> getProjects();
+
+    @GET("projects/{id}")
+    Call<JsonObject> getSpecificProject(@Path("id") String id);
 
 }

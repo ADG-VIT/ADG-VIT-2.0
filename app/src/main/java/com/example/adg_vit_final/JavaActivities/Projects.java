@@ -55,6 +55,7 @@ public class Projects extends AppCompatActivity {
             public void onResponse(Call<List<ProjectModelNetwork>> call, Response<List<ProjectModelNetwork>> response) {
                 if (!response.isSuccessful()){
                     Toast.makeText(Projects.this, "" + response.code(), Toast.LENGTH_SHORT).show();
+                    return;
                 }
 
                 List<ProjectModelNetwork> projects = response.body();
@@ -62,7 +63,8 @@ public class Projects extends AppCompatActivity {
                     ProjectItems projectItems= new ProjectItems();
                     projectItems.setImage(project.getThumbnail());
                     projectItems.setName(project.getTitle());
-                    projectItems.setShortDescp(project.getDescription());
+                    projectItems.setShortDescp(project.getShortDescription());
+                    projectItems.setId(project.getId());
                     list.add(projectItems);
                 }
                 recyclerView_projects.setAdapter(new ProjectsAdapter(list, Projects.this));
@@ -72,7 +74,7 @@ public class Projects extends AppCompatActivity {
             @Override
             public void onFailure(Call<List<ProjectModelNetwork>> call, Throwable t) {
                 Toast.makeText(Projects.this, "" + t.getMessage(), Toast.LENGTH_SHORT).show();
-                Log.i("TAG", "" + t.getMessage());
+
 
             }
         });
