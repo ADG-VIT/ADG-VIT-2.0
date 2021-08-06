@@ -75,7 +75,7 @@ public class About extends AppCompatActivity {
         listBoard = new ArrayList<>();
         listBoard.add(new AboutUs(R.drawable.board_member_utkarsh_dixit, "Utkarsh Dixit",
                 "Executive Head"));
-        listBoard.add(new AboutUs(R.drawable.board_member_utkarsh_dixit, "Utkarsh Dixit",
+        listBoard.add(new AboutUs(String.valueOf(R.drawable.board_member_utkarsh_dixit), "Utkarsh Dixit",
                 "Executive Head"));
         listBoard.add(new AboutUs(R.drawable.board_member_utkarsh_dixit, "Utkarsh Dixit",
                 "Executive Head"));
@@ -107,7 +107,7 @@ public class About extends AppCompatActivity {
                             List<AboutModelNetwork> about = response.body();
                             for (AboutModelNetwork abouts : about) {
                                 AboutUs aboutUs = new AboutUs();
-                                aboutUs.setImage(aboutUs.getImage());
+                                aboutUs.setPic(aboutUs.getPic());
                                 aboutUs.setName(aboutUs.getName());
                                 aboutUs.setDesignation(aboutUs.getDesignation());
                                 //aboutUs.setEmail(aboutUs.getEmail());

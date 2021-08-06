@@ -44,7 +44,7 @@ public class AboutRVAdapter extends RecyclerView.Adapter<ViewHolderAboutUs>{
 
 
         Glide.with(context)
-        .load(list.get(position).getImage())
+        .load(list.get(position).getPic())
                 .into(holder.imageViewAboutUs);
 
     }

@@ -1,14 +1,14 @@
 package com.example.adg_vit_final.DataModels;
 
 public class AboutUs {
-    int image;
+    int pic;
     String name, designation;
     String email;
     String github;
     String linkedin;
 
-    public AboutUs(int image,String name,String designation){
-        this.image = image;
+    public AboutUs(int pic, String name, String designation){
+        this.pic = pic;
         this.name = name;
         this.designation = designation;
 
@@ -23,12 +23,12 @@ public AboutUs(){
 }
 
 
-    public int getImage() {
-        return image;
+    public int getPic() {
+        return pic;
     }
 
-    public void setImage(int image) {
-        this.image = image;
+    public void setPic(int pic) {
+        this.pic = pic;
     }
 
     public String getName() {
