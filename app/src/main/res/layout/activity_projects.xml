@@ -38,10 +38,9 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_projects"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:paddingBottom="140dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:flow_horizontalAlign="center"
         android:layout_height="wrap_content"
         tools:listitem="@layout/cardview_projects"
         android:layout_marginLeft="16dp"

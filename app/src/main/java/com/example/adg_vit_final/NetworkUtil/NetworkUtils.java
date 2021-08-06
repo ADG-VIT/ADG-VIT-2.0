@@ -1,6 +1,11 @@
 package com.example.adg_vit_final.NetworkUtil;
 
+import android.text.format.DateFormat;
+
 import com.example.adg_vit_final.NetworkInterface.NetworkAPI;
+
+import java.util.Calendar;
+import java.util.Locale;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -23,6 +28,13 @@ public class NetworkUtils {
             .addConverterFactory(GsonConverterFactory.create())
             .client(getClientInstance())
             .build();
+
+    public static String getDate(long time) {
+        Calendar cal = Calendar.getInstance(Locale.ENGLISH);
+        cal.setTimeInMillis(time * 1000);
+        String date = DateFormat.format("dd-MM-yyyy", cal).toString();
+        return date;
+    }
 
     public static NetworkAPI networkAPI = retrofit.create(NetworkAPI.class);
 

@@ -6,14 +6,23 @@ public class AboutModelNetwork {
     private String Github;
     private String LinkedIn;
     private String pic;
+    private String Designation;
 
+    public String getDesignation() {
+        return Designation;
+    }
 
-    public AboutModelNetwork(String name,String email,String github,String linkedin,String pic){
+    public void setDesignation(String designation) {
+        Designation = designation;
+    }
+
+    public AboutModelNetwork(String name, String email, String github, String linkedin, String pic, String designation){
         this.Name=name;
         this.Email=email;
         this.Github=github;
         this.LinkedIn=linkedin;
         this.pic=pic;
+        this.Designation=designation;
     }
 
 

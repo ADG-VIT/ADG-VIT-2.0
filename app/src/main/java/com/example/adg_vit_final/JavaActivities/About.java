@@ -120,7 +120,6 @@ public class About extends AppCompatActivity {
 
                         }
 
-
                         @Override
                         public void onFailure(Call<List<AboutModelNetwork>> call, Throwable t) {
                             Toast.makeText(About.this, "" + t.getMessage(), Toast.LENGTH_SHORT).show();
@@ -135,27 +134,33 @@ public class About extends AppCompatActivity {
                         @Override
 
                         public void onClick(View v) {
-                            if(v==git) {
+
+
                                 AboutUs aboutus = new AboutUs();
                                 String url = aboutus.getGithub().toString();
                                 CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
                                 CustomTabsIntent customTabsIntent = builder.build();
                                 customTabsIntent.launchUrl(About.this, Uri.parse(url));
-                            }
-                            else if(v== email){
-                                AboutUs aboutus = new AboutUs();
-                                String url = aboutus.getEmail().toString();
-                                CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
-                                CustomTabsIntent customTabsIntent = builder.build();
-                                customTabsIntent.launchUrl(About.this, Uri.parse(url));
-                            }
-                            else if(v==linkedin){
-                                AboutUs aboutus = new AboutUs();
-                                String url = aboutus.getLinkedin().toString();
-                                CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
-                                CustomTabsIntent customTabsIntent = builder.build();
-                                customTabsIntent.launchUrl(About.this, Uri.parse(url));
-                            }
+                        }
+                    });
+                    linkedin.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            AboutUs aboutus = new AboutUs();
+                            String url = aboutus.getEmail().toString();
+                            CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+                            CustomTabsIntent customTabsIntent = builder.build();
+                            customTabsIntent.launchUrl(About.this, Uri.parse(url));
+                        }
+                    });
+                    email.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            AboutUs aboutus = new AboutUs();
+                            String url = aboutus.getLinkedin().toString();
+                            CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+                            CustomTabsIntent customTabsIntent = builder.build();
+                            customTabsIntent.launchUrl(About.this, Uri.parse(url));
                         }
                     });
 

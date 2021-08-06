@@ -2,7 +2,7 @@ package com.example.adg_vit_final.DataModels;
 
 public class ProjectItems {
     String image;
-    String name, shortDescp;
+    String name, shortDescp,id;
 
     public ProjectItems(String image, String name, String shortDescp) {
         this.image = image;
@@ -35,6 +35,12 @@ public class ProjectItems {
     }
 
     public void setShortDescp(String shortDescp) {
-        shortDescp = shortDescp;
+        this.shortDescp = shortDescp;
     }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getId() {return id;}
 }

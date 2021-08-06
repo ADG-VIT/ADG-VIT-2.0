@@ -38,14 +38,14 @@ public class AboutRVAdapter extends RecyclerView.Adapter<ViewHolderAboutUs>{
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull ViewHolderAboutUs holder, int position) {
-        holder.nameAboutUs.setText(list.get(position).getName());
-        holder.desgAboutUs.setText(list.get(position).getDesignation());
-
-
 
         Glide.with(context)
         .load(list.get(position).getPic())
                 .into(holder.imageViewAboutUs);
+        holder.nameAboutUs.setText(list.get(position).getName());
+        holder.desgAboutUs.setText(list.get(position).getDesignation());
+
+
 
     }
 

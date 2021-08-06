@@ -21,8 +21,8 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 public class ProjectsAdapter extends RecyclerView.Adapter<ProjectsAdapter.ProjectViewHolder>{
-    Context context;
-    List<ProjectItems> list;
+    private Context context;
+    private List<ProjectItems> list;
 
     public ProjectsAdapter(List<ProjectItems> list, Context context) {
         this.list = list;
@@ -38,6 +38,7 @@ public class ProjectsAdapter extends RecyclerView.Adapter<ProjectsAdapter.Projec
         return new ProjectViewHolder(view);
     }
 
+
     @Override
     public void onBindViewHolder(@NonNull @NotNull ProjectsAdapter.ProjectViewHolder holder, int position) {
         Glide.with(context).load(list.get(position).getImage()).override(300).into(holder.projectImage);
@@ -45,8 +46,10 @@ public class ProjectsAdapter extends RecyclerView.Adapter<ProjectsAdapter.Projec
         holder.shortDescp.setText(list.get(position).getShortDescp());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                context.startActivity(new Intent(context, ProjectDetailsView.class));
+            public void onClick(View view) {
+                Intent intent = new Intent(holder.itemView.getContext(),ProjectDetailsView.class);
+                intent.putExtra("id", list.get(position).getId());
+                holder.itemView.getContext().startActivity(intent);
             }
         });
     }
