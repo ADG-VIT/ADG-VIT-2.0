@@ -1,6 +1,7 @@
 package com.example.adg_vit_final.NetworkInterface;
 
 import com.example.adg_vit_final.NetworkModels.EventModelNetwork;
+import com.example.adg_vit_final.NetworkModels.SpecificProject;
 import com.example.adg_vit_final.NetworkModels.User;
 import com.example.adg_vit_final.NetworkModels.ProjectModelNetwork;
 import com.google.gson.JsonObject;
@@ -24,6 +25,6 @@ public interface NetworkAPI {
     Call<List<ProjectModelNetwork>> getProjects();
 
     @GET("projects/{id}")
-    Call<JsonObject> getSpecificProject(@Path("id") String id);
+    Call<SpecificProject> getSpecificProject(@Path("id") String id);
 
 }

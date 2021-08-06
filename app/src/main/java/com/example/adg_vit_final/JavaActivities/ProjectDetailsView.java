@@ -53,36 +53,30 @@ public class ProjectDetailsView extends AppCompatActivity {
             }
         });
 
-        Call<JsonObject> call = networkAPI.getSpecificProject(id);
+       Call<SpecificProject> call = networkAPI.getSpecificProject(id);
 
-        call.enqueue(new Callback<JsonObject>() {
+        call.enqueue(new Callback<SpecificProject>() {
             @Override
-            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+            public void onResponse(Call<SpecificProject> call, Response<SpecificProject> response) {
                 if (!response.isSuccessful()){
                     Toast.makeText(ProjectDetailsView.this, "" + response.code(), Toast.LENGTH_SHORT).show();
                     return;
                 }
-                JsonObject jsonObject = response.body();
+                SpecificProject object = response.body();
 //                String imgUrl= jsonObject.get("thumbnail").toString();
 //                String nameP=jsonObject.get("title").toString();
-                String desc = jsonObject.get("description").toString();
-                String featur = jsonObject.get("features").toString();
-                Glide.with(ProjectDetailsView.this).load(jsonObject.get("thumbnail").toString()).into(project_image);
-                name.setText(jsonObject.get("title").toString());
+                String desc = object.getShortDescription();
+                String featur = object.getFeatures();
+                //Glide.with(ProjectDetailsView.this).load(jsonObject.get("thumbnail").toString()).into(project_image);
+                //name.setText(jsonObject.get("title").toString());
                 descp.setText(desc);
                 features.setText(featur);
-
-
-
             }
 
             @Override
-            public void onFailure(Call<JsonObject> call, Throwable t) {
+            public void onFailure(Call<SpecificProject> call, Throwable t) {
                 Toast.makeText(ProjectDetailsView.this, "" + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-
-
-
     }
 }
