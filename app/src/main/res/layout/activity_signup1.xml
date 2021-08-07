@@ -93,6 +93,7 @@
                 android:background="?attr/editTextBackground"
                 android:fontFamily="@font/poppins_light"
                 android:hint="Enter your Full Name"
+                android:inputType="textCapSentences"
                 android:paddingLeft="14dp"
                 android:paddingTop="17dp"
                 android:paddingBottom="17dp"
@@ -141,7 +142,7 @@
                 android:layout_marginStart="21dp"
                 android:layout_marginTop="24dp"
                 android:fontFamily="@font/poppins_bold"
-                android:text="Password:"
+                android:text="Phone Number:"
                 android:textColor="@color/text_color_1"
                 android:textFontWeight="600"
                 android:textSize="16sp"
@@ -149,15 +150,15 @@
                 app:layout_constraintTop_toBottomOf="@+id/signup1_email" />
 
             <EditText
-                android:id="@+id/signup1_password"
+                android:id="@+id/signup1_phNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginRight="16dp"
                 android:background="?attr/editTextBackground"
                 android:fontFamily="@font/poppins_light"
-                android:hint="Minimum 8 Characters"
+                android:hint="Enter your Phone Number"
+                android:inputType="number"
                 android:paddingLeft="14dp"
                 android:paddingTop="17dp"
                 android:paddingBottom="17dp"
@@ -173,23 +174,24 @@
                 android:layout_marginStart="21dp"
                 android:layout_marginTop="24dp"
                 android:fontFamily="@font/poppins_bold"
-                android:text="Confirm Password:"
+                android:text="Password:"
                 android:textColor="@color/text_color_1"
                 android:textFontWeight="600"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/signup1_password" />
+                app:layout_constraintTop_toBottomOf="@+id/signup1_phNumber" />
 
             <EditText
-                android:id="@+id/signup1_confirm_password"
+                android:id="@+id/signup1_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="textPassword"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="16dp"
                 android:background="?attr/editTextBackground"
                 android:fontFamily="@font/poppins_light"
-                android:hint="Re-Enter Password"
+                android:hint="Minimum 8 Characters"
                 android:paddingLeft="14dp"
                 android:paddingTop="17dp"
                 android:paddingBottom="17dp"
@@ -221,7 +223,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/signup1_confirm_password" />
+                app:layout_constraintTop_toBottomOf="@+id/signup1_password" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>

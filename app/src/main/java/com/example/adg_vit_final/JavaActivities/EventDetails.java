@@ -38,12 +38,16 @@ public class EventDetails extends AppCompatActivity {
 
         getSupportActionBar().hide();
 
-        eventId = getIntent().getExtras().getString("event_id");
-        eventImageUrl = getIntent().getExtras().getString("image_url");
-        eventTitle = getIntent().getExtras().getString("title");
-        eventDate = getIntent().getExtras().getInt("date");
-        eventInfo = getIntent().getExtras().getString("info");
+        try{
+            eventId = getIntent().getExtras().getString("event_id");
+            eventImageUrl = getIntent().getExtras().getString("image_url");
+            eventTitle = getIntent().getExtras().getString("title");
+            eventDate = getIntent().getExtras().getInt("date");
+            eventInfo = getIntent().getExtras().getString("info");
+        }
+        catch (Exception e){
 
+        }
 
         img = findViewById(R.id.eventdet_image);
         register = findViewById(R.id.register_btn);

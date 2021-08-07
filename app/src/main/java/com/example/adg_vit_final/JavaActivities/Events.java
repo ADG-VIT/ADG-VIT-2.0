@@ -66,7 +66,7 @@ public class Events extends AppCompatActivity {
                     for (EventModelNetwork event : events){
                         dataList.add(new EventsDataModel(event.get_id(), event.getPosterURL(), event.getName(), event.getDate(), event.getInfo()));
                     }
-                    recyclerView.setAdapter(new EventsAdapter(getApplicationContext(),dataList));
+                    recyclerView.setAdapter(new EventsAdapter(Events.this,dataList));
                     progressDialog.dismiss();
                 }
 
