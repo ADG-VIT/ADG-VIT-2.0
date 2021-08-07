@@ -12,10 +12,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.adg_vit_final.DataModels.ProjectItems;
 import com.example.adg_vit_final.DataModels.EventsRVObject;
 import com.example.adg_vit_final.DataModels.HomeDomainsObject;
+import com.example.adg_vit_final.NetworkModels.HomeModelNetwork;
 import com.example.adg_vit_final.R;
 import com.example.adg_vit_final.RecyclerViewAdapter.DomainsHomeAdapter;
 import com.example.adg_vit_final.RecyclerViewAdapter.EventHomeAdapter;
@@ -24,6 +26,12 @@ import com.example.adg_vit_final.RecyclerViewAdapter.ProjectsAdapterHome;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+import static com.example.adg_vit_final.NetworkUtil.NetworkUtils.networkAPI;
 
 public class Home extends AppCompatActivity {
 
@@ -44,6 +52,26 @@ public class Home extends AppCompatActivity {
 
         getSupportActionBar().hide();
 
+        try {
+            Call<HomeModelNetwork> call = networkAPI.getHomeDetails();
+
+            call.enqueue(new Callback<HomeModelNetwork>() {
+                @Override
+                public void onResponse(Call<HomeModelNetwork> call, Response<HomeModelNetwork> response) {
+                    if (!response.isSuccessful()){
+                        Toast.makeText(Home.this, "" + response.code(), Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<HomeModelNetwork> call, Throwable t) {
+                    Toast.makeText(Home.this, "" + t.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        }catch (Exception e){
+            Toast.makeText(this, "" + e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
         eventsSeeAll = findViewById(R.id.our_events_see_all);
         projectsSeeAll = findViewById(R.id.our_projects_see_all);
         domainsSeeAll = findViewById(R.id.our_domains_see_all);

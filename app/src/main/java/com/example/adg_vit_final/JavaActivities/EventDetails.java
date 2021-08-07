@@ -1,5 +1,6 @@
 package com.example.adg_vit_final.JavaActivities;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -17,6 +18,8 @@ import com.example.adg_vit_final.NetworkModels.EventModelNetwork;
 import com.example.adg_vit_final.R;
 
 import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 import static com.example.adg_vit_final.NetworkUtil.NetworkUtils.getDate;
 import static com.example.adg_vit_final.NetworkUtil.NetworkUtils.networkAPI;
@@ -30,6 +33,7 @@ public class EventDetails extends AppCompatActivity {
     private ImageView img;
     private LinearLayout back;
     private TextView share;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
@@ -38,15 +42,41 @@ public class EventDetails extends AppCompatActivity {
 
         getSupportActionBar().hide();
 
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Loading Event...");
+        progressDialog.show();
+
         try{
             eventId = getIntent().getExtras().getString("event_id");
-            eventImageUrl = getIntent().getExtras().getString("image_url");
-            eventTitle = getIntent().getExtras().getString("title");
-            eventDate = getIntent().getExtras().getInt("date");
-            eventInfo = getIntent().getExtras().getString("info");
+            Call<EventModelNetwork> call = networkAPI.getEvent(eventId);
+
+            call.enqueue(new Callback<EventModelNetwork>() {
+                @Override
+                public void onResponse(Call<EventModelNetwork> call, Response<EventModelNetwork> response) {
+                    if (!response.isSuccessful()){
+                        Toast.makeText(EventDetails.this, "" + response.code(), Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    progressDialog.dismiss();
+                    EventModelNetwork data = response.body();
+
+                    Glide.with(EventDetails.this)
+                            .load(data.getPosterURL())
+                            .into(img);
+                    title.setText(data.getName());
+                    date.setText(getDate(data.getDate()));
+                    desc.setText(data.getInfo());
+
+                }
+
+                @Override
+                public void onFailure(Call<EventModelNetwork> call, Throwable t) {
+                    Toast.makeText(EventDetails.this, "" + t.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
         }
         catch (Exception e){
-
+            Toast.makeText(this, "" + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
 
         img = findViewById(R.id.eventdet_image);
@@ -56,13 +86,6 @@ public class EventDetails extends AppCompatActivity {
         desc = findViewById(R.id.eventdet_details);
         back = findViewById(R.id.eventdet_back);
         share = findViewById(R.id.eventdet_share);
-
-        Glide.with(this)
-                .load(eventImageUrl)
-                .into(img);
-        title.setText(eventTitle);
-        date.setText(getDate(eventDate));
-        desc.setText(eventInfo);
 
 
         share.setOnClickListener(new View.OnClickListener() {

@@ -38,16 +38,12 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.myviewhold
     public void onBindViewHolder(EventsAdapter.myviewholder holder, int position) {
         holder.title.setText(dataList.get(position).getTitle());
         holder.date.setText(getDate(dataList.get(position).getDate()));
-        Glide.with(context).load(dataList.get(position).getImageURL()).into(holder.imageView);
+        Glide.with(context).load(dataList.get(position).getImageURL()).override(300,300).into(holder.imageView);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(holder.itemView.getContext(), EventDetails.class);
                 intent.putExtra("event_id","" + dataList.get(position).getId());
-                intent.putExtra("image_url", dataList.get(position).getImageURL());
-                intent.putExtra("title", dataList.get(position).getTitle());
-                intent.putExtra("date", dataList.get(position).getDate());
-                intent.putExtra("info", dataList.get(position).getInfo());
                 holder.itemView.getContext().startActivity(intent);
             }
         });
