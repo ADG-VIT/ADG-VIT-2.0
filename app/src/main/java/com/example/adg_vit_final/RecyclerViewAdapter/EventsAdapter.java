@@ -55,9 +55,8 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.myviewhold
 
         //Toast.makeText(context, "" + dataList.get(position).getImageURL(), Toast.LENGTH_SHORT).show();
 
-            Glide.with(context).
+            Glide.with(holder.itemView.getContext()).
                     load(dataList.get(position).getImageURL()).
-                    override(357, 369).
                     into(holder.imageView);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
