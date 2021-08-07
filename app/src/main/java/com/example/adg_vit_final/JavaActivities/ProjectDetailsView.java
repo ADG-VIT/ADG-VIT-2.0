@@ -63,12 +63,11 @@ public class ProjectDetailsView extends AppCompatActivity {
                     return;
                 }
                 SpecificProject object = response.body();
-//                String imgUrl= jsonObject.get("thumbnail").toString();
-//                String nameP=jsonObject.get("title").toString();
-                String desc = object.getShortDescription();
+//
+                String desc = object.getDescription();
                 String featur = object.getFeatures();
-                //Glide.with(ProjectDetailsView.this).load(jsonObject.get("thumbnail").toString()).into(project_image);
-                //name.setText(jsonObject.get("title").toString());
+                Glide.with(ProjectDetailsView.this).load(object.getThumbnail()).into(project_image);
+                name.setText(object.getTitle());
                 descp.setText(desc);
                 features.setText(featur);
             }

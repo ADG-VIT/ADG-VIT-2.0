@@ -40,7 +40,7 @@ public class ProjectsAdapter extends RecyclerView.Adapter<ProjectsAdapter.Projec
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull ProjectsAdapter.ProjectViewHolder holder, int position) {
-        Glide.with(context).load(list.get(position).getImage()).override(300).into(holder.projectImage);
+        Glide.with(context).load(list.get(position).getImage()).into(holder.projectImage);
         holder.name.setText(list.get(position).getName());
         holder.shortDescp.setText(list.get(position).getShortDescp());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
