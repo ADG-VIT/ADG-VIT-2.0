@@ -126,7 +126,7 @@ public class About extends AppCompatActivity {
                         }
                     });
 
-                    ImageView git=findViewById(R.id.gitimage);
+                    /*ImageView git=findViewById(R.id.gitimage);
                     ImageView email=findViewById(R.id.mailimage);
                     ImageView linkedin=findViewById(R.id.mailimage);
 
@@ -157,12 +157,12 @@ public class About extends AppCompatActivity {
                         @Override
                         public void onClick(View v) {
                             AboutUs aboutus = new AboutUs();
-                            String url = aboutus.getLinkedin().toString();
+                            String url = aboutus.getLinkedin();
                             CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
                             CustomTabsIntent customTabsIntent = builder.build();
                             customTabsIntent.launchUrl(About.this, Uri.parse(url));
                         }
-                    });
+                    });*/
 
 
                 } else if (tab.getPosition() == 1) {

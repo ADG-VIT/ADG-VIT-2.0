@@ -1,6 +1,7 @@
 package com.example.adg_vit_final.RecyclerViewAdapter;
 
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.browser.customtabs.CustomTabsIntent;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -37,13 +39,28 @@ public class AboutRVAdapter extends RecyclerView.Adapter<ViewHolderAboutUs>{
     }
 
     @Override
-    public void onBindViewHolder(@NonNull @NotNull ViewHolderAboutUs holder, int position) {
+    public void onBindViewHolder(@NonNull @NotNull ViewHolderAboutUs holder,int position) {
 
         Glide.with(context)
         .load(list.get(position).getPic())
                 .into(holder.imageViewAboutUs);
         holder.nameAboutUs.setText(list.get(position).getName());
         holder.desgAboutUs.setText(list.get(position).getDesignation());
+
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CustomTabsIntent.Builder intentBuilder=new CustomTabsIntent.Builder();
+                CustomTabsIntent customTabsIntent=intentBuilder.build();
+                customTabsIntent.launchUrl(context, Uri.parse(list.get(position).getEmail()));
+                customTabsIntent.launchUrl(context,Uri.parse(list.get(position).getLinkedin()));
+                customTabsIntent.launchUrl(context,Uri.parse(list.get(position).getGithub()));
+
+
+            }
+        });
+
 
 
 
@@ -66,5 +83,6 @@ class ViewHolderAboutUs extends RecyclerView.ViewHolder {
         imageViewAboutUs = itemView.findViewById(R.id.image_about);
         nameAboutUs = itemView.findViewById(R.id.about_us_name);
         desgAboutUs = itemView.findViewById(R.id.aboutus_designation);
+
     }
 }
