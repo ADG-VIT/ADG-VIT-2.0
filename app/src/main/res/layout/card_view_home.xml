@@ -36,9 +36,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins"
-                android:textFontWeight="600"
                 android:text="Recruitments"
                 android:textColor="@color/text_color_1"
+                android:textFontWeight="600"
                 android:textSize="16sp" />
 
             <TextView

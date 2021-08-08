@@ -14,10 +14,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.adg_vit_final.DataModels.ProjectItems;
 import com.example.adg_vit_final.DataModels.EventsRVObject;
 import com.example.adg_vit_final.DataModels.HomeDomainsObject;
+import com.example.adg_vit_final.NetworkModels.EventModelNetwork;
+import com.example.adg_vit_final.NetworkModels.Highlight;
 import com.example.adg_vit_final.NetworkModels.HomeModelNetwork;
+import com.example.adg_vit_final.NetworkModels.ProjectModelNetwork;
 import com.example.adg_vit_final.R;
 import com.example.adg_vit_final.RecyclerViewAdapter.DomainsHomeAdapter;
 import com.example.adg_vit_final.RecyclerViewAdapter.EventHomeAdapter;
@@ -26,6 +30,7 @@ import com.example.adg_vit_final.RecyclerViewAdapter.ProjectsAdapterHome;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -35,15 +40,19 @@ import static com.example.adg_vit_final.NetworkUtil.NetworkUtils.networkAPI;
 
 public class Home extends AppCompatActivity {
 
-    RecyclerView recyclerView;
-    RecyclerView recyclerViewHomeProjects;
-    RecyclerView recyclerViewHomeDomains;
-    ArrayList<EventsRVObject> list;
-    ArrayList<ProjectItems> projectItemsArrayList;
-    ArrayList<HomeDomainsObject> homeDomainsObjectArrayList;
-    ImageView settings;
-
-    TextView eventsSeeAll, projectsSeeAll, domainsSeeAll;
+    private RecyclerView recyclerView;
+    private RecyclerView recyclerViewHomeProjects;
+    private RecyclerView recyclerViewHomeDomains;
+    private ArrayList<EventsRVObject> list;
+    private ArrayList<ProjectItems> projectItemsArrayList;
+    private ArrayList<HomeDomainsObject> homeDomainsObjectArrayList;
+    private List<EventModelNetwork> eventHomeList;
+    private List<ProjectModelNetwork> projectHomeList;
+    private List<Highlight> highlight;
+    private ImageView hightlight_image;
+    private ImageView settings;
+    private HomeModelNetwork homeModel;
+    private TextView eventsSeeAll, projectsSeeAll, domainsSeeAll;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +62,25 @@ public class Home extends AppCompatActivity {
         getSupportActionBar().hide();
 
         try {
+            highlight = new ArrayList<>();
+            eventHomeList = new ArrayList<>();
+            projectHomeList =new ArrayList<>();
+
+            eventsSeeAll = findViewById(R.id.our_events_see_all);
+            projectsSeeAll = findViewById(R.id.our_projects_see_all);
+            domainsSeeAll = findViewById(R.id.our_domains_see_all);
+            hightlight_image = findViewById(R.id.highlight_image);
+
+            settings = findViewById(R.id.settings);
+
+            recyclerView = findViewById(R.id.recycler_view_events_home);
+            recyclerViewHomeProjects = findViewById(R.id.recycler_view_events_projects);
+            recyclerViewHomeDomains = findViewById(R.id.recycler_view_events_domains);
+
+            recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+            recyclerViewHomeProjects.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
+            recyclerViewHomeDomains.setLayoutManager(new GridLayoutManager(getApplicationContext(), 2));
+
             Call<HomeModelNetwork> call = networkAPI.getHomeDetails();
 
             call.enqueue(new Callback<HomeModelNetwork>() {
@@ -62,6 +90,16 @@ public class Home extends AppCompatActivity {
                         Toast.makeText(Home.this, "" + response.code(), Toast.LENGTH_SHORT).show();
                         return;
                     }
+                    homeModel = response.body();
+                    assert homeModel != null;
+                    highlight = homeModel.getHighlight();
+                    eventHomeList = homeModel.getEvents();
+                    projectHomeList = homeModel.getProjects();
+
+                    Glide.with(getApplicationContext()).load(highlight.get(0).getImageURL()).into(hightlight_image);
+                    recyclerView.setAdapter(new EventHomeAdapter(getApplicationContext(), eventHomeList));
+                    recyclerViewHomeProjects.setAdapter(new ProjectsAdapterHome(projectHomeList, getApplicationContext()));
+                    //System.out.println("Event Home List : " + eventHomeList.size());
                 }
 
                 @Override
@@ -72,34 +110,20 @@ public class Home extends AppCompatActivity {
         }catch (Exception e){
             Toast.makeText(this, "" + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
-        eventsSeeAll = findViewById(R.id.our_events_see_all);
-        projectsSeeAll = findViewById(R.id.our_projects_see_all);
-        domainsSeeAll = findViewById(R.id.our_domains_see_all);
 
-        settings = findViewById(R.id.settings);
-
-        recyclerView = findViewById(R.id.recycler_view_events_home);
-        recyclerViewHomeProjects = findViewById(R.id.recycler_view_events_projects);
-        recyclerViewHomeDomains = findViewById(R.id.recycler_view_events_domains);
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-        recyclerViewHomeProjects.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
-        recyclerViewHomeDomains.setLayoutManager(new GridLayoutManager(getApplicationContext(), 2));
-
-        list = new ArrayList<>();
-        projectItemsArrayList = new ArrayList<>();
+//        list = new ArrayList<>();
+//        projectItemsArrayList = new ArrayList<>();
         homeDomainsObjectArrayList = new ArrayList<>();
 
-        list.add(new EventsRVObject(R.drawable.home_cardview_drawable, "Recruitments", "12 Jan 2021"));
-        list.add(new EventsRVObject(R.drawable.home_cardview_drawable, "Recruitments", "12 Jan 2021"));
+//        list.add(new EventsRVObject(R.drawable.home_cardview_drawable, "Recruitments", "12 Jan 2021"));
+//        list.add(new EventsRVObject(R.drawable.home_cardview_drawable, "Recruitments", "12 Jan 2021"));
 
-        recyclerView.setAdapter(new EventHomeAdapter(getApplicationContext(), list));
+
 
 //        projectItemsArrayList.add(new ProjectItems(R.drawable.frame212, "ADG Connect App", ""));
 //        projectItemsArrayList.add(new ProjectItems(R.drawable.frame212, "ADG Connect App", ""));
 //        projectItemsArrayList.add(new ProjectItems(R.drawable.frame212, "ADG Connect App", ""));
 
-        recyclerViewHomeProjects.setAdapter(new ProjectsAdapterHome(projectItemsArrayList, getApplicationContext()));
 
         homeDomainsObjectArrayList.add(new HomeDomainsObject(R.drawable.ic_ios, "iOS Domain"));
         homeDomainsObjectArrayList.add(new HomeDomainsObject(R.drawable.ic_android, "Android"));
