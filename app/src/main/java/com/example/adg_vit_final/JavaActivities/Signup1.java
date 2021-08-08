@@ -66,11 +66,6 @@ public class Signup1 extends AppCompatActivity {
                     flag+=1;
                 }
                 if(flag==0) {
-                    System.out.println("Name : " + Name);
-                    System.out.println("Email : " + Email);
-                    System.out.println("PhNumber : " + PhNumber);
-                    System.out.println("Password : " + Password);
-
                     User temp = new User();
                     temp.setName(Name);
                     temp.setEmail(Email);
