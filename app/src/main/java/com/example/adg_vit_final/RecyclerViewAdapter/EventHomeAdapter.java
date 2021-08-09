@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.adg_vit_final.DataModels.EventsRVObject;
+import com.example.adg_vit_final.JavaActivities.EventDetails;
 import com.example.adg_vit_final.NetworkModels.EventModelNetwork;
 import com.example.adg_vit_final.R;
 
@@ -62,8 +63,8 @@ public class EventHomeAdapter extends RecyclerView.Adapter<ViewHolderEvents> {
             public void onClick(View v) {
                 try {
                     Uri uri = Uri.parse(list.get(position).getEventURL()); // missing 'http://' will cause crashed
-                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    Intent intent = new Intent(context, EventDetails.class);
+                    intent.putExtra("event_id",list.get(position).get_id());
                     context.startActivity(intent);
                 }catch (Exception e)
                 {

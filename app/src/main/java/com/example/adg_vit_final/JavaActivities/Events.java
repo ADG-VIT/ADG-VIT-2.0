@@ -17,6 +17,8 @@ import com.example.adg_vit_final.NetworkModels.EventModelNetwork;
 import com.example.adg_vit_final.R;
 import com.example.adg_vit_final.RecyclerViewAdapter.EventsAdapter;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,6 +40,7 @@ public class Events extends AppCompatActivity {
 
         getSupportActionBar().hide();
 
+        try {
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Loading all the Events...");
         progressDialog.show();
@@ -52,21 +55,20 @@ public class Events extends AppCompatActivity {
                 finish();
             }
         });
-
-        Call<List<EventModelNetwork>> call = networkAPI.getEvents("events");
+            Call<List<EventModelNetwork>> call = networkAPI.getEvents("events");
 
             call.enqueue(new Callback<List<EventModelNetwork>>() {
                 @Override
                 public void onResponse(Call<List<EventModelNetwork>> call, Response<List<EventModelNetwork>> response) {
-                    if (!response.isSuccessful()){
+                    if (!response.isSuccessful()) {
                         Toast.makeText(Events.this, "" + response.code(), Toast.LENGTH_SHORT).show();
                     }
                     List<EventModelNetwork> events = response.body();
 
-                    for (EventModelNetwork event : events){
+                    for (EventModelNetwork event : events) {
                         dataList.add(new EventsDataModel(event.get_id(), event.getPosterURL(), event.getName(), event.getDate(), event.getInfo()));
                     }
-                    recyclerView.setAdapter(new EventsAdapter(Events.this,dataList));
+                    recyclerView.setAdapter(new EventsAdapter(Events.this, dataList));
                     progressDialog.dismiss();
                 }
 
@@ -76,6 +78,10 @@ public class Events extends AppCompatActivity {
                     Log.i("TAG", "" + t.getMessage());
                 }
             });
+        }catch (Exception e)
+        {
+            Toast.makeText(getApplicationContext(),"Error : " + e.getLocalizedMessage(),Toast.LENGTH_LONG).show();
+        }
 
 
     }

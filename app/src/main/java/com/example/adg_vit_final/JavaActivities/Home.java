@@ -156,29 +156,49 @@ public class Home extends AppCompatActivity {
         eventsSeeAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), Events.class));
+                try {
+                    startActivity(new Intent(getApplicationContext(), Events.class));
+                }catch (Exception e)
+                {
+                    Toast.makeText(getApplicationContext(),"Error : " + e.getLocalizedMessage(),Toast.LENGTH_LONG).show();
+                }
             }
         });
 
         projectsSeeAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), Projects.class));
-            }
+                try {
+                    startActivity(new Intent(getApplicationContext(), Projects.class));
+                }catch (Exception e)
+                {
+                    Toast.makeText(getApplicationContext(),"Error : " + e.getLocalizedMessage(),Toast.LENGTH_LONG).show();
+                }
+                }
         });
 
         domainsSeeAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), Domains.class));
-            }
+                try {
+                    startActivity(new Intent(getApplicationContext(), Domains.class));
+                }catch (Exception e)
+                {
+                    Toast.makeText(getApplicationContext(),"Error : " + e.getLocalizedMessage(),Toast.LENGTH_LONG).show();
+                }
+                }
         });
 
         settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), Settings.class));
-            }
+                try {
+                    startActivity(new Intent(getApplicationContext(), Settings.class));
+                }catch (Exception e)
+                {
+                    Toast.makeText(getApplicationContext(),"Error : " + e.getLocalizedMessage(),Toast.LENGTH_LONG).show();
+                }
+                }
         });
 
     }

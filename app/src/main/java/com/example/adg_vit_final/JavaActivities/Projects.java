@@ -48,38 +48,42 @@ public class Projects extends AppCompatActivity {
 
         recyclerView_projects.setLayoutManager(new LinearLayoutManager(this));
 
-        Call<List<ProjectModelNetwork>> call = networkAPI.getProjects();
+        try {
+            Call<List<ProjectModelNetwork>> call = networkAPI.getProjects();
 
-        call.enqueue(new Callback<List<ProjectModelNetwork>>() {
-            @Override
-            public void onResponse(Call<List<ProjectModelNetwork>> call, Response<List<ProjectModelNetwork>> response) {
-                if (!response.isSuccessful()){
-                    Toast.makeText(Projects.this, "" + response.code(), Toast.LENGTH_SHORT).show();
-                    return;
+            call.enqueue(new Callback<List<ProjectModelNetwork>>() {
+                @Override
+                public void onResponse(Call<List<ProjectModelNetwork>> call, Response<List<ProjectModelNetwork>> response) {
+                    if (!response.isSuccessful()) {
+                        Toast.makeText(Projects.this, "" + response.code(), Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    List<ProjectModelNetwork> projects = response.body();
+                    for (ProjectModelNetwork project : projects) {
+                        ProjectItems projectItems = new ProjectItems();
+                        projectItems.setImage(project.getThumbnail());
+                        projectItems.setName(project.getTitle());
+                        projectItems.setShortDescp(project.getShortDescription());
+                        projectItems.setId(project.getId());
+                        list.add(projectItems);
+                    }
+                    recyclerView_projects.setAdapter(new ProjectsAdapter(list, Projects.this));
+
                 }
 
-                List<ProjectModelNetwork> projects = response.body();
-                for(ProjectModelNetwork project: projects){
-                    ProjectItems projectItems= new ProjectItems();
-                    projectItems.setImage(project.getThumbnail());
-                    projectItems.setName(project.getTitle());
-                    projectItems.setShortDescp(project.getShortDescription());
-                    projectItems.setId(project.getId());
-                    list.add(projectItems);
+                @Override
+                public void onFailure(Call<List<ProjectModelNetwork>> call, Throwable t) {
+                    Toast.makeText(Projects.this, "" + t.getMessage(), Toast.LENGTH_SHORT).show();
+
+
                 }
-                recyclerView_projects.setAdapter(new ProjectsAdapter(list, Projects.this));
+            });
 
-            }
-
-            @Override
-            public void onFailure(Call<List<ProjectModelNetwork>> call, Throwable t) {
-                Toast.makeText(Projects.this, "" + t.getMessage(), Toast.LENGTH_SHORT).show();
-
-
-            }
-        });
-
-
+        }catch (Exception e)
+        {
+            Toast.makeText(getApplicationContext(),"Error : " + e.getLocalizedMessage(),Toast.LENGTH_LONG).show();
+        }
 
 
     }
