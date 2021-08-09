@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -48,16 +49,26 @@ public class EventHomeAdapter extends RecyclerView.Adapter<ViewHolderEvents> {
         holder.heading.setText(list.get(position).getName());
 
         int date = list.get(position).getDate();
+
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         String convertedDate = sdf.format(new java.util.Date(date*1000));
+
+        System.out.println("Name : " + list.get(position).getName() + " , Date  : " + convertedDate + " , Unix TimeStamp : " + date);
+
         holder.date.setText(convertedDate);
 
         holder.knowMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri uri = Uri.parse(list.get(position).getEventURL()); // missing 'http://' will cause crashed
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                context.startActivity(intent);
+                try {
+                    Uri uri = Uri.parse(list.get(position).getEventURL()); // missing 'http://' will cause crashed
+                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(intent);
+                }catch (Exception e)
+                {
+                    Toast.makeText(context,"Event URL not found",Toast.LENGTH_LONG).show();
+                }
             }
         });
 

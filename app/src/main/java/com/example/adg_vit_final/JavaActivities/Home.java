@@ -97,6 +97,25 @@ public class Home extends AppCompatActivity {
                     projectHomeList = homeModel.getProjects();
 
                     Glide.with(getApplicationContext()).load(highlight.get(0).getImageURL()).into(hightlight_image);
+
+                    hightlight_image.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            if(highlight.get(0).getType().equals("Event"))
+                            {
+                                Intent intent = new Intent(getApplicationContext(),EventDetails.class);
+                                intent.putExtra("event_id",highlight.get(0).get_id());
+                                startActivity(intent);
+                            }
+                            else
+                                {
+                                    Intent intent = new Intent(getApplicationContext(), ProjectDetailsView.class);
+                                    intent.putExtra("id",highlight.get(0).get_id());
+                                    startActivity(intent);
+                                }
+                        }
+                    });
+
                     recyclerView.setAdapter(new EventHomeAdapter(getApplicationContext(), eventHomeList));
                     recyclerViewHomeProjects.setAdapter(new ProjectsAdapterHome(projectHomeList, getApplicationContext()));
                     //System.out.println("Event Home List : " + eventHomeList.size());
