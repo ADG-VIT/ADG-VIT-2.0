@@ -13,9 +13,8 @@
 
         <ImageView
             android:id="@+id/imageView_events_home"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/home_cardview_drawable"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -35,10 +34,9 @@
                 android:id="@+id/heading_events_home"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins"
-                android:textFontWeight="600"
-                android:text="Recruitments"
+                android:fontFamily="@font/poppins_bold"
                 android:textColor="@color/text_color_1"
+                android:textFontWeight="600"
                 android:textSize="16sp" />
 
             <TextView
@@ -46,7 +44,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins"
-                android:text="12 Jan 2021"
                 android:textFontWeight="500"
                 android:textColor="@color/text_color_1"
                 android:textSize="12sp" />

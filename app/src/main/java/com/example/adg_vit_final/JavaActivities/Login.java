@@ -83,9 +83,13 @@ public class Login extends AppCompatActivity {
             @Override
             public void onResponse(@NotNull Call<LoginModelNetwork> call, @NotNull Response<LoginModelNetwork> response) {
                 if (!response.isSuccessful()){
-                    LoginModelNetwork loginresp = response.body();
-                    assert loginresp != null;
-                    Toast.makeText(getApplicationContext(),"Error, code : " + response.code(),Toast.LENGTH_LONG).show();
+                    try {
+                        LoginModelNetwork loginresp = response.body();
+                        Toast.makeText(getApplicationContext(), "Error : " + loginresp.getMessage() + "code : " + response.code(), Toast.LENGTH_LONG).show();
+                    }catch (Exception e)
+                    {
+                        Toast.makeText(getApplicationContext(),"Some error has occured, Try Again",Toast.LENGTH_LONG).show();
+                    }
                     return;
                 }
                 LoginModelNetwork loginresp = response.body();

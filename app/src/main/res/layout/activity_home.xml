@@ -31,9 +31,9 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/image"
+                android:id="@+id/highlight_image"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="221dp"
                 android:layout_marginTop="32dp"
                 android:elevation="10dp"
                 android:src="@drawable/home_rec_image"
@@ -53,7 +53,7 @@
                 android:textSize="18sp"
                 app:layout_constraintEnd_toStartOf="@+id/our_events_see_all"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/image" />
+                app:layout_constraintTop_toBottomOf="@+id/highlight_image" />
 
             <TextView
                 android:id="@+id/our_events_see_all"
@@ -66,7 +66,7 @@
                 android:textColor="@color/button_color"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/image" />
+                app:layout_constraintTop_toBottomOf="@+id/highlight_image" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_view_events_home"

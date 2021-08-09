@@ -54,7 +54,7 @@ public class EventDetails extends AppCompatActivity {
                 @Override
                 public void onResponse(Call<EventModelNetwork> call, Response<EventModelNetwork> response) {
                     if (!response.isSuccessful()){
-                        Toast.makeText(EventDetails.this, "" + response.code(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(EventDetails.this, "Code : " + response.code() + " , Reason : " + response.message(), Toast.LENGTH_SHORT).show();
                         return;
                     }
                     progressDialog.dismiss();
