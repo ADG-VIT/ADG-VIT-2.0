@@ -4,19 +4,20 @@ import java.util.List;
 
 public class EventModelNetwork{
     public List<String> regUsers;
-    public boolean onlyVIT;
+    public Boolean onlyVIT;
     public String _id;
     public String name;
     public String info;
-    public int date;
-    public boolean visibility;
+    public Integer date;
+    public Boolean visibility;
     public String posterURL;
     public String eventURL;
     public String assetsURL;
-    public int duration;
-    public int __v;
+    public Integer duration;
+    public Integer __v;
+    private String message;
 
-    public EventModelNetwork(List<String> regUsers, boolean onlyVIT, String _id, String name, String info, int date, boolean visibility, String posterURL, String eventURL, String assetsURL, int duration, int __v) {
+    public EventModelNetwork(List<String> regUsers, Boolean onlyVIT, String _id, String name, String info, Integer date, Boolean visibility, String posterURL, String eventURL, String assetsURL, Integer duration, Integer __v,String message) {
         this.regUsers = regUsers;
         this.onlyVIT = onlyVIT;
         this._id = _id;
@@ -29,6 +30,7 @@ public class EventModelNetwork{
         this.assetsURL = assetsURL;
         this.duration = duration;
         this.__v = __v;
+        this.message = message;
     }
 
     public List<String> getRegUsers() {
@@ -43,7 +45,7 @@ public class EventModelNetwork{
         return onlyVIT;
     }
 
-    public void setOnlyVIT(boolean onlyVIT) {
+    public void setOnlyVIT(Boolean onlyVIT) {
         this.onlyVIT = onlyVIT;
     }
 
@@ -75,7 +77,7 @@ public class EventModelNetwork{
         return date;
     }
 
-    public void setDate(int date) {
+    public void setDate(Integer date) {
         this.date = date;
     }
 
@@ -83,7 +85,7 @@ public class EventModelNetwork{
         return visibility;
     }
 
-    public void setVisibility(boolean visibility) {
+    public void setVisibility(Boolean visibility) {
         this.visibility = visibility;
     }
 
@@ -115,7 +117,7 @@ public class EventModelNetwork{
         return duration;
     }
 
-    public void setDuration(int duration) {
+    public void setDuration(Integer duration) {
         this.duration = duration;
     }
 
@@ -123,8 +125,16 @@ public class EventModelNetwork{
         return __v;
     }
 
-    public void set__v(int __v) {
+    public void set__v(Integer __v) {
         this.__v = __v;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 }
 

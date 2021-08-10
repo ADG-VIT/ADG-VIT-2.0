@@ -15,13 +15,14 @@ import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface NetworkAPI {
-    @GET("{param}")
-    Call<List<EventModelNetwork>> getEvents(@Path("param") String param);
+    @GET("events")
+    Call<List<EventModelNetwork>> getEvents(@Query("q") int q);
 
     @GET("events/{id}")
-    Call<EventModelNetwork> getEvent(@Path("id") String id);
+    Call<EventModelNetwork> getSpecificEvent(@Path("id") String id);
 
     @POST("users/register")
     Call<User> registerUser(@Body User user);
@@ -30,7 +31,7 @@ public interface NetworkAPI {
     Call<LoginModelNetwork> loginUser(@Body LoginModelNetwork login);
 
     @GET("projects")
-    Call<List<ProjectModelNetwork>> getProjects();
+    Call<List<ProjectModelNetwork>> getProjects(@Query("q") int q);
 
     @GET("projects/{id}")
     Call<SpecificProject> getSpecificProject(@Path("id") String id);

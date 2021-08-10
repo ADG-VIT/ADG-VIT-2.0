@@ -49,7 +49,7 @@ public class Projects extends AppCompatActivity {
         recyclerView_projects.setLayoutManager(new LinearLayoutManager(this));
 
         try {
-            Call<List<ProjectModelNetwork>> call = networkAPI.getProjects();
+            Call<List<ProjectModelNetwork>> call = networkAPI.getProjects(0);
 
             call.enqueue(new Callback<List<ProjectModelNetwork>>() {
                 @Override
