@@ -55,7 +55,7 @@ public class Events extends AppCompatActivity {
                 finish();
             }
         });
-            Call<List<EventModelNetwork>> call = networkAPI.getEvents("events");
+            Call<List<EventModelNetwork>> call = networkAPI.getEvents(0);
 
             call.enqueue(new Callback<List<EventModelNetwork>>() {
                 @Override

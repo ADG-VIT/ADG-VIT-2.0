@@ -26,6 +26,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
+
 public class EventHomeAdapter extends RecyclerView.Adapter<ViewHolderEvents> {
     @NonNull
     @NotNull
@@ -62,13 +64,13 @@ public class EventHomeAdapter extends RecyclerView.Adapter<ViewHolderEvents> {
             @Override
             public void onClick(View v) {
                 try {
-                    Uri uri = Uri.parse(list.get(position).getEventURL()); // missing 'http://' will cause crashed
                     Intent intent = new Intent(context, EventDetails.class);
+                    intent.setFlags(FLAG_ACTIVITY_NEW_TASK);
                     intent.putExtra("event_id",list.get(position).get_id());
                     context.startActivity(intent);
                 }catch (Exception e)
                 {
-                    Toast.makeText(context,"Event URL not found",Toast.LENGTH_LONG).show();
+                    Toast.makeText(context,"Event URL not found" + e.getLocalizedMessage(),Toast.LENGTH_LONG).show();
                 }
             }
         });
