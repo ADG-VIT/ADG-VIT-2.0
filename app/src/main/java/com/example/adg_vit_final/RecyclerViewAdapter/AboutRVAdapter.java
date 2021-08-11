@@ -75,7 +75,7 @@ public class AboutRVAdapter extends RecyclerView.Adapter<ViewHolderAboutUs>{
                 Intent intent = new Intent (Intent.ACTION_VIEW , Uri.parse("mailto:" + Url));
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra(Intent.EXTRA_SUBJECT, "text/plain");
-                context.startActivity(intent);git
+                context.startActivity(intent);
             }
         });
     }
