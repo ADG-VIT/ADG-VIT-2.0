@@ -1,6 +1,7 @@
 package com.example.adg_vit_final.NetworkInterface;
 
 import com.example.adg_vit_final.JavaActivities.About;
+import com.example.adg_vit_final.NetworkModels.AboutModelNetwork;
 import com.example.adg_vit_final.NetworkModels.EventModelNetwork;
 import com.example.adg_vit_final.NetworkModels.HomeModelNetwork;
 import com.example.adg_vit_final.NetworkModels.LoginModelNetwork;
@@ -41,5 +42,5 @@ public interface NetworkAPI {
     Call<HomeModelNetwork> getHomeDetails();
 
     @GET("board")
-    Call<List<AboutModelNetwork>> getAbout();
+    Call<List<AboutModelNetwork>> getBoard();
 }

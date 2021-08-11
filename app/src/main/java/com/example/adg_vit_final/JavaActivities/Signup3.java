@@ -66,7 +66,7 @@ public class Signup3 extends AppCompatActivity {
                 {
                     User responseUser = response.body();
                     assert responseUser != null;
-                    String message = responseUser.getMessage() + responseUser.getError().getMessage();
+                    String message = responseUser.getMessage() + responseUser.getMessage();
                     Toast.makeText(getApplicationContext(),"Code : " + response.code() + " , Error : " + message,Toast.LENGTH_LONG).show();
                     return;
                 }

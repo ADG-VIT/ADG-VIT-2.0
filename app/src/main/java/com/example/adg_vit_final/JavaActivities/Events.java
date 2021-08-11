@@ -61,7 +61,7 @@ public class Events extends AppCompatActivity {
                 @Override
                 public void onResponse(Call<List<EventModelNetwork>> call, Response<List<EventModelNetwork>> response) {
                     if (!response.isSuccessful()) {
-                        Toast.makeText(Events.this, "" + response.code(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Events.this, "Code : " + response.code() + " , Error : " + response.message(), Toast.LENGTH_SHORT).show();
                     }
                     List<EventModelNetwork> events = response.body();
 
