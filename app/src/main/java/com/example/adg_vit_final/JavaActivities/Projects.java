@@ -55,7 +55,7 @@ public class Projects extends AppCompatActivity {
                 @Override
                 public void onResponse(Call<List<ProjectModelNetwork>> call, Response<List<ProjectModelNetwork>> response) {
                     if (!response.isSuccessful()) {
-                        Toast.makeText(Projects.this, "" + response.code(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Projects.this, "Code : " + response.code() + "Error : " + response.message(), Toast.LENGTH_SHORT).show();
                         return;
                     }
 

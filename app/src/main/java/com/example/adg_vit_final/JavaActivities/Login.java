@@ -85,10 +85,12 @@ public class Login extends AppCompatActivity {
                 if (!response.isSuccessful()){
                     try {
                         LoginModelNetwork loginresp = response.body();
+                        //assert loginresp != null;
                         Toast.makeText(getApplicationContext(), "Error : " + loginresp.getMessage() + "code : " + response.code(), Toast.LENGTH_LONG).show();
                     }catch (Exception e)
                     {
                         Toast.makeText(getApplicationContext(),"Some error has occured, Try Again",Toast.LENGTH_LONG).show();
+                        System.out.println(e.getLocalizedMessage());
                     }
                     return;
                 }
