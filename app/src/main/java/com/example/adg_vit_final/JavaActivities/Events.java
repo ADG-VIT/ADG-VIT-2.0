@@ -40,7 +40,6 @@ public class Events extends AppCompatActivity {
 
         getSupportActionBar().hide();
 
-        try {
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Loading all the Events...");
         progressDialog.show();
@@ -78,10 +77,6 @@ public class Events extends AppCompatActivity {
                     Log.i("TAG", "" + t.getMessage());
                 }
             });
-        }catch (Exception e)
-        {
-            Toast.makeText(getApplicationContext(),"Error : " + e.getLocalizedMessage(),Toast.LENGTH_LONG).show();
-        }
 
 
     }

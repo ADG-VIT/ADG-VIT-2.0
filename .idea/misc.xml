@@ -1,28 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-<<<<<<< HEAD
-<<<<<<< HEAD
-  <component name="DesignSurface">
-    <option name="filePathToZoomLevelMap">
-      <map>
-        <entry key="app/src/main/res/layout/activity_home.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/card_view_home.xml" value="0.17828947368421053" />
-      </map>
-    </option>
-  </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="false" project-jdk-name="Android API 30 Platform" project-jdk-type="Android SDK">
-=======
-=======
-  <component name="DesignSurface">
-    <option name="filePathToZoomLevelMap">
-      <map>
-        <entry key="app/src/main/res/layout/cardview_projects.xml" value="0.14895833333333333" />
-      </map>
-    </option>
-  </component>
->>>>>>> 08f46493792881e23d3e3523daf1cd202bac83ca
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
->>>>>>> e611da5f077e5bf98d6e5a8f0f89ddf82634be1b
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
