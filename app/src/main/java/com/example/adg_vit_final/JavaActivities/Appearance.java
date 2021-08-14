@@ -2,20 +2,15 @@ package com.example.adg_vit_final.JavaActivities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.appcompat.widget.ThemeUtils;
 
 import android.content.SharedPreferences;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Toast;
 
 import com.example.adg_vit_final.R;
-
-import okhttp3.internal.Util;
 
 public class Appearance extends AppCompatActivity {
 
@@ -36,7 +31,7 @@ public class Appearance extends AppCompatActivity {
         radioButtonSysDef = findViewById(R.id.rb_sys_def);
         radioButtonLight = findViewById(R.id.rb_light_mode);
         radioButtonDark = findViewById(R.id.rb_dark_mode);
-        back = findViewById(R.id.appearance_back);
+        back = findViewById(R.id.noti_back);
 
         String themeChosen = getSharedPreferences("Appearance_shared_pref", MODE_PRIVATE)
                 .getString("theme", "sys_def");

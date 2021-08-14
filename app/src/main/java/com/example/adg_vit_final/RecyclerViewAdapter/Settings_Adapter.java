@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.adg_vit_final.DataModels.SettingsItems;
 import com.example.adg_vit_final.JavaActivities.About;
 import com.example.adg_vit_final.JavaActivities.Appearance;
+import com.example.adg_vit_final.JavaActivities.Notofication;
 import com.example.adg_vit_final.R;
 
 import org.jetbrains.annotations.NotNull;
@@ -51,6 +52,9 @@ public class Settings_Adapter extends RecyclerView.Adapter<Settings_Adapter.Sett
                 }
                 else if(list.get(position).getText().equals("About Us")){
                     context.startActivity(new Intent(context, About.class));
+                }
+                else if(list.get(position).getText().equals("Notifications")){
+                    context.startActivity(new Intent(context, Notofication.class));
                 }
             }
         });
