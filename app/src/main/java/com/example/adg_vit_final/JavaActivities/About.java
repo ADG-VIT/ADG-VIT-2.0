@@ -11,22 +11,29 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.adg_vit_final.DataModels.AboutUs;
+import com.example.adg_vit_final.NetworkModels.AboutModelNetwork;
 import com.example.adg_vit_final.R;
 import com.example.adg_vit_final.RecyclerViewAdapter.AboutRVAdapter;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+import static com.example.adg_vit_final.NetworkUtil.NetworkUtils.networkAPI;
 public class About extends AppCompatActivity {
 
-    TextView tagline;
+    private TextView tagline;
 
-    TabLayout tabLayout;
-    TabItem tabItemBoard, tabItemDevelopers;
-    RecyclerView recyclerView;
-    ArrayList<AboutUs> listBoard, listDevs;
-    ImageView back;
+    private TabLayout tabLayout;
+    private TabItem tabItemBoard, tabItemDevelopers;
+    private RecyclerView recyclerView;
+    private List<AboutModelNetwork> listBoard, listDevs;
+    private ImageView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,23 +64,48 @@ public class About extends AppCompatActivity {
         listBoard = new ArrayList<>();
         listDevs = new ArrayList<>();
 
-        listBoard = new ArrayList<>();
-        listBoard.add(new AboutUs(R.drawable.board_member_utkarsh_dixit, "Utkarsh Dixit",
-                "Executive Head"));
-        listBoard.add(new AboutUs(R.drawable.board_member_utkarsh_dixit, "Utkarsh Dixit",
-                "Executive Head"));
-        listBoard.add(new AboutUs(R.drawable.board_member_utkarsh_dixit, "Utkarsh Dixit",
-                "Executive Head"));
+        Call<List<AboutModelNetwork>> call = networkAPI.getBoard();
 
-        listDevs = new ArrayList<>();
-        listDevs.add(new AboutUs(R.drawable.developers_raehat, "Raehat Singh Nanda",
-                "Android Domain"));
-        listDevs.add(new AboutUs(R.drawable.developers_raehat, "Raehat Singh Nanda",
-                "Android Domain"));
-        listDevs.add(new AboutUs(R.drawable.developers_raehat, "Raehat Singh Nanda",
-                "Android Domain"));
+        try
+        {
+            call.enqueue(new Callback<List<AboutModelNetwork>>() {
+                @Override
+                public void onResponse(Call<List<AboutModelNetwork>> call, Response<List<AboutModelNetwork>> response) {
+                    if(!response.isSuccessful()){
+                        Toast.makeText(About.this, "Code : " + response.code() + " , Error : " + response.message(), Toast.LENGTH_SHORT).show();
 
-        recyclerView.setAdapter(new AboutRVAdapter(getApplicationContext(), listBoard));
+                    }
+                    listBoard = response.body();
+                    recyclerView.setAdapter(new AboutRVAdapter(getApplicationContext(), listBoard));
+                }
+
+                @Override
+                public void onFailure(Call<List<AboutModelNetwork>> call, Throwable t) {
+
+                }
+            });
+        }catch (Exception e)
+        {
+
+        }
+
+        //listBoard = new ArrayList<>();
+//        listBoard.add(new AboutUs(R.drawable.board_member_utkarsh_dixit, "Utkarsh Dixit",
+//                "Executive Head"));
+//        listBoard.add(new AboutUs(R.drawable.board_member_utkarsh_dixit, "Utkarsh Dixit",
+//                "Executive Head"));
+//        listBoard.add(new AboutUs(R.drawable.board_member_utkarsh_dixit, "Utkarsh Dixit",
+//                "Executive Head"));
+
+        //listDevs = new ArrayList<>();
+//        listDevs.add(new AboutUs(R.drawable.developers_raehat, "Raehat Singh Nanda",
+//                "Android Domain"));
+//        listDevs.add(new AboutUs(R.drawable.developers_raehat, "Raehat Singh Nanda",
+//                "Android Domain"));
+//        listDevs.add(new AboutUs(R.drawable.developers_raehat, "Raehat Singh Nanda",
+//                "Android Domain"));
+
+
 
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override

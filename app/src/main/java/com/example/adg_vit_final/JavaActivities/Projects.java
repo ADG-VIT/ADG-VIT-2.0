@@ -49,13 +49,13 @@ public class Projects extends AppCompatActivity {
         recyclerView_projects.setLayoutManager(new LinearLayoutManager(this));
 
         try {
-            Call<List<ProjectModelNetwork>> call = networkAPI.getProjects();
+            Call<List<ProjectModelNetwork>> call = networkAPI.getProjects(0);
 
             call.enqueue(new Callback<List<ProjectModelNetwork>>() {
                 @Override
                 public void onResponse(Call<List<ProjectModelNetwork>> call, Response<List<ProjectModelNetwork>> response) {
                     if (!response.isSuccessful()) {
-                        Toast.makeText(Projects.this, "" + response.code(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Projects.this, "Code : " + response.code() + "Error : " + response.message(), Toast.LENGTH_SHORT).show();
                         return;
                     }
 

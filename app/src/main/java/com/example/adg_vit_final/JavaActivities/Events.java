@@ -54,13 +54,13 @@ public class Events extends AppCompatActivity {
                 finish();
             }
         });
-            Call<List<EventModelNetwork>> call = networkAPI.getEvents("events");
+            Call<List<EventModelNetwork>> call = networkAPI.getEvents(0);
 
             call.enqueue(new Callback<List<EventModelNetwork>>() {
                 @Override
                 public void onResponse(Call<List<EventModelNetwork>> call, Response<List<EventModelNetwork>> response) {
                     if (!response.isSuccessful()) {
-                        Toast.makeText(Events.this, "" + response.code(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Events.this, "Code : " + response.code() + " , Error : " + response.message(), Toast.LENGTH_SHORT).show();
                     }
                     List<EventModelNetwork> events = response.body();
 

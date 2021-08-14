@@ -65,7 +65,9 @@ public class Signup4 extends AppCompatActivity {
             public void onResponse(@NotNull Call<User> call, @NotNull Response<User> response) {
                 if(!response.isSuccessful())
                 {
-                    Toast.makeText(getApplicationContext(),"Code : " + response.code() + " , Error : " + response.message(),Toast.LENGTH_LONG).show();
+                    User responseUser = response.body();
+                    assert responseUser != null;
+                    Toast.makeText(getApplicationContext(),"Code : " + response.code() + " , Error : " + responseUser.getMessage(),Toast.LENGTH_LONG).show();
                     return;
                 }
                 User responseUser = response.body();

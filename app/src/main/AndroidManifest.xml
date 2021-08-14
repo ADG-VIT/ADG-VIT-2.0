@@ -14,7 +14,9 @@
         android:theme="@style/Theme.ADGVITFINAL">
         <activity android:name=".JavaActivities.About">
         </activity>
-        <activity android:name=".JavaActivities.Home"/>
+        <activity android:name=".JavaActivities.Home">
+
+        </activity>
         <activity android:name=".JavaActivities.ProjectDetailsView">
 
         </activity>

@@ -48,7 +48,7 @@ public class EventDetails extends AppCompatActivity {
 
         try{
             eventId = getIntent().getExtras().getString("event_id");
-            Call<EventModelNetwork> call = networkAPI.getEvent(eventId);
+            Call<EventModelNetwork> call = networkAPI.getSpecificEvent(eventId);
 
             call.enqueue(new Callback<EventModelNetwork>() {
                 @Override
