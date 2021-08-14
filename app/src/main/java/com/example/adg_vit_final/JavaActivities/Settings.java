@@ -38,6 +38,9 @@ public class Settings extends AppCompatActivity {
         lst1 = new ArrayList<SettingsItems>();
         lst2 = new ArrayList<SettingsItems>();
         lst3 = new ArrayList<SettingsItems>();
+        recy1.setNestedScrollingEnabled(false);
+        recy2.setNestedScrollingEnabled(false);
+        recy3.setNestedScrollingEnabled(false);
 
         recy1.setLayoutManager(new LinearLayoutManager(this));
         recy2.setLayoutManager(new LinearLayoutManager(this));

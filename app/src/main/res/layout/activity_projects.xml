@@ -40,6 +40,8 @@
         android:id="@+id/recyclerview_projects"
         android:layout_width="wrap_content"
         android:paddingBottom="140dp"
+        android:overScrollMode="never"
+        android:scrollbars="none"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_height="wrap_content"
         tools:listitem="@layout/cardview_projects"
