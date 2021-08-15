@@ -44,8 +44,9 @@
             <TextView
                 android:id="@+id/our_events_text_view"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="41dp"
                 android:layout_marginLeft="16dp"
+                android:layout_marginTop="25dp"
                 android:layout_marginRight="170dp"
                 android:fontFamily="@font/poppins_semibold"
                 android:text="Our Events"
@@ -58,7 +59,8 @@
             <TextView
                 android:id="@+id/our_events_see_all"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="41dp"
+                android:layout_marginTop="25dp"
                 android:layout_marginRight="16dp"
                 android:fontFamily="@font/poppins_semibold"
                 android:gravity="center_horizontal"
@@ -128,7 +130,7 @@
             <TextView
                 android:id="@+id/our_domains"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="41dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="25dp"
                 android:layout_marginEnd="150dp"
@@ -144,7 +146,7 @@
             <TextView
                 android:id="@+id/our_domains_see_all"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="41dp"
                 android:layout_marginTop="25dp"
                 android:layout_marginEnd="16dp"
                 android:fontFamily="@font/poppins_semibold"
