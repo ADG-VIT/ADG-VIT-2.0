@@ -2,47 +2,34 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.adg_vit_final">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ADGVITFINAL">
-        <activity android:name=".JavaActivities.About">
-        </activity>
-        <activity android:name=".JavaActivities.Home">
-
-        </activity>
-        <activity android:name=".JavaActivities.ProjectDetailsView">
-
-        </activity>
-        <activity android:name=".JavaActivities.Settings">
-
-
-        </activity>
-        <activity android:name=".JavaActivities.Appearance">
-
-        </activity>
-        <activity android:name=".JavaActivities.Projects">
-
-        </activity>
-        <activity android:name=".JavaActivities.Domains">
-
-        </activity>
+        android:theme="@style/Theme.ADGVITFINAL"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".JavaActivities.Notofication"
+            android:exported="true" />
+        <activity android:name=".JavaActivities.About"></activity>
+        <activity android:name=".JavaActivities.Home"></activity>
+        <activity android:name=".JavaActivities.ProjectDetailsView"></activity>
+        <activity android:name=".JavaActivities.Settings"></activity>
+        <activity android:name=".JavaActivities.Appearance"></activity>
+        <activity android:name=".JavaActivities.Projects"></activity>
+        <activity android:name=".JavaActivities.Domains"></activity>
         <activity android:name=".JavaActivities.Login" />
-        <activity android:name=".JavaActivities.Events">
-        </activity>
-        <activity android:name=".JavaActivities.EventDetails">
-
-        </activity>
+        <activity android:name=".JavaActivities.Events"></activity>
+        <activity android:name=".JavaActivities.EventDetails"></activity>
         <activity android:name=".JavaActivities.SignUpTwo" />
         <activity android:name=".JavaActivities.FirstBoarding">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -27,6 +28,8 @@ public class ProjectDetailsView extends AppCompatActivity {
     private LinearLayout back;
     private TextView share;
     private TextView name;
+    private Button tryNow;
+    private SpecificProject object;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +38,7 @@ public class ProjectDetailsView extends AppCompatActivity {
         getSupportActionBar().hide();
         Intent i = getIntent();
         id = i.getStringExtra("id");
+        tryNow = findViewById(R.id.tryNow);
         back = findViewById(R.id.projectdet_back);
         share=findViewById(R.id.projectdet_share);
         project_image = findViewById(R.id.project_image);
@@ -62,7 +66,7 @@ public class ProjectDetailsView extends AppCompatActivity {
                     Toast.makeText(ProjectDetailsView.this, "" + response.code(), Toast.LENGTH_SHORT).show();
                     return;
                 }
-                SpecificProject object = response.body();
+                object = response.body();
 //
                 String desc = object.getDescription();
                 String featur = object.getFeatures();
@@ -77,5 +81,12 @@ public class ProjectDetailsView extends AppCompatActivity {
                 Toast.makeText(ProjectDetailsView.this, "" + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+        tryNow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                
+            }
+        });
+
     }
 }
