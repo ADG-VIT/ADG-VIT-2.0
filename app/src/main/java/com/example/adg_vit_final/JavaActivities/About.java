@@ -14,6 +14,7 @@ import com.example.adg_vit_final.DataModels.AboutUs;
 import com.example.adg_vit_final.NetworkModels.AboutModelNetwork;
 import com.example.adg_vit_final.R;
 import com.example.adg_vit_final.RecyclerViewAdapter.AboutRVAdapter;
+import com.example.adg_vit_final.RecyclerViewAdapter.AboutRVAdapterDevs;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 
@@ -32,8 +33,9 @@ public class About extends AppCompatActivity {
     private TabLayout tabLayout;
     private TabItem tabItemBoard, tabItemDevelopers;
     private RecyclerView recyclerView;
-    private List<AboutModelNetwork> listBoard, listDevs;
+    private List<AboutModelNetwork> listBoard;
     private ImageView back;
+    private List<AboutUs> listDevelopers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +64,7 @@ public class About extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         listBoard = new ArrayList<>();
-        listDevs = new ArrayList<>();
+        listDevelopers = new ArrayList<>();
 
         Call<List<AboutModelNetwork>> call = networkAPI.getBoard();
 
@@ -89,22 +91,9 @@ public class About extends AppCompatActivity {
 
         }
 
-        //listBoard = new ArrayList<>();
-//        listBoard.add(new AboutUs(R.drawable.board_member_utkarsh_dixit, "Utkarsh Dixit",
-//                "Executive Head"));
-//        listBoard.add(new AboutUs(R.drawable.board_member_utkarsh_dixit, "Utkarsh Dixit",
-//                "Executive Head"));
-//        listBoard.add(new AboutUs(R.drawable.board_member_utkarsh_dixit, "Utkarsh Dixit",
-//                "Executive Head"));
-
-        //listDevs = new ArrayList<>();
-//        listDevs.add(new AboutUs(R.drawable.developers_raehat, "Raehat Singh Nanda",
-//                "Android Domain"));
-//        listDevs.add(new AboutUs(R.drawable.developers_raehat, "Raehat Singh Nanda",
-//                "Android Domain"));
-//        listDevs.add(new AboutUs(R.drawable.developers_raehat, "Raehat Singh Nanda",
-//                "Android Domain"));
-
+        listDevelopers.add((new AboutUs("Raehat Singh Nanda", "raehatsingh.nanda2020@vitstudent.ac.in", "http://github.com/raehat", "https://www.linkedin.com/in/raehat-singh-nanda-b29085201/", R.drawable.developers_raehat, "Android Developer")));
+        listDevelopers.add((new AboutUs("Jatin Dhall", "jatin.dhall7385@gmail.com", "https://github.com/Jatin7385", "https://www.linkedin.com/in/jatin-dhall-3947a6123/", R.drawable.jatun, "Android Developer")));
+        listDevelopers.add((new AboutUs("Haneet Arya", "haneetarya16@gmail.com", "https://github.com/Haneet-Arya", "https://www.linkedin.com/in/haneet-arya-067b72141", R.drawable.haneet1, "Android Developer")));
 
 
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -116,7 +105,7 @@ public class About extends AppCompatActivity {
                 }
                 else if (tab.getPosition()==1){
                     // have to show developers of this app
-                    recyclerView.setAdapter(new AboutRVAdapter(getApplicationContext(), listDevs));
+                    recyclerView.setAdapter(new AboutRVAdapterDevs(getApplicationContext(), listDevelopers));
                 }
             }
 

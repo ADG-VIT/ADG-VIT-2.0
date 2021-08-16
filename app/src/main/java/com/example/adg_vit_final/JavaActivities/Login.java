@@ -2,6 +2,7 @@ package com.example.adg_vit_final.JavaActivities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -36,6 +37,8 @@ public class Login extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor myEdit;
 
+    ProgressDialog progressDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +47,8 @@ public class Login extends AppCompatActivity {
 
         sharedPreferences = getSharedPreferences("MySharedPreference",MODE_PRIVATE);
         myEdit = sharedPreferences.edit();
+
+        progressDialog = new ProgressDialog(this);
 
 
         intent = getIntent();
@@ -64,6 +69,7 @@ public class Login extends AppCompatActivity {
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressDialog.show();
                 Email = email.getText().toString();
                 Password = password.getText().toString();
                 login = new LoginModelNetwork();
@@ -87,10 +93,12 @@ public class Login extends AppCompatActivity {
                         LoginModelNetwork loginresp = response.body();
                         //assert loginresp != null;
                         Toast.makeText(getApplicationContext(), "Error : " + loginresp.getMessage() + "code : " + response.code(), Toast.LENGTH_LONG).show();
+                        progressDialog.dismiss();
                     }catch (Exception e)
                     {
                         Toast.makeText(getApplicationContext(),"Some error has occured, Try Again",Toast.LENGTH_LONG).show();
                         System.out.println(e.getLocalizedMessage());
+                        progressDialog.dismiss();
                     }
                     return;
                 }
@@ -102,6 +110,7 @@ public class Login extends AppCompatActivity {
                 myEdit.commit();
                 Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
                 Intent intent1 = new Intent(getApplicationContext(),Home.class);
+                progressDialog.dismiss();
                 startActivity(intent1);
             }
 
@@ -109,6 +118,7 @@ public class Login extends AppCompatActivity {
             public void onFailure(Call<LoginModelNetwork> call, Throwable t) {
                 Toast.makeText(getApplicationContext(), "Error: " + t.getMessage(), Toast.LENGTH_LONG).show();
                 Log.i("TAG", "" + t.getMessage());
+                progressDialog.dismiss();
             }
         });
     }
