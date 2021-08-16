@@ -2,6 +2,7 @@ package com.example.adg_vit_final.RecyclerViewAdapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,9 +57,36 @@ public class Settings_Adapter extends RecyclerView.Adapter<Settings_Adapter.Sett
                 else if(list.get(position).getText().equals("Notifications")){
                     context.startActivity(new Intent(context, Notofication.class));
                 }
+                else if(list.get(position).getText().equals("Our Instagram"))
+                {
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.setData(Uri.parse("https://www.instagram.com/adgvit/"));
+                    context.startActivity(intent);
+                }
+                else if(list.get(position).getText().equals("Our Twitter"))
+                {
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.setData(Uri.parse("https://twitter.com/ADGVIT"));
+                    context.startActivity(intent);
+                }
+                else if(list.get(position).getText().equals("Our Facebook"))
+                {
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.setData(Uri.parse("https://www.facebook.com/vitios"));
+                    context.startActivity(intent);
+                }
+                else if(list.get(position).getText().equals("Our LinkedIn"))
+                {
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.setData(Uri.parse("https://www.linkedin.com/company/adgvit/mycompany/"));
+                    context.startActivity(intent);
+                }
             }
         });
-
     }
 
     @Override

@@ -8,12 +8,12 @@
     tools:context=".JavaActivities.FirstBoarding">
 
     <ImageView
-        android:id="@+id/cross"
+        android:id="@+id/first_cross"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
         android:layout_marginEnd="18dp"
-        android:src="@drawable/ic_coolicon"
+        app:srcCompat="@drawable/ic_coolicon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

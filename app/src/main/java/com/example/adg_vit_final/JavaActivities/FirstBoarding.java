@@ -1,10 +1,14 @@
 package com.example.adg_vit_final.JavaActivities;
 
+import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,7 +20,9 @@ import com.example.adg_vit_final.R;
 public class FirstBoarding extends AppCompatActivity {
     TextView about;
     Button loginBtn, createAccountBtn;
+    ImageView cross;
 
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +38,7 @@ public class FirstBoarding extends AppCompatActivity {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
 
         about= findViewById(R.id.about);
+        cross = findViewById(R.id.first_cross);
         loginBtn = findViewById(R.id.login_btn);
         createAccountBtn = findViewById(R.id.create_acct_btn);
         about.setText("Lorem ipsum dolor sit amet. 33 deleniti sint a quisquam velit sed porro voluptatum aut possimus enim nam minima aspernatur et ");
@@ -48,6 +55,22 @@ public class FirstBoarding extends AppCompatActivity {
             }
         });
 
+        cross.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                new AlertDialog.Builder(FirstBoarding.this)
+                        .setTitle("Do you want to close ADG-VIT?")
+                        .setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                System.exit(0);
+                            }
+                        })
+                        .setNegativeButton("NO", null)
+                        .show();
+            }
+        });
 
     }
 }
