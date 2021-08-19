@@ -1,6 +1,5 @@
 package com.example.adg_vit_final.NetworkInterface;
 
-import com.example.adg_vit_final.JavaActivities.About;
 import com.example.adg_vit_final.NetworkModels.AboutModelNetwork;
 import com.example.adg_vit_final.NetworkModels.EventModelNetwork;
 import com.example.adg_vit_final.NetworkModels.HomeModelNetwork;
@@ -15,6 +14,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
@@ -43,4 +43,7 @@ public interface NetworkAPI {
 
     @GET("board")
     Call<List<AboutModelNetwork>> getBoard();
+
+    @GET("users")
+    Call<User> getUserInfo(@Header("auth-token") String token);
 }

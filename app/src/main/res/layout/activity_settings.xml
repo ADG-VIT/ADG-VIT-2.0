@@ -11,7 +11,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="?attr/backgroundColor"
         tools:context=".JavaActivities.Settings">
 
@@ -25,7 +25,7 @@
             android:paddingTop="5dp"
             android:paddingRight="5dp"
             android:paddingBottom="5dp"
-            android:src="@drawable/ic_chevron_left"
+            app:srcCompat="@drawable/ic_chevron_left"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -54,11 +54,49 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/settings_header">
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="60dp"
+                android:elevation="3dp"
+                tools:text="Haneet Arya"
+                android:id="@+id/userName"
+                android:textSize="20sp"
+                android:fontFamily="@font/poppins"
+                android:textFontWeight="600"
+                android:textColor="#fff"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="88dp"
+                android:elevation="3dp"
+                android:id="@+id/userClg"
+                tools:text="VIT Vellore"
+                android:textSize="15sp"
+                android:fontFamily="@font/poppins"
+                android:textFontWeight="500"
+                android:textColor="#fff"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/rect"
+                android:elevation="0dp"/>
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/profile" />
+                android:elevation="2dp"
+                android:alpha="0.3"
+                app:srcCompat="@drawable/ic_waves"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="3dp"
+                android:src="@drawable/person_settings"
+                android:layout_gravity="right"/>
+
+
         </androidx.cardview.widget.CardView>
 
         <TextView

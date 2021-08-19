@@ -45,7 +45,7 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         getSupportActionBar().hide();
 
-        sharedPreferences = getSharedPreferences("MySharedPreference",MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences("com.adgvit.externals",MODE_PRIVATE);
         myEdit = sharedPreferences.edit();
 
         progressDialog = new ProgressDialog(this);
