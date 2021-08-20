@@ -51,8 +51,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
+                android:textFontWeight="500"
+                android:fontFamily="@font/poppins"
                 android:text="Executive Head"
-                android:textColor="#7f8284" />
+                android:alpha="0.7"
+                android:textColor="@color/text_color_1" />
 
             <TextView
                 android:id="@+id/about_us_name"

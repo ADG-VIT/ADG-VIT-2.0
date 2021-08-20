@@ -49,7 +49,7 @@ public class AboutRVAdapter extends RecyclerView.Adapter<ViewHolderAboutUs>{
         holder.github.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String Url = list.get(position).getGithub();
+                String Url = list.get(holder.getAdapterPosition()).getGithub();
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.setData(Uri.parse(Url));
@@ -60,7 +60,7 @@ public class AboutRVAdapter extends RecyclerView.Adapter<ViewHolderAboutUs>{
         holder.linkedin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String Url = list.get(position).getLinkedIn();
+                String Url = list.get(holder.getAdapterPosition()).getLinkedIn();
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.setData(Uri.parse(Url));
@@ -71,7 +71,7 @@ public class AboutRVAdapter extends RecyclerView.Adapter<ViewHolderAboutUs>{
         holder.mail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String Url = list.get(position).getEmail();
+                String Url = list.get(holder.getAdapterPosition()).getEmail();
                 Intent intent = new Intent (Intent.ACTION_VIEW , Uri.parse("mailto:" + Url));
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra(Intent.EXTRA_SUBJECT, "text/plain");
