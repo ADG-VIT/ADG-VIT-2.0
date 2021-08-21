@@ -67,9 +67,10 @@
                 android:textFontWeight="600"
                 android:textColor="#fff"/>
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="175dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="18dp"
+                android:lineHeight="21dp"
                 android:layout_marginTop="88dp"
                 android:elevation="3dp"
                 android:id="@+id/userClg"

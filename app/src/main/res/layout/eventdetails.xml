@@ -20,7 +20,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="9dp"
             android:layout_marginRight="10dp"
-            android:src="@drawable/ic_chevron_left"
+            app:srcCompat="@drawable/ic_chevron_left"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

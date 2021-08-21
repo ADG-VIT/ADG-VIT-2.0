@@ -1,5 +1,6 @@
 package com.example.adg_vit_final.JavaActivities;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -25,12 +26,15 @@ public class Signup3 extends AppCompatActivity {
     private Button create;
     private User user;
     private Intent intent;
+    private ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup3);
 
         getSupportActionBar().hide();
+        progressDialog=new ProgressDialog(this);
+        progressDialog.setMessage("Creating your Account...");
 
         intent = getIntent();
         user = (User)intent.getSerializableExtra("User");
@@ -43,6 +47,7 @@ public class Signup3 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //For creating account
+                progressDialog.show();
                 user.setUniversity(nameofUni.getText().toString());
                 System.out.println("Name : " + user.getName());
                 System.out.println("Email : " + user.getEmail());
@@ -68,6 +73,7 @@ public class Signup3 extends AppCompatActivity {
                     assert responseUser != null;
                     String message = responseUser.getMessage() + responseUser.getMessage();
                     Toast.makeText(getApplicationContext(),"Code : " + response.code() + " , Error : " + message,Toast.LENGTH_LONG).show();
+                    progressDialog.dismiss();
                     return;
                 }
                 User responseUser = response.body();
@@ -75,13 +81,15 @@ public class Signup3 extends AppCompatActivity {
                 String message = responseUser.getMessage();
                 Toast.makeText(getApplicationContext(),message,Toast.LENGTH_LONG).show();
                 Intent intent1 = new Intent(getApplicationContext(),Login.class);
+                progressDialog.dismiss();
                 startActivity(intent1);
 
             }
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
-                Toast.makeText(getApplicationContext(),"Error : " + t.getMessage(),Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Error : " + t.getMessage(), Toast.LENGTH_LONG).show();
+                progressDialog.dismiss();
             }
         });
     }

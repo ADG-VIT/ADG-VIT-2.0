@@ -48,37 +48,37 @@ public class Settings_Adapter extends RecyclerView.Adapter<Settings_Adapter.Sett
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (list.get(position).getText().equals("Appearance")){
+                if (list.get(holder.getAdapterPosition()).getText().equals("Appearance")){
                     context.startActivity(new Intent(context, Appearance.class));
                 }
-                else if(list.get(position).getText().equals("About Us")){
+                else if(list.get(holder.getAdapterPosition()).getText().equals("About Us")){
                     context.startActivity(new Intent(context, About.class));
                 }
-                else if(list.get(position).getText().equals("Notifications")){
+                else if(list.get(holder.getAdapterPosition()).getText().equals("Notifications")){
                     context.startActivity(new Intent(context, Notofication.class));
                 }
-                else if(list.get(position).getText().equals("Our Instagram"))
+                else if(list.get(holder.getAdapterPosition()).getText().equals("Our Instagram"))
                 {
                     Intent intent = new Intent(Intent.ACTION_VIEW);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     intent.setData(Uri.parse("https://www.instagram.com/adgvit/"));
                     context.startActivity(intent);
                 }
-                else if(list.get(position).getText().equals("Our Twitter"))
+                else if(list.get(holder.getAdapterPosition()).getText().equals("Our Twitter"))
                 {
                     Intent intent = new Intent(Intent.ACTION_VIEW);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     intent.setData(Uri.parse("https://twitter.com/ADGVIT"));
                     context.startActivity(intent);
                 }
-                else if(list.get(position).getText().equals("Our Facebook"))
+                else if(list.get(holder.getAdapterPosition()).getText().equals("Our Facebook"))
                 {
                     Intent intent = new Intent(Intent.ACTION_VIEW);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     intent.setData(Uri.parse("https://www.facebook.com/vitios"));
                     context.startActivity(intent);
                 }
-                else if(list.get(position).getText().equals("Our LinkedIn"))
+                else if(list.get(holder.getAdapterPosition()).getText().equals("Our LinkedIn"))
                 {
                     Intent intent = new Intent(Intent.ACTION_VIEW);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

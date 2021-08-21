@@ -1,5 +1,6 @@
 package com.example.adg_vit_final.JavaActivities;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -25,12 +26,14 @@ public class Signup4 extends AppCompatActivity {
     EditText usrRegNo;
     private Intent intent;
     private User user;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup4);
-
+        progressDialog=new ProgressDialog(this);
+        progressDialog.setMessage("Creating your Account...");
         intent = getIntent();
         user = (User)intent.getSerializableExtra("User");
 
@@ -44,6 +47,7 @@ public class Signup4 extends AppCompatActivity {
         createAccountBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                progressDialog.show();
                 user.setRegno(usrRegNo.getText().toString());
                 System.out.println("Name : " + user.getName());
                 System.out.println("Email : " + user.getEmail());
@@ -52,6 +56,7 @@ public class Signup4 extends AppCompatActivity {
                 System.out.println("Univ : " + user.getUniversity());
                 System.out.println("Reg no : " + user.getRegno());
                 registerUser();
+
             }
         });
     }
@@ -68,6 +73,7 @@ public class Signup4 extends AppCompatActivity {
                     User responseUser = response.body();
                     assert responseUser != null;
                     Toast.makeText(getApplicationContext(),"Code : " + response.code() + " , Error : " + responseUser.getMessage(),Toast.LENGTH_LONG).show();
+                    progressDialog.dismiss();
                     return;
                 }
                 User responseUser = response.body();
@@ -76,6 +82,7 @@ public class Signup4 extends AppCompatActivity {
                 System.out.println("Error : " + responseUser.getName());
                 Toast.makeText(getApplicationContext(),message,Toast.LENGTH_LONG).show();
                 Intent intent1 = new Intent(getApplicationContext(),Login.class);
+                progressDialog.dismiss();
                 startActivity(intent1);
 
             }
@@ -83,6 +90,7 @@ public class Signup4 extends AppCompatActivity {
             @Override
             public void onFailure(Call<User> call, Throwable t) {
                 Toast.makeText(getApplicationContext(),"Error : " + t.getMessage(),Toast.LENGTH_LONG).show();
+                progressDialog.dismiss();
             }
         });
 

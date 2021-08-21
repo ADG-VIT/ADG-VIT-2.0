@@ -6,10 +6,16 @@
         <entry key="app/src/main/res/drawable/ic_rectangle.xml" value="0.271875" />
         <entry key="app/src/main/res/drawable/ic_waves.xml" value="0.3348654649167736" />
         <entry key="app/src/main/res/drawable/rect.xml" value="0.271875" />
+        <entry key="app/src/main/res/drawable/vector_sys_def.xml" value="0.271875" />
         <entry key="app/src/main/res/layout/about_us_cardview.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_about.xml" value="0.2557291666666667" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.2557291666666667" />
         <entry key="app/src/main/res/layout/activity_settings.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_signup3.xml" value="0.2557291666666667" />
+        <entry key="app/src/main/res/layout/activity_signup4.xml" value="0.2557291666666667" />
+        <entry key="app/src/main/res/layout/cardview_settings.xml" value="0.2557291666666667" />
         <entry key="app/src/main/res/layout/domain_card_view.xml" value="0.2557291666666667" />
+        <entry key="app/src/main/res/layout/eventdetails.xml" value="0.2557291666666667" />
       </map>
     </option>
   </component>
