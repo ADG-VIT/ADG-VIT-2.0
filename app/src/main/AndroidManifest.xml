@@ -12,19 +12,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ADGVITFINAL"
         android:usesCleartextTraffic="true">
+        <activity android:name=".JavaActivities.Profile"></activity>
         <activity
             android:name=".JavaActivities.Notofication"
             android:exported="true" />
-        <activity android:name=".JavaActivities.About"></activity>
-        <activity android:name=".JavaActivities.Home"></activity>
-        <activity android:name=".JavaActivities.ProjectDetailsView"></activity>
-        <activity android:name=".JavaActivities.Settings"></activity>
-        <activity android:name=".JavaActivities.Appearance"></activity>
-        <activity android:name=".JavaActivities.Projects"></activity>
-        <activity android:name=".JavaActivities.Domains"></activity>
+        <activity android:name=".JavaActivities.About" />
+        <activity android:name=".JavaActivities.Home" />
+        <activity android:name=".JavaActivities.ProjectDetailsView" />
+        <activity android:name=".JavaActivities.Settings" />
+        <activity android:name=".JavaActivities.Appearance" />
+        <activity android:name=".JavaActivities.Projects" />
+        <activity android:name=".JavaActivities.Domains" />
         <activity android:name=".JavaActivities.Login" />
-        <activity android:name=".JavaActivities.Events"></activity>
-        <activity android:name=".JavaActivities.EventDetails"></activity>
+        <activity android:name=".JavaActivities.Events" />
+        <activity android:name=".JavaActivities.EventDetails" />
         <activity android:name=".JavaActivities.SignUpTwo" />
         <activity android:name=".JavaActivities.FirstBoarding">
             <intent-filter>
