@@ -1,5 +1,6 @@
 package com.example.adg_vit_final.NetworkInterface;
 
+import com.example.adg_vit_final.NetworkModels.Domain;
 import com.example.adg_vit_final.NetworkModels.AboutModelNetwork;
 import com.example.adg_vit_final.NetworkModels.EventModelNetwork;
 import com.example.adg_vit_final.NetworkModels.HomeModelNetwork;
@@ -7,7 +8,6 @@ import com.example.adg_vit_final.NetworkModels.LoginModelNetwork;
 import com.example.adg_vit_final.NetworkModels.SpecificProject;
 import com.example.adg_vit_final.NetworkModels.User;
 import com.example.adg_vit_final.NetworkModels.ProjectModelNetwork;
-import com.google.gson.JsonObject;
 
 import java.util.List;
 
@@ -46,4 +46,7 @@ public interface NetworkAPI {
 
     @GET("users")
     Call<User> getUserInfo(@Header("auth-token") String token);
+
+    @GET("domain")
+    Call<List<Domain>> getDomains();
 }

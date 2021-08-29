@@ -25,7 +25,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Projects extends AppCompatActivity {
+public class   Projects extends AppCompatActivity {
     RecyclerView recyclerView_projects;
     List<ProjectItems> list;
     ImageView back;

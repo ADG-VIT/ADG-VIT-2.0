@@ -1,27 +1,27 @@
 package com.example.adg_vit_final.DataModels;
 
 public class DomainsDataModel {
-    private int image;
-    private String title,desc;
+
+    private String title,desc,image;
 
     public DomainsDataModel()
     {
-        image = 0;
+        image = "";
         title = "";
         desc = "";
     }
 
-    public DomainsDataModel(int image, String title, String desc) {
+    public DomainsDataModel(String image, String title, String desc) {
         this.image = image;
         this.title = title;
         this.desc = desc;
     }
 
-    public int getImage() {
+    public String  getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(String image) {
         this.image = image;
     }
 

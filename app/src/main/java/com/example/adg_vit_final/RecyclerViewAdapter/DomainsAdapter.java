@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.adg_vit_final.DataModels.DomainsDataModel;
 import com.example.adg_vit_final.R;
 
@@ -35,7 +36,7 @@ public class DomainsAdapter extends RecyclerView.Adapter<DomainsAdapter.myviewho
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull DomainsAdapter.myviewholder holder, int position) {
-        holder.imageView.setImageResource(dataList.get(position).getImage());
+        Glide.with(context).load(dataList.get(position).getImage()).into(holder.imageView);
         holder.title.setText(dataList.get(position).getTitle());
         holder.desc.setText(dataList.get(position).getDesc());
     }
