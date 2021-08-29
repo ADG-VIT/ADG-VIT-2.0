@@ -66,7 +66,7 @@ public class Settings extends AppCompatActivity {
         SharedPreferences sharedPreferences= getSharedPreferences("com.adgvit.externals",MODE_PRIVATE);
         String token = sharedPreferences.getString("Token","");
 
-        if(token==null){
+        if(token.equals("")){
             signedIn.setVisibility(View.GONE);
             notSignedIn.setVisibility(View.VISIBLE);
         }
