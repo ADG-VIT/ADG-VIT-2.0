@@ -1,6 +1,7 @@
 package com.example.adg_vit_final.JavaActivities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -34,6 +35,7 @@ public class Settings extends AppCompatActivity {
     TextView userName, college;
     List<SettingsItems> lst1,lst2,lst3;
     ImageView back;
+    CardView signedIn,notSignedIn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,8 @@ public class Settings extends AppCompatActivity {
         userName = findViewById(R.id.userName);
         college = findViewById(R.id.userClg);
         back = findViewById(R.id.settings_back);
+        signedIn = findViewById(R.id.cardLogin);
+        notSignedIn=findViewById(R.id.cardNotLogin);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,37 +66,45 @@ public class Settings extends AppCompatActivity {
         SharedPreferences sharedPreferences= getSharedPreferences("com.adgvit.externals",MODE_PRIVATE);
         String token = sharedPreferences.getString("Token","");
 
-        Call<User> call = networkAPI.getUserInfo(token);
+        if(token==null){
+            signedIn.setVisibility(View.GONE);
+            notSignedIn.setVisibility(View.VISIBLE);
+        }
+        else{
+            signedIn.setVisibility(View.VISIBLE);
+            notSignedIn.setVisibility(View.GONE);
+            Call<User> call = networkAPI.getUserInfo(token);
 
-        call.enqueue(new Callback<User>() {
-            @Override
-            public void onResponse(Call<User> call, Response<User> response) {
-                if(!response.isSuccessful()){
-                    try {
-                        User obj = response.body();
+            call.enqueue(new Callback<User>() {
+                @Override
+                public void onResponse(Call<User> call, Response<User> response) {
+                    if(!response.isSuccessful()){
+                        try {
+                            User obj = response.body();
 
-                        Toast.makeText(getApplicationContext(),"Error: "+obj.getMessage() + "Code: " + response.code(),Toast.LENGTH_LONG).show();
-                    }catch (Exception e){
-                        Toast.makeText(getApplicationContext(),"Some error has occured, Try Again",Toast.LENGTH_LONG).show();
-                        System.out.println(e.getLocalizedMessage());
+                            Toast.makeText(getApplicationContext(),"Error: "+obj.getMessage() + "Code: " + response.code(),Toast.LENGTH_LONG).show();
+                        }catch (Exception e){
+                            Toast.makeText(getApplicationContext(),"Some error has occured, Try Again",Toast.LENGTH_LONG).show();
+                            System.out.println(e.getLocalizedMessage());
+                        }
+
                     }
 
+                    User obj = response.body();
+                    String name = obj.getName();
+                    String clg = obj.getUniversity();
+                    userName.setText(name);
+                    college.setText(clg);
                 }
 
-                User obj = response.body();
-                String name = obj.getName();
-                String clg = obj.getUniversity();
-                userName.setText(name);
-                college.setText(clg);
-            }
+                @Override
+                public void onFailure(Call<User> call, Throwable t) {
+                    Log.i("Fail",""+t.getMessage());
+                    Toast.makeText(getApplicationContext(),t.getMessage(),Toast.LENGTH_LONG).show();
 
-            @Override
-            public void onFailure(Call<User> call, Throwable t) {
-                Log.i("Fail",""+t.getMessage());
-                Toast.makeText(getApplicationContext(),t.getMessage(),Toast.LENGTH_LONG).show();
-
-            }
-        });
+                }
+            });
+        }
 
         recy1.setLayoutManager(new LinearLayoutManager(this));
         recy2.setLayoutManager(new LinearLayoutManager(this));
