@@ -52,6 +52,7 @@ public class Appearance extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (checkedId == R.id.rb_sys_def){
+
                     radioButtonSysDef.setChecked(true);
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
                     editor.putString("theme", "sys_def");

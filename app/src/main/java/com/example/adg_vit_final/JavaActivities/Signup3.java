@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.adg_vit_final.NetworkModels.SignUpCallBack;
 import com.example.adg_vit_final.NetworkModels.User;
 import com.example.adg_vit_final.R;
 
@@ -62,33 +63,41 @@ public class Signup3 extends AppCompatActivity {
 
     private void registerUser() {
 
-        Call<User> call = networkAPI.registerUser(user);
+        Call<SignUpCallBack> call = networkAPI.registerUser(user);
 
-        call.enqueue(new Callback<User>() {
+        call.enqueue(new Callback<SignUpCallBack>() {
             @Override
-            public void onResponse(@NotNull Call<User> call, @NotNull Response<User> response) {
-                if(!response.isSuccessful())
+            public void onResponse(@NotNull Call<SignUpCallBack> call, @NotNull Response<SignUpCallBack> response) {
+
+                if(response.isSuccessful())
                 {
-                    User responseUser = response.body();
-                    assert responseUser != null;
-                    String message = responseUser.getMessage() + responseUser.getMessage();
-                    Toast.makeText(getApplicationContext(),"Code : " + response.code() + " , Error : " + message,Toast.LENGTH_LONG).show();
+                    try {
+                        SignUpCallBack responseUser = response.body();
+                        String message = responseUser.getMessage();
+                        Toast.makeText(getApplicationContext(),message,Toast.LENGTH_LONG).show();
+                        Intent intent1 = new Intent(getApplicationContext(),Login.class);
+                        progressDialog.dismiss();
+                        startActivity(intent1);
+                    }catch (Exception e){
+                        Toast.makeText(getApplicationContext(),"SignUp failed. Please try again!",Toast.LENGTH_LONG).show();
+                        Intent intent1 = new Intent(getApplicationContext(),Login.class);
+                        progressDialog.dismiss();
+                        startActivity(intent1);
+                    }
+                }else {
+                    SignUpCallBack responseUser = response.body();
+                    String message = responseUser.getMessage();
+                    Toast.makeText(getApplicationContext(),message,Toast.LENGTH_LONG).show();
                     progressDialog.dismiss();
                     return;
                 }
-                User responseUser = response.body();
-                assert responseUser != null;
-                String message = responseUser.getMessage();
-                Toast.makeText(getApplicationContext(),message,Toast.LENGTH_LONG).show();
-                Intent intent1 = new Intent(getApplicationContext(),Login.class);
-                progressDialog.dismiss();
-                startActivity(intent1);
+
 
             }
 
             @Override
-            public void onFailure(Call<User> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "Error : " + t.getMessage(), Toast.LENGTH_LONG).show();
+            public void onFailure(Call<SignUpCallBack> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), "SignUp Failed", Toast.LENGTH_LONG).show();
                 progressDialog.dismiss();
             }
         });

@@ -17,6 +17,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 
 import com.example.adg_vit_final.NetworkModels.LoginModelNetwork;
+import com.example.adg_vit_final.NetworkModels.SignUpCallBack;
 import com.example.adg_vit_final.NetworkModels.User;
 import com.example.adg_vit_final.R;
 
@@ -82,42 +83,47 @@ public class Login extends AppCompatActivity {
 
     //loginUser
     private void loginUser() {
-        Call<LoginModelNetwork> call = networkAPI.loginUser(login);
+        Call<SignUpCallBack> call = networkAPI.loginUser(login);
 
-        call.enqueue(new Callback<LoginModelNetwork>() {
+        call.enqueue(new Callback<SignUpCallBack>() {
 
             @Override
-            public void onResponse(@NotNull Call<LoginModelNetwork> call, @NotNull Response<LoginModelNetwork> response) {
+            public void onResponse(@NotNull Call<SignUpCallBack> call, @NotNull Response<SignUpCallBack> response) {
                 if (!response.isSuccessful()){
                     try {
-                        LoginModelNetwork loginresp = response.body();
-                        //assert loginresp != null;
-                        Toast.makeText(getApplicationContext(), "Error : " + loginresp.getMessage() + "code : " + response.code(), Toast.LENGTH_LONG).show();
+                        SignUpCallBack loginresp = response.body();
+                        Toast.makeText(getApplicationContext(), loginresp.getMessage(), Toast.LENGTH_LONG).show();
                         progressDialog.dismiss();
                     }catch (Exception e)
                     {
-                        Toast.makeText(getApplicationContext(),"Some error has occured, Try Again",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),"Some error has occurred, Try Again",Toast.LENGTH_LONG).show();
                         System.out.println(e.getLocalizedMessage());
                         progressDialog.dismiss();
                     }
-                    return;
+                }else {
+                    try {
+                        SignUpCallBack loginresp = response.body();
+                        String message = loginresp.getMessage();
+                        String token = loginresp.getToken();
+                        myEdit.putString("Token", token);
+                        myEdit.commit();
+                        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+                        Intent intent1 = new Intent(getApplicationContext(),Home.class);
+                        progressDialog.dismiss();
+                        startActivity(intent1);
+                    }catch (Exception e){
+                        Toast.makeText(getApplicationContext(),"Login failed. Please try again!",Toast.LENGTH_LONG).show();
+                        //System.out.println(e.getLocalizedMessage());
+                        progressDialog.dismiss();
+                    }
                 }
-                LoginModelNetwork loginresp = response.body();
-                assert loginresp != null;
-                String message = loginresp.getMessage();
-                String token = loginresp.getToken();
-                myEdit.putString("Token", token);
-                myEdit.commit();
-                Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
-                Intent intent1 = new Intent(getApplicationContext(),Home.class);
-                progressDialog.dismiss();
-                startActivity(intent1);
+
             }
 
             @Override
-            public void onFailure(Call<LoginModelNetwork> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "Error: " + t.getMessage(), Toast.LENGTH_LONG).show();
-                Log.i("TAG", "" + t.getMessage());
+            public void onFailure(Call<SignUpCallBack> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), "Login failed. Please try again!", Toast.LENGTH_LONG).show();
+                //Log.i("TAG", "" + t.getMessage());
                 progressDialog.dismiss();
             }
         });
