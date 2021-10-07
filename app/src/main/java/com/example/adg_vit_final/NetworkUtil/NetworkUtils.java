@@ -14,7 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class NetworkUtils {
 
-    public static final String base_url =  "http://backend-events.herokuapp.com/";
+    public static String base_url =  "http://backend-events.herokuapp.com/";
 
     public static OkHttpClient getClientInstance() {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
@@ -25,9 +25,13 @@ public class NetworkUtils {
 
     public static Retrofit retrofit = new Retrofit.Builder()
             .baseUrl(base_url)
-            .addConverterFactory(GsonConverterFactory.create())
             .client(getClientInstance())
+            .addConverterFactory(GsonConverterFactory.create())
             .build();
+
+    public static NetworkAPI networkAPI = retrofit.create(NetworkAPI.class);
+
+
 
     public static String getDate(long time) {
         Calendar cal = Calendar.getInstance(Locale.ENGLISH);
@@ -36,5 +40,4 @@ public class NetworkUtils {
         return date;
     }
 
-    public static NetworkAPI networkAPI = retrofit.create(NetworkAPI.class);
 }
