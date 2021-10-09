@@ -9,6 +9,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -48,7 +49,7 @@ public class Home extends AppCompatActivity {
     private ArrayList<HomeDomainsObject> homeDomainsObjectArrayList;
     private List<EventModelNetwork> eventHomeList;
     private List<ProjectModelNetwork> projectHomeList;
-    private List<Highlight> highlight;
+    private Highlight highlight;
     private ImageView hightlight_image;
     private ImageView settings;
     private HomeModelNetwork homeModel;
@@ -62,7 +63,7 @@ public class Home extends AppCompatActivity {
         getSupportActionBar().hide();
 
         try {
-            highlight = new ArrayList<>();
+
             eventHomeList = new ArrayList<>();
             projectHomeList =new ArrayList<>();
 
@@ -91,28 +92,28 @@ public class Home extends AppCompatActivity {
                         return;
                     }
                     homeModel = response.body();
-                    assert homeModel != null;
+//                    assert homeModel != null;
                     highlight = homeModel.getHighlight();
                     eventHomeList = homeModel.getEvents();
                     projectHomeList = homeModel.getProjects();
 
-                    Glide.with(getApplicationContext()).load(highlight.get(0).getImageURL()).into(hightlight_image);
+                    Glide.with(getApplicationContext()).load(highlight.getImageURL()).into(hightlight_image);
 
                     hightlight_image.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            if(highlight.get(0).getType().equals("Event"))
+                            Intent intent;
+                            if(highlight.getType().equals("Event"))
                             {
-                                Intent intent = new Intent(getApplicationContext(),EventDetails.class);
-                                intent.putExtra("event_id",highlight.get(0).get_id());
-                                startActivity(intent);
+                                intent = new Intent(getApplicationContext(), EventDetails.class);
+                                intent.putExtra("event_id",highlight.get_id());
                             }
                             else
                                 {
-                                    Intent intent = new Intent(getApplicationContext(), ProjectDetailsView.class);
-                                    intent.putExtra("id",highlight.get(0).get_id());
-                                    startActivity(intent);
+                                    intent = new Intent(getApplicationContext(), ProjectDetailsView.class);
+                                    intent.putExtra("id",highlight.get_id());
                                 }
+                            startActivity(intent);
                         }
                     });
 
@@ -124,6 +125,7 @@ public class Home extends AppCompatActivity {
                 @Override
                 public void onFailure(Call<HomeModelNetwork> call, Throwable t) {
                     Toast.makeText(Home.this, "" + t.getMessage(), Toast.LENGTH_SHORT).show();
+                    Log.i("LoginFailuare", t.getMessage());
                 }
             });
         }catch (Exception e){

@@ -3,21 +3,21 @@ package com.example.adg_vit_final.NetworkModels;
 import java.util.List;
 
 public class HomeModelNetwork{
-    public List<Highlight> highlight;
+    public Highlight highlight;
     public List<EventModelNetwork> events;
     public List<ProjectModelNetwork> projects;
 
-    public HomeModelNetwork(List<Highlight> highlight, List<EventModelNetwork> events, List<ProjectModelNetwork> projects) {
+    public HomeModelNetwork(Highlight highlight, List<EventModelNetwork> events, List<ProjectModelNetwork> projects) {
         this.highlight = highlight;
         this.events = events;
         this.projects = projects;
     }
 
-    public List<Highlight> getHighlight() {
+    public Highlight getHighlight() {
         return highlight;
     }
 
-    public void setHighlight(List<Highlight> highlight) {
+    public void setHighlight(Highlight highlight) {
         this.highlight = highlight;
     }
 
