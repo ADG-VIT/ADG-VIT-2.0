@@ -54,6 +54,7 @@ public class Login extends AppCompatActivity {
         myEdit = sharedPreferences.edit();
 
         progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Signing into your Account");
         btnNewAccount = findViewById(R.id.login_createAccount);
         buttonLogin = findViewById(R.id.login_button);
         email = findViewById(R.id.login_email);
@@ -72,8 +73,15 @@ public class Login extends AppCompatActivity {
                 progressDialog.show();
                 Email = email.getText().toString();
                 Password = password.getText().toString();
+                if(Email.equals("") || Password.equals("")){
+                    Toast.makeText(getApplicationContext(), "Please Enter Email and Password", Toast.LENGTH_LONG).show();
+                    progressDialog.dismiss();
+                }
+                else{
                 LoginModelNetwork login = new LoginModelNetwork(Email,Password);
                 loginUser(login);
+
+                }
             }
         });
     }
@@ -92,16 +100,35 @@ public class Login extends AppCompatActivity {
                         Gson gson = new Gson();
                         Type type = new TypeToken<SignUpCallBack>() {}.getType();
                         SignUpCallBack errorResponse = gson.fromJson(response.errorBody().charStream(),type);
-                        Log.i("message",errorResponse.getMessage());
+                        Log.i("message", errorResponse.getMessage());
+                        Toast.makeText(getApplicationContext(),/*"Login failed. Please try again!"*/errorResponse.getMessage(),Toast.LENGTH_LONG).show();
+                        progressDialog.dismiss();
                     }
-                }catch (Exception e){
-                    Log.i("hello",e.getMessage());
+                    else {
+                        try {
+                            SignUpCallBack loginresp = response.body();
+                            String message = loginresp.getMessage();
+                            String token = loginresp.getToken();
+                            myEdit.putString("Token", token);
+                            myEdit.commit();
+                            Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+                            Intent intent1 = new Intent(getApplicationContext(),Home.class);
+                            progressDialog.dismiss();
+                            startActivity(intent1);
+                        }catch (Exception e){
+                            Toast.makeText(getApplicationContext(),"Login failed. Please try again!",Toast.LENGTH_LONG).show();
+                            //System.out.println(e.getLocalizedMessage());
+                            progressDialog.dismiss();
+
+                }}}catch (Exception e){
+                    Log.i("hello", e.getMessage());
+                    Toast.makeText(Login.this, ""+e.getMessage(), Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
             public void onFailure(Call<SignUpCallBack> call, Throwable t) {
-
+                Toast.makeText(Login.this,"LogIn Failed" + t.getMessage().toString(),Toast.LENGTH_LONG).show();
             }
         });
     }
