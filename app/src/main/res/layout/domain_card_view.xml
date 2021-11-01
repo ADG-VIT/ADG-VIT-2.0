@@ -22,7 +22,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
             android:padding="15dp"
-            app:cardCornerRadius="8dp"
+            app:cardCornerRadius="13dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
