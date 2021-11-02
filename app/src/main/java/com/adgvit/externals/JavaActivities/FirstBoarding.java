@@ -2,6 +2,7 @@ package com.adgvit.externals.JavaActivities;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -26,12 +27,22 @@ public class FirstBoarding extends AppCompatActivity {
 
 
         getSupportActionBar().hide();
+
+        SharedPreferences sharedPreferences= getSharedPreferences("com.adgvit.externals",MODE_PRIVATE);
+        String token = sharedPreferences.getString("Token","");
+
         String themeChosen = getSharedPreferences("Appearance_shared_pref", MODE_PRIVATE)
                 .getString("theme", "sys_def");
         if (themeChosen.equals("light"))
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         else if (themeChosen.equals("dark"))
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+
+        if(!token.equals(""))
+        {
+            Intent intent = new Intent(FirstBoarding.this,Home.class);
+            startActivity(intent);
+        }
 
         about= findViewById(R.id.about);
         cross = findViewById(R.id.first_cross);

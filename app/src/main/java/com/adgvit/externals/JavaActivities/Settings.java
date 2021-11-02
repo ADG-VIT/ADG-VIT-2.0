@@ -51,12 +51,6 @@ public class Settings extends AppCompatActivity {
                 finish();
             }
         });
-        notSignedIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),FirstBoarding.class));
-            }
-        });
         recy1 = findViewById(R.id.rcy1);
         recy2 = findViewById(R.id.rcy2);
         recy3 = findViewById(R.id.rcy3);
@@ -71,6 +65,14 @@ public class Settings extends AppCompatActivity {
         String token = sharedPreferences.getString("Token","");
         String userNam = sharedPreferences.getString("UserName","");
         String collegeNam = sharedPreferences.getString("CollegeName","");
+
+        notSignedIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), Login.class);
+                    startActivity(intent);
+            }
+        });
 
         if(token.equals("")){
             signedIn.setVisibility(View.GONE);
