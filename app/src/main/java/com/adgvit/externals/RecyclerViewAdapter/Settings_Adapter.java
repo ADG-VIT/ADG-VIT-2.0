@@ -84,6 +84,15 @@ public class Settings_Adapter extends RecyclerView.Adapter<Settings_Adapter.Sett
                     intent.setData(Uri.parse("https://www.linkedin.com/company/adgvit/mycompany/"));
                     context.startActivity(intent);
                 }
+                else if(list.get(holder.getAdapterPosition()).getText().equals("Contact Us"))
+                {
+                    Intent intent=new Intent(Intent.ACTION_SEND);
+                    String[] recipients={"Appledevelopersgroup@gmail.com"};
+                    intent.putExtra(Intent.EXTRA_EMAIL, recipients);
+                    intent.setType("text/html");
+                    intent.setPackage("com.google.android.gm");
+                    context.startActivity(Intent.createChooser(intent, "Send mail"));
+                }
             }
         });
     }
