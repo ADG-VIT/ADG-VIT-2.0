@@ -17,6 +17,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.adgvit.externals.DataModels.DomainsDataModel;
+import com.adgvit.externals.NetworkModels.Domain;
+import com.adgvit.externals.RecyclerViewAdapter.DomainsAdapter;
 import com.bumptech.glide.Glide;
 import com.adgvit.externals.DataModels.ProjectItems;
 import com.adgvit.externals.DataModels.EventsRVObject;
@@ -46,7 +49,8 @@ public class Home extends AppCompatActivity {
     private RecyclerView recyclerViewHomeDomains;
     private ArrayList<EventsRVObject> list;
     private ArrayList<ProjectItems> projectItemsArrayList;
-    private ArrayList<HomeDomainsObject> homeDomainsObjectArrayList;
+    private List<DomainsDataModel> dataList;
+    private List<HomeDomainsObject> homeDomainsObjectArrayList;
     private List<EventModelNetwork> eventHomeList;
     private List<ProjectModelNetwork> projectHomeList;
     private Highlight highlight;
@@ -80,6 +84,7 @@ public class Home extends AppCompatActivity {
 
             eventHomeList = new ArrayList<>();
             projectHomeList = new ArrayList<>();
+            dataList = new ArrayList<>();
 
             eventsSeeAll = findViewById(R.id.our_events_see_all);
             projectsSeeAll = findViewById(R.id.our_projects_see_all);
@@ -148,28 +153,37 @@ public class Home extends AppCompatActivity {
             Toast.makeText(this, "" + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
 
-//        list = new ArrayList<>();
-//        projectItemsArrayList = new ArrayList<>();
-        homeDomainsObjectArrayList = new ArrayList<>();
+        try{
+        Call<List<Domain>> call = networkAPI.getDomains();
 
-//        list.add(new EventsRVObject(R.drawable.home_cardview_drawable, "Recruitments", "12 Jan 2021"));
-//        list.add(new EventsRVObject(R.drawable.home_cardview_drawable, "Recruitments", "12 Jan 2021"));
+        call.enqueue(new Callback<List<Domain>>() {
+            @Override
+            public void onResponse(Call<List<Domain>> call, Response<List<Domain>> response) {
+                if(!response.isSuccessful()){
+                    progressDialog.dismiss();
+                    Toast.makeText(getApplicationContext(), response.code(), Toast.LENGTH_LONG).show();
+                    return;
+                }
+                List<Domain> obj = response.body();
+                for(Domain d: obj){
+                    DomainsDataModel dm = new DomainsDataModel(d.getLogo(),d.getName(),d.getDescription());
+                    dataList.add(dm);
+                }
+                recyclerViewHomeDomains.setAdapter(new DomainsHomeAdapter(getApplicationContext(), dataList));
+                isDone = true;
+                progressDialog.dismiss();
+            }
 
-
-
-//        projectItemsArrayList.add(new ProjectItems(R.drawable.frame212, "ADG Connect App", ""));
-//        projectItemsArrayList.add(new ProjectItems(R.drawable.frame212, "ADG Connect App", ""));
-//        projectItemsArrayList.add(new ProjectItems(R.drawable.frame212, "ADG Connect App", ""));
-
-
-        homeDomainsObjectArrayList.add(new HomeDomainsObject(R.drawable.ic_ios, "iOS Domain"));
-        homeDomainsObjectArrayList.add(new HomeDomainsObject(R.drawable.ic_android, "Android"));
-        homeDomainsObjectArrayList.add(new HomeDomainsObject(R.drawable.ic_web, "Web Domain"));
-        homeDomainsObjectArrayList.add(new HomeDomainsObject(R.drawable.ic_ml, "ML Domain"));
-        homeDomainsObjectArrayList.add(new HomeDomainsObject(R.drawable.ic_design, "Design"));
-        homeDomainsObjectArrayList.add(new HomeDomainsObject(R.drawable.ic_ios, "Management"));
-
-        recyclerViewHomeDomains.setAdapter(new DomainsHomeAdapter(getApplicationContext(), homeDomainsObjectArrayList));
+            @Override
+            public void onFailure(Call<List<Domain>> call, Throwable t) {
+                progressDialog.dismiss();
+                Toast.makeText(Home.this, "Error: " + t.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
+        } catch (Exception e) {
+            progressDialog.dismiss();
+            Toast.makeText(getApplicationContext(),"Error: " + e.getLocalizedMessage(),Toast.LENGTH_LONG).show();
+        }
 
         eventsSeeAll.setOnClickListener(new View.OnClickListener() {
             @Override

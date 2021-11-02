@@ -1,5 +1,6 @@
 package com.adgvit.externals.NetworkInterface;
 
+import com.adgvit.externals.DataModels.HomeDomainsObject;
 import com.adgvit.externals.NetworkModels.Domain;
 import com.adgvit.externals.NetworkModels.AboutModelNetwork;
 import com.adgvit.externals.NetworkModels.EventModelNetwork;
@@ -10,6 +11,7 @@ import com.adgvit.externals.NetworkModels.SpecificProject;
 import com.adgvit.externals.NetworkModels.User;
 import com.adgvit.externals.NetworkModels.ProjectModelNetwork;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -50,4 +52,7 @@ public interface NetworkAPI {
 
     @GET("domain")
     Call<List<Domain>> getDomains();
+
+    @GET("domain")
+    Call<ArrayList<HomeDomainsObject>> getHomeDomains();
 }

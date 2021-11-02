@@ -10,21 +10,24 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.adgvit.externals.DataModels.DomainsDataModel;
 import com.adgvit.externals.DataModels.HomeDomainsObject;
 import com.adgvit.externals.R;
+import com.bumptech.glide.Glide;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DomainsHomeAdapter extends RecyclerView.Adapter<ViewHolderDomains> {
     @NonNull
     @NotNull
 
-    ArrayList<HomeDomainsObject> list;
+    List<DomainsDataModel> list;
     Context context;
 
-    public DomainsHomeAdapter(@NotNull Context context, ArrayList<HomeDomainsObject> list) {
+    public DomainsHomeAdapter(@NotNull Context context, List<DomainsDataModel> list) {
         this.list = list;
         this.context = context;
     }
@@ -32,13 +35,15 @@ public class DomainsHomeAdapter extends RecyclerView.Adapter<ViewHolderDomains> 
     public ViewHolderDomains onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View view = inflater.inflate(R.layout.card_view_home_domains,parent,false);
+        System.out.println("DomainHome Prints");
         return new ViewHolderDomains(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull ViewHolderDomains holder, int position) {
-        holder.imageView.setImageResource(list.get(position).getImage());
-        holder.domainName.setText(list.get(position).getDomainName());
+        Glide.with(context).load(list.get(position).getImage()).into(holder.imageView);
+        holder.domainName.setText(list.get(position).getTitle());
+        System.out.println(list.get(position).getTitle());
     }
 
     @Override
