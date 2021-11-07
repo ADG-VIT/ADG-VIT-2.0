@@ -93,6 +93,19 @@ public class Settings_Adapter extends RecyclerView.Adapter<Settings_Adapter.Sett
                     intent.setPackage("com.google.android.gm");
                     context.startActivity(Intent.createChooser(intent, "Send mail"));
                 }
+                else if(list.get(holder.getAdapterPosition()).getText().equals("Share with Peers"))
+                {
+                    Intent share = new Intent(android.content.Intent.ACTION_SEND);
+                    share.setType("text/plain");
+                    share.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+
+                    // Add data to the intent, the receiving app will decide
+                    // what to do with it.
+                    share.putExtra(Intent.EXTRA_SUBJECT, "Title Of The Post");
+                    share.putExtra(Intent.EXTRA_TEXT, "http://www.codeofaninja.com");
+
+                    context.startActivity(Intent.createChooser(share, "Share link!"));
+                }
             }
         });
     }
