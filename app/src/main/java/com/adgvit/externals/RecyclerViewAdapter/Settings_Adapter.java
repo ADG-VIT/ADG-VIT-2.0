@@ -101,10 +101,9 @@ public class Settings_Adapter extends RecyclerView.Adapter<Settings_Adapter.Sett
 
                     // Add data to the intent, the receiving app will decide
                     // what to do with it.
-                    share.putExtra(Intent.EXTRA_SUBJECT, "Title Of The Post");
-                    share.putExtra(Intent.EXTRA_TEXT, "http://www.codeofaninja.com");
+                    share.putExtra(Intent.EXTRA_TEXT, "Find all the latest happenings at ADG within a single app." + "\nJust scroll down and Stay updated!" + "\nGrab your phones and download now." + "\nApp Link : https://play.google.com/store/apps/details?id=com.adgvit.externals");
 
-                    context.startActivity(Intent.createChooser(share, "Share link!"));
+                    context.startActivity(Intent.createChooser(share, "Share With Peers"));
                 }
             }
         });
