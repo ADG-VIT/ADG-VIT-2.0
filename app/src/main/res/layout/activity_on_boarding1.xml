@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="550dp"
+    tools:context=".JavaActivities.OnBoarding1">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/onboardingone"
+        android:layout_marginLeft="51dp"
+        android:layout_marginRight="51dp"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome to the ADG-VIT!"
+        android:fontFamily="@font/poppins"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="29dp"
+        android:layout_marginRight="55dp"
+        android:textSize="26sp"
+        android:layout_below="@+id/imageView"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/heading"
+        android:layout_marginLeft="29dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="51dp"
+        android:text="ADG-VIT is an app where you can find Answer to all of your questions regarding the chapter and more...."/>
+
+
+
+</RelativeLayout>

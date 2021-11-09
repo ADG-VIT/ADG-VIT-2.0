@@ -105,7 +105,7 @@ public class Login extends AppCompatActivity {
                             String message = loginresp.getMessage();
                             String token = loginresp.getToken();
                             myEdit.putString("Token", token);
-                            myEdit.commit();
+                            myEdit.apply();
                             saveUserName();
 
                             Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();

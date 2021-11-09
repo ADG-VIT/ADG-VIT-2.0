@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="550dp"
+    tools:context=".JavaActivities.OnBoarding2">
+
+    <TextView
+        android:id="@+id/heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:layout_marginLeft="29dp"
+        android:layout_marginRight="55dp"
+        android:text="Registration at your Fingertips "
+        android:textSize="26sp"
+        android:fontFamily="@font/poppins_bold"/>
+
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="An App to Stay Up-to-date with all our Events and Workshops. Easy registration to our upcoming events and many more..."
+        android:layout_below="@id/heading"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="29dp"
+        android:layout_marginRight="51dp"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text2"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="15dp"
+        android:src="@drawable/onboardingtwo"/>
+
+</RelativeLayout>

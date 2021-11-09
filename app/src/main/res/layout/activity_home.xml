@@ -9,8 +9,11 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginEnd="16dp"
+        android:overScrollMode="never"
         android:scrollbars="none"
-        android:overScrollMode="never">
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="-226dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -119,12 +122,12 @@
                 android:id="@+id/recycler_view_events_projects"
                 android:layout_width="0dp"
                 android:layout_height="150dp"
-                android:overScrollMode="never"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:scrollbars="none"
                 android:orientation="horizontal"
+                android:overScrollMode="never"
+                android:scrollbars="none"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/our_projects"
@@ -165,11 +168,11 @@
                 android:id="@+id/recycler_view_events_domains"
                 android:layout_width="0dp"
                 android:layout_height="216dp"
-                android:scrollbars="none"
-                android:overScrollMode="never"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="6dp"
+                android:overScrollMode="never"
+                android:scrollbars="none"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/our_domains"

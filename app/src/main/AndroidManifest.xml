@@ -12,31 +12,43 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ADGVITFINAL"
         android:usesCleartextTraffic="true">
-        <activity android:name="com.adgvit.externals.JavaActivities.Profile"></activity>
         <activity
-            android:name="com.adgvit.externals.JavaActivities.Notofication"
-            android:exported="true" />
-        <activity android:name="com.adgvit.externals.JavaActivities.About" />
-        <activity android:name="com.adgvit.externals.JavaActivities.Home" />
-        <activity android:name="com.adgvit.externals.JavaActivities.ProjectDetailsView" />
-        <activity android:name="com.adgvit.externals.JavaActivities.Settings" />
-        <activity android:name="com.adgvit.externals.JavaActivities.Appearance" />
-        <activity android:name="com.adgvit.externals.JavaActivities.Projects" />
-        <activity android:name="com.adgvit.externals.JavaActivities.Domains" />
-        <activity android:name="com.adgvit.externals.JavaActivities.Login" />
-        <activity android:name="com.adgvit.externals.JavaActivities.Events" />
-        <activity android:name="com.adgvit.externals.JavaActivities.EventDetails" />
-        <activity android:name="com.adgvit.externals.JavaActivities.SignUpTwo" />
-        <activity android:name="com.adgvit.externals.JavaActivities.FirstBoarding">
+            android:name=".JavaActivities.OnBoarding">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
-        <activity android:name="com.adgvit.externals.JavaActivities.Signup1" />
-        <activity android:name="com.adgvit.externals.JavaActivities.Signup3" />
-        <activity android:name="com.adgvit.externals.JavaActivities.Signup4" />
+        <activity
+            android:name=".JavaActivities.OnBoarding2"
+            android:exported="false" />
+        <activity
+            android:name=".JavaActivities.OnBoarding1"
+            android:exported="false" />
+        <activity android:name=".JavaActivities.Profile" />
+        <activity
+            android:name=".JavaActivities.Notofication"
+            android:exported="true" />
+        <activity android:name=".JavaActivities.About" />
+        <activity android:name=".JavaActivities.Home" />
+        <activity android:name=".JavaActivities.ProjectDetailsView" />
+        <activity android:name=".JavaActivities.Settings" />
+        <activity android:name=".JavaActivities.Appearance" />
+        <activity android:name=".JavaActivities.Projects" />
+        <activity android:name=".JavaActivities.Domains" />
+        <activity android:name=".JavaActivities.Login" />
+        <activity android:name=".JavaActivities.Events" />
+        <activity android:name=".JavaActivities.EventDetails" />
+        <activity android:name=".JavaActivities.SignUpTwo" />
+        <activity android:name=".JavaActivities.FirstBoarding">
+
+        </activity>
+        <activity android:name=".JavaActivities.Signup1" />
+        <activity android:name=".JavaActivities.Signup3" />
+        <activity android:name=".JavaActivities.Signup4" />
 
         <meta-data
             android:name="preloaded_fonts"

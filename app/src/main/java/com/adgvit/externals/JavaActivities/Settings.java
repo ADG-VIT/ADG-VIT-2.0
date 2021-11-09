@@ -86,6 +86,13 @@ public class Settings extends AppCompatActivity {
 
         }
 
+        signedIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), Profile.class));
+            }
+        });
+
         recy1.setLayoutManager(new LinearLayoutManager(this));
         recy2.setLayoutManager(new LinearLayoutManager(this));
         recy3.setLayoutManager(new LinearLayoutManager(this));
