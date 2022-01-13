@@ -1,8 +1,12 @@
 package com.adgvit.externals.JavaActivities;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -13,6 +17,9 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.adgvit.externals.NetworkInterface.NetworkAPI;
+import com.adgvit.externals.NetworkModels.resetPass;
+import com.adgvit.externals.NetworkUtil.NetworkUtils;
 import com.bumptech.glide.Glide;
 import com.adgvit.externals.NetworkModels.EventModelNetwork;
 import com.adgvit.externals.R;
@@ -24,6 +31,9 @@ import retrofit2.Response;
 import static com.adgvit.externals.NetworkUtil.NetworkUtils.getDate;
 import static com.adgvit.externals.NetworkUtil.NetworkUtils.networkAPI;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class EventDetails extends AppCompatActivity {
 
     private String eventId, eventImageUrl, eventTitle, eventInfo;
@@ -32,9 +42,11 @@ public class EventDetails extends AppCompatActivity {
     private TextView title,date,desc;
     private ImageView img;
     private LinearLayout back;
+    private List<String> regUsers;
     private TextView share;
     private ProgressDialog progressDialog;
     private boolean isDone;
+    private String token;
 
     @Override
     protected void onCreate(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
@@ -42,6 +54,7 @@ public class EventDetails extends AppCompatActivity {
         setContentView(R.layout.eventdetails);
 
         getSupportActionBar().hide();
+        regUsers = new ArrayList<>();
 
         progressDialog = new ProgressDialog(this);
         isDone=false;
@@ -117,6 +130,41 @@ public class EventDetails extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Intent for registering
+                try{
+                    SharedPreferences sh = getSharedPreferences("com.adgvit.externals", MODE_PRIVATE);
+                    String token = sh.getString("Token","");
+                    Call<resetPass> call = networkAPI.registerEvent(eventId,token);
+                    call.enqueue(new Callback<resetPass>() {
+                        @Override
+                        public void onResponse(Call<resetPass> call, Response<resetPass> response) {
+                            if(!response.isSuccessful()){
+                                Toast.makeText(getApplicationContext(),response.message(),Toast.LENGTH_LONG).show();
+                                return;
+                            }
+
+                            if(response.code()==200){
+                                Toast.makeText(getApplicationContext(), response.body().getMessage() + " Redirecting to Vtop", Toast.LENGTH_LONG).show();
+                                String url = "https://vtop.vit.ac.in/vtop/initialProcess";
+                                Intent i = new Intent(Intent.ACTION_VIEW);
+                                i.setData(Uri.parse(url));
+                                startActivity(i);
+                            }
+                            else{
+
+                                Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<resetPass> call, Throwable t) {
+                            Toast.makeText(EventDetails.this, "" + t.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+                catch (Exception e){
+                    Log.i("Error", e.getMessage());
+                }
+
             }
         });
     }

@@ -63,4 +63,7 @@ public interface NetworkAPI {
 
     @POST("users/change/password")
     Call<resetPass> resetPassword(@Body ResetPassEmail email);
+
+    @POST("events/{evntId}")
+    Call<resetPass> registerEvent(@Path("evntId") String eventId, @Header("auth-token") String token);
 }
