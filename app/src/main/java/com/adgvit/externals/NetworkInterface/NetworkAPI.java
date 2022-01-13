@@ -6,10 +6,15 @@ import com.adgvit.externals.NetworkModels.AboutModelNetwork;
 import com.adgvit.externals.NetworkModels.EventModelNetwork;
 import com.adgvit.externals.NetworkModels.HomeModelNetwork;
 import com.adgvit.externals.NetworkModels.LoginModelNetwork;
+import com.adgvit.externals.NetworkModels.ResetPassEmail;
 import com.adgvit.externals.NetworkModels.SignUpCallBack;
 import com.adgvit.externals.NetworkModels.SpecificProject;
 import com.adgvit.externals.NetworkModels.User;
 import com.adgvit.externals.NetworkModels.ProjectModelNetwork;
+import com.adgvit.externals.NetworkModels.resetPass;
+import com.google.gson.JsonObject;
+
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,4 +60,7 @@ public interface NetworkAPI {
 
     @GET("domain")
     Call<ArrayList<HomeDomainsObject>> getHomeDomains();
+
+    @POST("users/change/password")
+    Call<resetPass> resetPassword(@Body ResetPassEmail email);
 }
