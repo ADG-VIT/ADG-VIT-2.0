@@ -97,6 +97,7 @@ public class Home extends AppCompatActivity {
             recyclerViewHomeProjects = findViewById(R.id.recycler_view_events_projects);
             recyclerViewHomeDomains = findViewById(R.id.recycler_view_events_domains);
             recyclerView.setNestedScrollingEnabled(false);
+            recyclerViewHomeDomains.setNestedScrollingEnabled(false);
             recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
             recyclerViewHomeProjects.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
             recyclerViewHomeDomains.setLayoutManager(new GridLayoutManager(getApplicationContext(), 2));

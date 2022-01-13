@@ -80,6 +80,7 @@ public class Settings extends AppCompatActivity {
         }
         else{
             signedIn.setVisibility(View.VISIBLE);
+            notSignedIn.setClickable(false);
             notSignedIn.setVisibility(View.GONE);
             userName.setText(userNam);
             college.setText(collegeNam);
