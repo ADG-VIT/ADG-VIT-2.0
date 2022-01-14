@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,11 +25,28 @@ public class OnBoarding extends AppCompatActivity {
     TextView textViewSkip;
     ViewPager viewPager;
     DotsIndicator dotsIndicator;
+    Button next;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_on_boarding);
+
+        next = findViewById(R.id.on_boarding_button);
+
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(viewPager.getCurrentItem() == 0)
+                {
+                    viewPager.setCurrentItem(1);
+                }
+                else
+                    {
+                        startActivity(new Intent(getApplicationContext(),FirstBoarding.class));
+                    }
+            }
+        });
 
         viewPager = findViewById(R.id.view_pager);
 

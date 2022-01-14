@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -31,6 +32,7 @@ public class ProjectDetailsView extends AppCompatActivity {
     private TextView share;
     private TextView name;
     private Button tryNow;
+    private String androidLink,iosLink;
     private SpecificProject object;
     private ProgressDialog progressDialog;
     private boolean isDone;
@@ -40,6 +42,8 @@ public class ProjectDetailsView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_project_details_view);
         getSupportActionBar().hide();
+        androidLink = "";
+        iosLink = "";
         progressDialog = new ProgressDialog(this);
         isDone=false;
         new Handler().postDelayed(new Runnable() {
@@ -71,6 +75,15 @@ public class ProjectDetailsView extends AppCompatActivity {
         share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent share = new Intent(android.content.Intent.ACTION_SEND);
+                share.setType("text/plain");
+                share.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+
+                // Add data to the intent, the receiving app will decide
+                // what to do with it.
+                share.putExtra(Intent.EXTRA_TEXT, "ADG-VIT PRESENTS\nProject : " + name.getText() + "\nDetails : " + descp.getText() + "\nAndroid Link : " + androidLink+ "\niOS Link : " + iosLink);
+
+                startActivity(Intent.createChooser(share, "Share this project"));
             }
         });
 
@@ -94,6 +107,10 @@ public class ProjectDetailsView extends AppCompatActivity {
                 features.setText(featur);
                 isDone=true;
                 progressDialog.dismiss();
+
+                androidLink += object.getAndroidLink();
+                iosLink += object.getIosLink();
+
             }
 
             @Override
@@ -105,7 +122,17 @@ public class ProjectDetailsView extends AppCompatActivity {
         tryNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                try
+                {
+                    i.setData(Uri.parse(androidLink));
+                    startActivity(i);
+                }
+                catch (Exception e)
+                {
+                    i.setData(Uri.parse("https://" + androidLink));
+                    startActivity(i);
+                }
             }
         });
 

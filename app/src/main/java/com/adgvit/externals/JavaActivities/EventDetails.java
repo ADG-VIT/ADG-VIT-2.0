@@ -32,6 +32,8 @@ import static com.adgvit.externals.NetworkUtil.NetworkUtils.getDate;
 import static com.adgvit.externals.NetworkUtil.NetworkUtils.networkAPI;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class EventDetails extends AppCompatActivity {
@@ -47,6 +49,7 @@ public class EventDetails extends AppCompatActivity {
     private ProgressDialog progressDialog;
     private boolean isDone;
     private String token;
+    private int flag;
 
     @Override
     protected void onCreate(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
@@ -55,6 +58,8 @@ public class EventDetails extends AppCompatActivity {
 
         getSupportActionBar().hide();
         regUsers = new ArrayList<>();
+
+        flag = 0;
 
         progressDialog = new ProgressDialog(this);
         isDone=false;
@@ -89,6 +94,13 @@ public class EventDetails extends AppCompatActivity {
                     title.setText(data.getName());
                     date.setText(getDate(data.getDate()));
                     desc.setText(data.getInfo());
+                    try {
+                        regUsers.addAll(data.getRegUsers());
+                    }
+                    catch (Exception e)
+                    {
+                        flag = 1;
+                    }
                     isDone = true;
                     progressDialog.dismiss();
                 }
@@ -115,7 +127,15 @@ public class EventDetails extends AppCompatActivity {
         share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Code for sharing
+                Intent share = new Intent(android.content.Intent.ACTION_SEND);
+                share.setType("text/plain");
+                share.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+
+                // Add data to the intent, the receiving app will decide
+                // what to do with it.
+                share.putExtra(Intent.EXTRA_TEXT, "ADG-VIT PRESENTS\nEvent : " + title.getText() + "\nDate : " + date.getText() + "\nDetails : " + desc.getText() + "\nApp Link : https://play.google.com/store/apps/details?id=com.adgvit.externals");
+
+                startActivity(Intent.createChooser(share, "Share this event"));
             }
         });
 
@@ -130,41 +150,51 @@ public class EventDetails extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Intent for registering
-                try{
-                    SharedPreferences sh = getSharedPreferences("com.adgvit.externals", MODE_PRIVATE);
-                    String token = sh.getString("Token","");
-                    Call<resetPass> call = networkAPI.registerEvent(eventId,token);
-                    call.enqueue(new Callback<resetPass>() {
-                        @Override
-                        public void onResponse(Call<resetPass> call, Response<resetPass> response) {
-                            if(!response.isSuccessful()){
-                                Toast.makeText(getApplicationContext(),response.message(),Toast.LENGTH_LONG).show();
-                                return;
-                            }
-
-                            if(response.code()==200){
-                                Toast.makeText(getApplicationContext(), response.body().getMessage() + " Redirecting to Vtop", Toast.LENGTH_LONG).show();
-                                String url = "https://vtop.vit.ac.in/vtop/initialProcess";
-                                Intent i = new Intent(Intent.ACTION_VIEW);
-                                i.setData(Uri.parse(url));
-                                startActivity(i);
-                            }
-                            else{
-
-                                Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
-                            }
-                        }
-
-                        @Override
-                        public void onFailure(Call<resetPass> call, Throwable t) {
-                            Toast.makeText(EventDetails.this, "" + t.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    });
+                SharedPreferences sh = getSharedPreferences("com.adgvit.externals", MODE_PRIVATE);
+                String token = sh.getString("Token","");
+                if(regUsers.contains(token))
+                {
+                    Toast.makeText(getApplicationContext(),"User already registered for this event. Redirecting to Vtop...",Toast.LENGTH_LONG).show();
+                    String url = "https://vtop.vit.ac.in/vtop/initialProcess";
+                    Intent i = new Intent(Intent.ACTION_VIEW);
+                    i.setData(Uri.parse(url));
+                    startActivity(i);
                 }
-                catch (Exception e){
-                    Log.i("Error", e.getMessage());
-                }
+                else {
+                    try{
+                        Call<resetPass> call = networkAPI.registerEvent(eventId,token);
+                        call.enqueue(new Callback<resetPass>() {
+                            @Override
+                            public void onResponse(Call<resetPass> call, Response<resetPass> response) {
+                                if(!response.isSuccessful()){
+                                    Toast.makeText(getApplicationContext(),response.message(),Toast.LENGTH_LONG).show();
+                                    return;
+                                }
 
+                                if(response.code()==200){
+                                    Toast.makeText(getApplicationContext(), response.body().getMessage() + " Redirecting to Vtop", Toast.LENGTH_LONG).show();
+                                    String url = "https://vtop.vit.ac.in/vtop/initialProcess";
+                                    Intent i = new Intent(Intent.ACTION_VIEW);
+                                    i.setData(Uri.parse(url));
+                                    startActivity(i);
+                                }
+                                else{
+
+                                    Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<resetPass> call, Throwable t) {
+                                Toast.makeText(EventDetails.this, "" + t.getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
+                    catch (Exception e){
+                        Log.i("Error", e.getMessage());
+                    }
+
+                }
             }
         });
     }
