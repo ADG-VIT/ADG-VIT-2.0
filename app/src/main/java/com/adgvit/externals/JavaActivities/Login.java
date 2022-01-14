@@ -120,13 +120,15 @@ public class Login extends AppCompatActivity {
 
                 }}}catch (Exception e){
                     Log.i("hello", e.getMessage());
-                    Toast.makeText(Login.this, ""+e.getMessage(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(Login.this, "Log in Failed "+e.getMessage(), Toast.LENGTH_LONG).show();
+                    progressDialog.dismiss();
                 }
             }
 
             @Override
             public void onFailure(Call<SignUpCallBack> call, Throwable t) {
-                Toast.makeText(Login.this,"LogIn Failed" + t.getMessage().toString(),Toast.LENGTH_LONG).show();
+                Toast.makeText(Login.this, "LogIn Failed" + t.getMessage().toString(), Toast.LENGTH_LONG).show();
+                progressDialog.dismiss();
             }
         });
 
@@ -146,7 +148,7 @@ public class Login extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(),"Error: "+obj.getMessage() + "Code: " + response.code(),Toast.LENGTH_LONG).show();
                     }catch (Exception e){
                         Toast.makeText(getApplicationContext(),"Some error has occured, Try Again",Toast.LENGTH_LONG).show();
-                        System.out.println(e.getLocalizedMessage());
+//                        System.out.println(e.getLocalizedMessage());
                     }
 
                 }

@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="160dp"
+    android:layout_width="180dp"
     android:layout_height="57dp"
     app:cardCornerRadius="8dp"
     android:layout_marginBottom="10dp">
@@ -24,7 +24,7 @@
             <ImageView
                 android:layout_width="55dp"
                 android:layout_height="55dp"
-                android:src="@drawable/ic_rectangle_374"
+                app:srcCompat="@drawable/ic_rectangle_374"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -47,7 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:fontFamily="@font/poppins"
-            android:text="iOS Domain"
+            android:text="SN   Marketing"
             android:textColor="@color/text_color_1"
             android:textStyle="bold"
             android:textSize="14sp"
