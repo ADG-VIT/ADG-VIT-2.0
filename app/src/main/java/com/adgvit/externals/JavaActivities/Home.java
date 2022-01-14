@@ -19,6 +19,8 @@ import android.widget.Toast;
 
 import com.adgvit.externals.DataModels.DomainsDataModel;
 import com.adgvit.externals.NetworkModels.Domain;
+import com.adgvit.externals.NetworkModels.User;
+import com.adgvit.externals.NetworkUtil.NetworkUtils;
 import com.adgvit.externals.RecyclerViewAdapter.DomainsAdapter;
 import com.bumptech.glide.Glide;
 import com.adgvit.externals.DataModels.ProjectItems;
@@ -249,4 +251,5 @@ public class Home extends AppCompatActivity {
                 .setNegativeButton("NO", null)
                 .show();
     }
+
 }

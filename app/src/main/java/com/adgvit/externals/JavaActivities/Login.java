@@ -18,6 +18,7 @@ import java.lang.reflect.Type;
 import com.adgvit.externals.NetworkModels.LoginModelNetwork;
 import com.adgvit.externals.NetworkModels.SignUpCallBack;
 import com.adgvit.externals.NetworkModels.User;
+import com.adgvit.externals.NetworkUtil.NetworkUtils;
 import com.adgvit.externals.R;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -157,8 +158,10 @@ public class Login extends AppCompatActivity {
                         User obj = response.body();
                         String name = obj.getName();
                         String clg = obj.getUniversity();
+                        String id = obj.get_id();
                         myEdit.putString("UserName", name);
                         myEdit.putString("CollegeName", clg);
+                        myEdit.putString("id", id);
                         myEdit.commit();
                     }
                     catch (Exception e){
@@ -177,4 +180,6 @@ public class Login extends AppCompatActivity {
             }
         });
     }
+
+
 }

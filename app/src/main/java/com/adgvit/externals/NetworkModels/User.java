@@ -1,9 +1,49 @@
 package com.adgvit.externals.NetworkModels;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class User implements Serializable {
-    String name,email,phone,password,regno,university,message;
+    String name;
+    String email;
+    String phone;
+
+    public String get_id() {
+        return _id;
+    }
+
+    public void set_id(String _id) {
+        this._id = _id;
+    }
+
+    public List<String> getRegEvents() {
+        return regEvents;
+    }
+
+    public void setRegEvents(List<String> regEvents) {
+        this.regEvents = regEvents;
+    }
+
+    String password;
+
+    public User(String name, String email, String phone, String password, String regno, String university, String message, String _id, List<String> regEvents, com.adgvit.externals.NetworkModels.Error error) {
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+        this.password = password;
+        this.regno = regno;
+        this.university = university;
+        this.message = message;
+        this._id = _id;
+        this.regEvents = regEvents;
+        Error = error;
+    }
+
+    String regno;
+    String university;
+    String message;
+    String _id;
+    List<String> regEvents;
     Error Error;
 
     public User(String name, String email, String phone, String password, String regno, String university,String message,Error Error) {
