@@ -69,35 +69,42 @@ public class Appearance extends AppCompatActivity {
 
                         editor.apply();
                         flag=1;
+                        Intent intent = new Intent(Appearance.this,Appearance.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
+
                         getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
                         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
-//                        startActivity(getIntent());
-//                        finish();
-//                        startActivity(getIntent());
-//                        startActivity(new Intent(Settings_Adapter.intent));
+
+                        finish();
+
                     }
                     else if (checkedId == R.id.rb_light_mode){
 //                        radioButtonLight.setChecked(true);
                         editor.putString("theme", "light");
                         editor.apply();
                         flag=1;
+                        Intent intent = new Intent(Appearance.this,Appearance.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
+
                         getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-//                        startActivity(getIntent());
-//                        finish();
-//                        startActivity(new Intent(Settings_Adapter.intent));
+                        finish();
                     }
                     else if (checkedId == R.id.rb_dark_mode){
 //                        radioButtonDark.setChecked(true);
                         editor.putString("theme", "dark");
                         editor.apply();
                         flag=1;
+                        Intent intent = new Intent(Appearance.this,Appearance.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
+
                         getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-//                        startActivity(getIntent());
-//                        finish();
-//                        startActivity(getIntent());
-//                        startActivity(new Intent(Settings_Adapter.intent));
+                        finish();
+
                     }
                 }
             });
