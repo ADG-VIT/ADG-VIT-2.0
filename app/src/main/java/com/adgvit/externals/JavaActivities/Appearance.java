@@ -119,10 +119,17 @@ public class Appearance extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
+        if(flag == 0){
+            finish();
+        }
+        else{
+
                 Intent intent = new Intent(Appearance.this, Settings.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
                 finish();
+        }
+
 
     }
 }
