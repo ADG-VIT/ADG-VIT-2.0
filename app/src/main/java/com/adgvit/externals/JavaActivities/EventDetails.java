@@ -151,8 +151,9 @@ public class EventDetails extends AppCompatActivity {
             public void onClick(View v) {
                 //Intent for registering
                 SharedPreferences sh = getSharedPreferences("com.adgvit.externals", MODE_PRIVATE);
-                String token = sh.getString("id","");
-                if(regUsers.contains(token))
+                String token = sh.getString("Token","");
+                String id = sh.getString("id","");
+                if(regUsers.contains(id))
                 {
                     Toast.makeText(getApplicationContext(),"User already registered for this event. Redirecting to Vtop...",Toast.LENGTH_LONG).show();
                     String url = "https://vtop.vit.ac.in/vtop/initialProcess";

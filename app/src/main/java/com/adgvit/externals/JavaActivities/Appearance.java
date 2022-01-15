@@ -3,14 +3,18 @@ package com.adgvit.externals.JavaActivities;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.adgvit.externals.R;
+import com.adgvit.externals.RecyclerViewAdapter.Settings_Adapter;
 
 public class Appearance extends AppCompatActivity {
 
@@ -47,30 +51,53 @@ public class Appearance extends AppCompatActivity {
                 finish();
             }
         });
+        Intent intent = getIntent();
+        try{
+            radioGroupThemeChanger.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(RadioGroup group, int checkedId) {
+                    if (checkedId == R.id.rb_sys_def){
 
-        radioGroupThemeChanger.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if (checkedId == R.id.rb_sys_def){
+//                        radioButtonSysDef.setChecked(true);
 
-                    radioButtonSysDef.setChecked(true);
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
-                    editor.putString("theme", "sys_def");
-                    editor.apply();
+                        editor.putString("theme", "sys_def");
+
+                        editor.apply();
+                        getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
+//                        startActivity(getIntent());
+//                        finish();
+//                        startActivity(getIntent());
+//                        startActivity(new Intent(Settings_Adapter.intent));
+                    }
+                    else if (checkedId == R.id.rb_light_mode){
+//                        radioButtonLight.setChecked(true);
+                        editor.putString("theme", "light");
+                        editor.apply();
+                        getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+//                        startActivity(getIntent());
+//                        finish();
+//                        startActivity(new Intent(Settings_Adapter.intent));
+                    }
+                    else if (checkedId == R.id.rb_dark_mode){
+//                        radioButtonDark.setChecked(true);
+                        editor.putString("theme", "dark");
+                        editor.apply();
+                        getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+//                        startActivity(getIntent());
+//                        finish();
+//                        startActivity(getIntent());
+//                        startActivity(new Intent(Settings_Adapter.intent));
+                    }
                 }
-                else if (checkedId == R.id.rb_light_mode){
-                    radioButtonLight.setChecked(true);
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                    editor.putString("theme", "light");
-                    editor.apply();
-                }
-                else if (checkedId == R.id.rb_dark_mode){
-                    radioButtonDark.setChecked(true);
-                    editor.putString("theme", "dark");
-                    editor.apply();
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                }
-            }
-        });
+            });
+        }
+        catch (Exception e){
+            Log.i("Theme error", e.getMessage());
+        }
+
+
     }
 }

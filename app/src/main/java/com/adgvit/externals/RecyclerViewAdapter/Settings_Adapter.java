@@ -25,6 +25,7 @@ import java.util.List;
 public class Settings_Adapter extends RecyclerView.Adapter<Settings_Adapter.SettingsViewHolder> {
     Context context;
     List<SettingsItems> list;
+    public static Intent intent;
 
     public Settings_Adapter(Context context, List<SettingsItems> list) {
         this.context = context;
@@ -48,7 +49,8 @@ public class Settings_Adapter extends RecyclerView.Adapter<Settings_Adapter.Sett
             @Override
             public void onClick(View v) {
                 if (list.get(holder.getAdapterPosition()).getText().equals("Appearance")){
-                    context.startActivity(new Intent(context, Appearance.class));
+                    intent = new Intent(context, Appearance.class);
+                    context.startActivity(intent);
                 }
                 else if(list.get(holder.getAdapterPosition()).getText().equals("About Us")){
                     context.startActivity(new Intent(context, About.class));
