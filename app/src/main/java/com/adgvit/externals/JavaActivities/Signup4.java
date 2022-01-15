@@ -89,8 +89,10 @@ public class Signup4 extends AppCompatActivity {
                             String token = signupresp.getToken();
                             Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
                             Intent intent1 = new Intent(getApplicationContext(),Login.class);
+                            intent1.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             progressDialog.dismiss();
                             startActivity(intent1);
+
                         }catch (Exception e){
                             Toast.makeText(getApplicationContext(),"SignUp failed. Please try again!",Toast.LENGTH_LONG).show();
                             //System.out.println(e.getLocalizedMessage());

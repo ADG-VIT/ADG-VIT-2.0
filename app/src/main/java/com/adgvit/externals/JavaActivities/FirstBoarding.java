@@ -68,8 +68,10 @@ public class FirstBoarding extends AppCompatActivity {
             public void onClick(View v) {
 
                startActivity(new Intent(getApplicationContext(),Home.class));
+               finish();
             }
         });
 
     }
+
 }

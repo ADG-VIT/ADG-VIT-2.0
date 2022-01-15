@@ -48,7 +48,17 @@ public class Settings extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                if(Appearance.flag==0){
+                    finish();
+
+                }
+                else {
+                    Intent intent = new Intent(Settings.this, Home.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    Appearance.flag=0;
+                    startActivity(intent);
+                    finish();
+                }
             }
         });
         recy1 = findViewById(R.id.rcy1);
@@ -117,6 +127,20 @@ public class Settings extends AppCompatActivity {
         recy3.setAdapter(new Settings_Adapter(this,lst3));
 
 
+
+    }
+
+    @Override
+    public void onBackPressed() {
+            if (Appearance.flag == 0) {
+                finish();
+            } else {
+                Intent intent = new Intent(Settings.this, Home.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                Appearance.flag = 0;
+                startActivity(intent);
+                finish();
+            }
 
     }
 }

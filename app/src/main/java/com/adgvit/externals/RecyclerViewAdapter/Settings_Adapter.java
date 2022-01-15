@@ -49,7 +49,9 @@ public class Settings_Adapter extends RecyclerView.Adapter<Settings_Adapter.Sett
             @Override
             public void onClick(View v) {
                 if (list.get(holder.getAdapterPosition()).getText().equals("Appearance")){
+
                     intent = new Intent(context, Appearance.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     context.startActivity(intent);
                 }
                 else if(list.get(holder.getAdapterPosition()).getText().equals("About Us")){

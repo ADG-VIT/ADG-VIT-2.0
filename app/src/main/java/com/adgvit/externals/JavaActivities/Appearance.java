@@ -21,6 +21,7 @@ public class Appearance extends AppCompatActivity {
     private RadioGroup radioGroupThemeChanger;
     private RadioButton radioButtonSysDef, radioButtonLight, radioButtonDark;
     private ImageView back;
+    public static int flag = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,10 +49,14 @@ public class Appearance extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+
+                    Intent intent = new Intent(Appearance.this, Settings.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                    finish();
+
             }
         });
-        Intent intent = getIntent();
         try{
             radioGroupThemeChanger.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                 @Override
@@ -63,6 +68,7 @@ public class Appearance extends AppCompatActivity {
                         editor.putString("theme", "sys_def");
 
                         editor.apply();
+                        flag=1;
                         getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
                         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
 //                        startActivity(getIntent());
@@ -74,6 +80,7 @@ public class Appearance extends AppCompatActivity {
 //                        radioButtonLight.setChecked(true);
                         editor.putString("theme", "light");
                         editor.apply();
+                        flag=1;
                         getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 //                        startActivity(getIntent());
@@ -84,6 +91,7 @@ public class Appearance extends AppCompatActivity {
 //                        radioButtonDark.setChecked(true);
                         editor.putString("theme", "dark");
                         editor.apply();
+                        flag=1;
                         getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
 //                        startActivity(getIntent());
@@ -98,6 +106,16 @@ public class Appearance extends AppCompatActivity {
             Log.i("Theme error", e.getMessage());
         }
 
+
+    }
+
+    @Override
+    public void onBackPressed() {
+
+                Intent intent = new Intent(Appearance.this, Settings.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                finish();
 
     }
 }
