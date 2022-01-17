@@ -108,6 +108,13 @@ public class Settings_Adapter extends RecyclerView.Adapter<Settings_Adapter.Sett
 
                     context.startActivity(Intent.createChooser(share, "Share With Peers"));
                 }
+                else if(list.get(holder.getAdapterPosition()).getText().equals("Our Instagram"))
+                {
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.setData(Uri.parse("http://privacy.adgvit.com"));
+                    context.startActivity(intent);
+                }
             }
         });
     }

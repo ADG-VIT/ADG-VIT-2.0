@@ -27,9 +27,10 @@
         <entry key="app/src/main/res/layout/about_us_cardview.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_about.xml" value="0.2557291666666667" />
         <entry key="app/src/main/res/layout/activity_domains.xml" value="0.28229166666666666" />
-        <entry key="app/src/main/res/layout/activity_first_boarding.xml" value="0.2557291666666667" />
+        <entry key="app/src/main/res/layout/activity_first_boarding.xml" value="0.3072339321658208" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.14806110458284372" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.2557291666666667" />
+        <entry key="app/src/main/res/layout/activity_on_boarding.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/activity_profile.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/activity_settings.xml" value="0.45702936141176137" />
         <entry key="app/src/main/res/layout/activity_signup3.xml" value="0.2557291666666667" />

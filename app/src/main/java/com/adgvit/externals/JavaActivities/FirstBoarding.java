@@ -48,8 +48,6 @@ public class FirstBoarding extends AppCompatActivity {
         cross = findViewById(R.id.first_cross);
         loginBtn = findViewById(R.id.login_btn);
         createAccountBtn = findViewById(R.id.create_acct_btn);
-        about.setText("Lorem ipsum dolor sit amet. 33 deleniti sint a " +
-                "quisquam velit sed porro voluptatum aut possimus enim nam minima aspernatur et ");
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
