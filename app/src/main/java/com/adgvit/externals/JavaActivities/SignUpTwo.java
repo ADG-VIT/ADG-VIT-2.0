@@ -94,13 +94,13 @@ public class SignUpTwo extends AppCompatActivity {
         public void onBindViewHolder(@NonNull @NotNull SignUpTwo.ViewHolderObj holder, int position) {
             holder.textViewHeading.setText(list.get(position).stringHeading);
             holder.textViewLine.setText(list.get(position).stringLine);
-            if (lastCheckedPosition != position)
+            if (lastCheckedPosition != holder.getAdapterPosition())
                 holder.radioButton.setChecked(false);
             holder.radioButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     holder.radioButton.setChecked(true);
-                    lastCheckedPosition = position;
+                    lastCheckedPosition = holder.getAdapterPosition();
                     notifyDataSetChanged();
                 }
             });

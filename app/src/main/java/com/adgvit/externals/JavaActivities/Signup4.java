@@ -108,7 +108,7 @@ public class Signup4 extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<SignUpCallBack> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "SignUp Failed", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_LONG).show();
                 progressDialog.dismiss();
             }
         });

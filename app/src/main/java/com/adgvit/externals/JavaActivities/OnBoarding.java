@@ -59,6 +59,7 @@ public class OnBoarding extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("onboarding", MODE_PRIVATE);
         if (sharedPreferences.getBoolean("onBoardingVisited",false)) {
             startActivity(new Intent(getApplicationContext(), FirstBoarding.class));
+            finish();
         }
         else {
 
