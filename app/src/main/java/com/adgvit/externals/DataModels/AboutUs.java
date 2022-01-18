@@ -1,10 +1,10 @@
 package com.adgvit.externals.DataModels;
 
 public class AboutUs {
-    int Pic;
+    String Pic;
     private String Name,Email,Github,LinkedIn,Designation;
 
-    public AboutUs(String name, String email, String github, String linkedIn, int pic, String designation) {
+    public AboutUs(String name, String email, String github, String linkedIn, String pic, String designation) {
         Name = name;
         Email = email;
         Github = github;
@@ -45,11 +45,11 @@ public class AboutUs {
         LinkedIn = linkedIn;
     }
 
-    public int getPic() {
+    public String getPic() {
         return Pic;
     }
 
-    public void setPic(int pic) {
+    public void setPic(String pic) {
         Pic = pic;
     }
 

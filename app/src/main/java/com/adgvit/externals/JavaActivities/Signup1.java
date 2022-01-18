@@ -82,5 +82,12 @@ public class Signup1 extends AppCompatActivity {
                     }
             }
         });
+
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 }

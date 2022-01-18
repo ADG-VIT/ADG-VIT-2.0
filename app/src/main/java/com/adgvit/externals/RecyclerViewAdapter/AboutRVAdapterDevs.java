@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.adgvit.externals.DataModels.AboutUs;
 import com.adgvit.externals.R;
+import com.bumptech.glide.Glide;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -41,7 +42,10 @@ public class AboutRVAdapterDevs extends RecyclerView.Adapter<ViewHolderAboutUsDe
     public void onBindViewHolder(@NonNull @NotNull ViewHolderAboutUsDevs holder, int position) {
         holder.nameAboutUs.setText(list.get(position).getName());
         holder.desgAboutUs.setText(list.get(position).getDesignation());
-        holder.imageViewAboutUs.setImageResource(list.get(position).getPic());
+        if(!list.get(position).getPic().equals("")){
+            Glide.with(context).load(list.get(position).getPic()).into(holder.imageViewAboutUs);
+
+        }
 
         holder.github.setOnClickListener(new View.OnClickListener() {
             @Override

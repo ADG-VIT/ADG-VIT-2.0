@@ -32,7 +32,6 @@
                 android:layout_width="120dp"
                 android:scaleType="centerCrop"
                 android:layout_height="130dp"
-                android:src="@drawable/aboutus_img"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.cardview.widget.CardView>
