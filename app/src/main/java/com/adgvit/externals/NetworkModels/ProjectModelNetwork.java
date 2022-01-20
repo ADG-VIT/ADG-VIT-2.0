@@ -13,7 +13,7 @@ public class ProjectModelNetwork {
     private String iosLink;
     private String androidLink;
     private boolean isItUnderDevelopment;
-    private int releaseDate;
+    private long releaseDate;
     private int __v;
     @SerializedName("_id")
     private String id;
@@ -22,7 +22,7 @@ public class ProjectModelNetwork {
                                String shortDescription, String features,
                                String mockup, String thumbnail, String websiteLink,
                                String iosLink, String androidLink, boolean isItUnderDevelopment,
-                               int releaseDate, int __v, String id) {
+                               long releaseDate, int __v, String id) {
         this.title = title;
         this.description = description;
         this.shortDescription = shortDescription;
@@ -118,11 +118,11 @@ public class ProjectModelNetwork {
         isItUnderDevelopment = itUnderDevelopment;
     }
 
-    public int getReleaseDate() {
+    public long getReleaseDate() {
         return releaseDate;
     }
 
-    public void setReleaseDate(int releaseDate) {
+    public void setReleaseDate(long releaseDate) {
         this.releaseDate = releaseDate;
     }
 

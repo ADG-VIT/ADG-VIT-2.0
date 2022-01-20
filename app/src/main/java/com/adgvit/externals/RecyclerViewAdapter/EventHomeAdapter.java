@@ -48,12 +48,12 @@ public class EventHomeAdapter extends RecyclerView.Adapter<ViewHolderEvents> {
         Glide.with(context).load(list.get(position).getPosterURL()).into(holder.imageView);
         holder.heading.setText(list.get(position).getName());
 
-        int date = list.get(position).getDate();
+        long date = list.get(position).getDate();
 
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        String convertedDate = sdf.format(new java.util.Date(date*1000));
+        String convertedDate = sdf.format(new java.util.Date(date));
 
-        System.out.println("Name : " + list.get(position).getName() + " , Date  : " + convertedDate + " , Unix TimeStamp : " + date);
+//        System.out.println("Name : " + list.get(position).getName() + " , Date  : " + convertedDate + " , Unix TimeStamp : " + date);
 
         holder.date.setText(convertedDate);
 

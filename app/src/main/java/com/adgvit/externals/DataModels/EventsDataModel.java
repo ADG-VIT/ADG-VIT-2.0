@@ -4,12 +4,12 @@ public class EventsDataModel {
     String id;
     String imageURL;
     String title;
-    int date;
+    long date;
     String info;
 
     public EventsDataModel() { }
 
-    public EventsDataModel(String id, String imageURL, String title, int date, String info) {
+    public EventsDataModel(String id, String imageURL, String title, long date, String info) {
         this.id = id;
         this.imageURL = imageURL;
         this.title = title;
@@ -41,11 +41,11 @@ public class EventsDataModel {
         this.title = title;
     }
 
-    public int getDate() {
+    public long getDate() {
         return date;
     }
 
-    public void setDate(int date) {
+    public void setDate(long date) {
         this.date = date;
     }
 

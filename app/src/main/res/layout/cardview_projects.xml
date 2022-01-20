@@ -22,7 +22,6 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:background="?attr/backgroundColor"
-            android:src="@drawable/frame212"
             android:scaleType="centerCrop"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent" />

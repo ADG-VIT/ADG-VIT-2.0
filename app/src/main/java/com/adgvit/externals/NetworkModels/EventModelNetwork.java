@@ -8,7 +8,7 @@ public class EventModelNetwork{
     public String _id;
     public String name;
     public String info;
-    public Integer date;
+    public long date;
     public Boolean visibility;
     public String posterURL;
     public String eventURL;
@@ -17,7 +17,7 @@ public class EventModelNetwork{
     public Integer __v;
     private String message;
 
-    public EventModelNetwork(List<String> regUsers, Boolean onlyVIT, String _id, String name, String info, Integer date, Boolean visibility, String posterURL, String eventURL, String assetsURL, Integer duration, Integer __v,String message) {
+    public EventModelNetwork(List<String> regUsers, Boolean onlyVIT, String _id, String name, String info, long date, Boolean visibility, String posterURL, String eventURL, String assetsURL, Integer duration, Integer __v,String message) {
         this.regUsers = regUsers;
         this.onlyVIT = onlyVIT;
         this._id = _id;
@@ -73,11 +73,11 @@ public class EventModelNetwork{
         this.info = info;
     }
 
-    public int getDate() {
+    public long getDate() {
         return date;
     }
 
-    public void setDate(Integer date) {
+    public void setDate(long date) {
         this.date = date;
     }
 

@@ -52,7 +52,6 @@
                 android:textSize="18sp"
                 android:textFontWeight="500"
                 android:fontFamily="@font/poppins"
-                android:text="Executive Head"
                 android:alpha="0.7"
                 android:textColor="@color/text_color_1" />
 
@@ -60,7 +59,6 @@
                 android:id="@+id/about_us_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Utkarsh Dixit"
                 android:fontFamily="@font/poppins_bold"
                 android:textColor="@color/text_color_1"
                 android:textSize="18sp" />
