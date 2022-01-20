@@ -13,8 +13,24 @@ public class SpecificProject {
     public String iosLink;
     public String androidLink;
     public boolean isItUnderDevelopment;
-    public int releaseDate;
+    public long releaseDate;
     public int __v;
+
+    public SpecificProject(String _id, String title, String description, String shortDescription, String features, String mockup, String thumbnail, String websiteLink, String iosLink, String androidLink, boolean isItUnderDevelopment, long releaseDate, int __v) {
+        this._id = _id;
+        this.title = title;
+        this.description = description;
+        this.shortDescription = shortDescription;
+        this.features = features;
+        this.mockup = mockup;
+        this.thumbnail = thumbnail;
+        this.websiteLink = websiteLink;
+        this.iosLink = iosLink;
+        this.androidLink = androidLink;
+        this.isItUnderDevelopment = isItUnderDevelopment;
+        this.releaseDate = releaseDate;
+        this.__v = __v;
+    }
 
     public String get_id() {
         return _id;
@@ -104,11 +120,11 @@ public class SpecificProject {
         isItUnderDevelopment = itUnderDevelopment;
     }
 
-    public int getReleaseDate() {
+    public long getReleaseDate() {
         return releaseDate;
     }
 
-    public void setReleaseDate(int releaseDate) {
+    public void setReleaseDate(long releaseDate) {
         this.releaseDate = releaseDate;
     }
 

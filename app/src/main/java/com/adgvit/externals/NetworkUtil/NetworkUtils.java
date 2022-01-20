@@ -25,7 +25,7 @@ public class NetworkUtils {
 
     public static Retrofit retrofit = new Retrofit.Builder()
             .baseUrl(base_url)
-            .client(getClientInstance())
+//            .client(getClientInstance())
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 
