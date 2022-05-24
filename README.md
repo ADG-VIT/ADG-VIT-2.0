@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://appathon.adgvit.com/" target="_blank" rel="noopener noreferrer">
+  <a href="https://adgvit.com/" target="_blank" rel="noopener noreferrer">
     <img width="250" alt="ADGVIT" src="https://user-images.githubusercontent.com/76744982/170106430-48de88cf-e11b-48c9-aea5-183d70a2d5ed.png">
   </a>
 </p> 
